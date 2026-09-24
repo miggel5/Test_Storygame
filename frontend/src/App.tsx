@@ -24,10 +24,11 @@ function App() {
         <ChoiceList choices={availableChoices(scene, state.flags)} onChoose={choose} />
       )}
       {scene.interaction === "question" && (
-        <QuestionInput scene={scene} onSubmit={(raw) => answerQuestion(scene, raw)} />
+        <QuestionInput key={state.currentSceneId} scene={scene} onSubmit={(raw) => answerQuestion(scene, raw)} />
       )}
       {scene.interaction === "conversation" && (
         <ConversationBox
+          key={state.currentSceneId}
           scene={scene}
           sceneId={state.currentSceneId}
           onOutcome={(outcome) => resolveConversation(scene, outcome)}
