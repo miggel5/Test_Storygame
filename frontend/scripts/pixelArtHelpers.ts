@@ -77,6 +77,23 @@ export function buildSpec(width: number, height: number, palette: string[], pixe
   return { width, height, palette, pixels, glowPixels };
 }
 
+/** A filled rect with a 1px border in a different color - makes shapes read clearly at a glance. */
+export function outlineRect(
+  grid: Grid,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  fillColor: number,
+  outlineColor: number
+): void {
+  fillRect(grid, x, y, w, h, fillColor);
+  fillRect(grid, x, y, w, 1, outlineColor);
+  fillRect(grid, x, y + h - 1, w, 1, outlineColor);
+  fillRect(grid, x, y, 1, h, outlineColor);
+  fillRect(grid, x + w - 1, y, 1, h, outlineColor);
+}
+
 /** A tall hooded/cloaked figure silhouette, built from stacked bands. `scale` multiplies every dimension. */
 export function hoodedFigure(
   grid: Grid,
