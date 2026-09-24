@@ -6,7 +6,7 @@
 }
 
 .pixel-art {
-  max-width: 280px;
+  max-width: 480px;
   margin: 0 auto 1.75rem;
   border: 3px double var(--accent-gold);
   box-shadow: 0 0 0 1px #000, 0 16px 36px -14px rgba(0, 0, 0, 0.85);

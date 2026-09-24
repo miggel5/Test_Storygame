@@ -76,3 +76,34 @@ export function radialGlow(
 export function buildSpec(width: number, height: number, palette: string[], pixels: Grid, glowPixels?: GlowPixel[]): PixelArtSpec {
   return { width, height, palette, pixels, glowPixels };
 }
+
+/** A tall hooded/cloaked figure silhouette, built from stacked bands. `scale` multiplies every dimension. */
+export function hoodedFigure(
+  grid: Grid,
+  x: number,
+  y: number,
+  colorIndex: number,
+  scale = 1,
+  edgeColor?: number
+): void {
+  const s = (n: number) => Math.round(n * scale);
+  fillRect(grid, x + s(2), y, s(4), s(1), colorIndex); // hood tip
+  fillRect(grid, x + s(1), y + s(1), s(6), s(2), colorIndex); // hood crown
+  fillRect(grid, x, y + s(3), s(8), s(3), colorIndex); // shoulders
+  fillRect(grid, x + s(1), y + s(6), s(6), s(6), colorIndex); // body/robe
+  fillRect(grid, x, y + s(12), s(8), s(3), colorIndex); // robe hem, wider
+  if (edgeColor !== undefined) {
+    fillRect(grid, x, y + s(12), s(8), s(1), edgeColor); // hem highlight
+    fillRect(grid, x + s(1), y + s(1), s(6), s(1), edgeColor); // hood rim highlight
+    fillRect(grid, x + s(1), y + s(8), s(1), s(4), edgeColor); // robe fold line
+    fillRect(grid, x + s(6), y + s(8), s(1), s(4), edgeColor); // robe fold line
+  }
+}
+
+/** A small humanoid silhouette seen from behind. `scale` multiplies every dimension. */
+export function playerBack(grid: Grid, x: number, y: number, colorIndex: number, scale = 1): void {
+  const s = (n: number) => Math.round(n * scale);
+  fillRect(grid, x + s(1), y, s(2), s(2), colorIndex); // head
+  fillRect(grid, x, y + s(2), s(4), s(3), colorIndex); // shoulders
+  fillRect(grid, x, y + s(5), s(4), s(3), colorIndex); // legs
+}
