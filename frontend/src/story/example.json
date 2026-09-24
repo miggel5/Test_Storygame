@@ -1,0 +1,57 @@
+{
+  "title": "Det låste tårnet",
+  "start": "start",
+  "scenes": {
+    "start": {
+      "text": "Du våkner foran et gammelt steintårn. Døren er låst, men du legger merke til noe glinsende i gresset ved foten av tårnet.",
+      "choices": [
+        {
+          "text": "Plukk opp den glinsende gjenstanden",
+          "next": "found_key",
+          "setFlags": { "hasKey": true }
+        },
+        {
+          "text": "Ignorer den og bank på døren",
+          "next": "knock_door"
+        }
+      ]
+    },
+    "found_key": {
+      "text": "Det er en gammel jernnøkkel. Den passer kanskje til tårndøren.",
+      "choices": [
+        {
+          "text": "Lås opp døren med nøkkelen",
+          "next": "inside_tower",
+          "condition": { "flag": "hasKey", "equals": true }
+        },
+        {
+          "text": "Se deg rundt litt mer først",
+          "next": "look_around"
+        }
+      ]
+    },
+    "knock_door": {
+      "text": "Du banker hardt på døren. Ingen svarer. Døren er låst, og du har ingenting å låse den opp med.",
+      "choices": [
+        {
+          "text": "Se deg rundt etter noe som kan hjelpe",
+          "next": "look_around"
+        }
+      ]
+    },
+    "look_around": {
+      "text": "Du speider rundt tårnets fot og oppdager en glinsende gjenstand i gresset du ikke la merke til før.",
+      "choices": [
+        {
+          "text": "Plukk den opp",
+          "next": "found_key",
+          "setFlags": { "hasKey": true }
+        }
+      ]
+    },
+    "inside_tower": {
+      "text": "Nøkkelen vrir seg i låsen med et klikk. Døren svinger opp og avslører en vindeltrapp som forsvinner oppover i mørket.",
+      "ending": true
+    }
+  }
+}
