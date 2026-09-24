@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import type { Choice, Story } from "../types/story";
-import { applyChoice, createInitialState, type GameState } from "./storyEngine";
+import type { Choice, ConversationOutcome, ConversationScene, QuestionScene, Story } from "../types/story";
+import {
+  applyTransition,
+  createInitialState,
+  resolveConversationOutcome,
+  submitAnswer,
+  type GameState,
+} from "./storyEngine";
 
 const SAVE_KEY = "storygame:save";
 
@@ -29,13 +35,25 @@ export function useStoryEngine(story: Story) {
   }, [state]);
 
   const choose = useCallback((choice: Choice) => {
-    setState((prev) => applyChoice(prev, choice));
+    setState((prev) => applyTransition(prev, choice));
+  }, []);
+
+  const answerQuestion = useCallback(
+    (scene: QuestionScene, rawInput: string) => {
+      const { state: next, correct } = submitAnswer(state, scene, rawInput);
+      setState(next);
+      return correct;
+    },
+    [state]
+  );
+
+  const resolveConversation = useCallback((scene: ConversationScene, outcome: ConversationOutcome) => {
+    setState((prev) => resolveConversationOutcome(prev, scene, outcome));
   }, []);
 
   const restart = useCallback(() => {
-    const fresh = createInitialState(story);
-    setState(fresh);
+    setState(createInitialState(story));
   }, [story]);
 
-  return { state, choose, restart };
+  return { state, choose, answerQuestion, resolveConversation, restart };
 }

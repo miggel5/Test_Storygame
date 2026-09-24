@@ -1,0 +1,84 @@
+{
+  "title": "Det låste tårnet",
+  "start": "start",
+  "scenes": {
+    "start": {
+      "interaction": "choice",
+      "text": "Du våkner foran et gammelt steintårn. Døren er låst, men du legger merke til noe glinsende i gresset ved foten av tårnet.",
+      "image": { "width": 16, "height": 16, "palette": ["#0d0b1a", "#171330", "#2b2440", "#463a68", "#100c1c", "#ffd479"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,3,3,3,3,0,0,0,0,0,0],[0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,4,4,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,4,4,2,0,0,0,0,0,0],[0,0,0,0,0,2,2,4,4,2,0,0,0,0,0,0],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]], "glowPixels": [{"x":7,"y":10,"animation":"sparkle","color":"#ffd479"},{"x":7,"y":9,"animation":"sparkle","color":"#ffd479"},{"x":7,"y":12,"animation":"sparkle","color":"#ffd479"}] },
+      "choices": [
+        { "text": "Plukk opp den glinsende gjenstanden", "next": "riddle_door", "setFlags": { "hasKey": true } },
+        { "text": "Ignorer den og bank på døren", "next": "knock_door" }
+      ]
+    },
+    "knock_door": {
+      "interaction": "choice",
+      "text": "Du banker hardt på døren. Ingen svarer. Døren er låst, og du har ingenting å låse den opp med.",
+      "choices": [
+        { "text": "Se deg rundt etter noe som kan hjelpe", "next": "look_around" }
+      ]
+    },
+    "look_around": {
+      "interaction": "choice",
+      "text": "Du speider rundt tårnets fot og oppdager en glinsende gjenstand i gresset du ikke la merke til før.",
+      "choices": [
+        { "text": "Plukk den opp", "next": "riddle_door", "setFlags": { "hasKey": true } }
+      ]
+    },
+    "riddle_door": {
+      "interaction": "question",
+      "text": "En stemme hvisker fra sprekken i døren: «Hva blir mørkere jo mer lys du skinner på det?»",
+      "acceptedAnswers": ["en skygge", "skygge", "skyggen"],
+      "onCorrect": { "next": "guardian_conversation" },
+      "onIncorrect": { "next": "riddle_door" }
+    },
+    "guardian_conversation": {
+      "interaction": "conversation",
+      "text": "Døren svinger opp og avslører en gammel vokter som blokkerer trappen videre inn.",
+      "characterName": "Vokteren",
+      "systemPrompt": "Du er en eldgammel vokter av et forlatt tårn. Du er mistenksom, ordknapp og litt melankolsk, men rettferdig. Snakk norsk. Hvis spilleren tydelig overbeviser deg om at de søker kunnskap eller forståelse (ikke skatter eller makt), erklær utfallet 'success'. Hvis spilleren truer deg, lyver åpenbart eller virker ute etter å plyndre tårnet, erklær 'failure'. Hvis spilleren nevner ordet 'månelys' i noen sammenheng, bli forvirret av minnet det vekker og send dem et uventet sted - erklær 'twist'. Ellers, fortsett samtalen med 'still_talking'.",
+      "greeting": "Hvorfor skulle jeg slippe deg forbi, reisende?",
+      "outcomeTransitions": {
+        "success": { "next": "collapsing_stairs" },
+        "failure": { "next": "guardian_kills_you" },
+        "twist": { "next": "hidden_moon_garden" }
+      },
+      "maxTurns": 8
+    },
+    "collapsing_stairs": {
+      "interaction": "choice",
+      "text": "Vokteren trer til side. Idet du setter foten på trappen, begynner steinene å rase under deg!",
+      "image": { "width": 16, "height": 16, "palette": ["#0a0812", "#1a1428", "#2f2748", "#4a3a2a", "#ffb347"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]], "glowPixels": [{"x":3,"y":14,"animation":"flicker","color":"#ffb347"},{"x":4,"y":14,"animation":"flicker","color":"#ffb347"},{"x":3,"y":15,"animation":"flicker","color":"#ffb347"}] },
+      "choices": [
+        {
+          "text": "Løp oppover",
+          "next": {
+            "random": [
+              { "next": "inside_tower", "weight": 1 },
+              { "next": "guardian_kills_you", "weight": 1 },
+              { "next": "hidden_moon_garden", "weight": 1, "setFlags": { "foundGarden": true } }
+            ]
+          }
+        }
+      ]
+    },
+    "inside_tower": {
+      "interaction": "ending",
+      "text": "Du når toppen i siste sekund. Tårnrommet er stille og fylt med gammel visdom - du har funnet det du lette etter.",
+      "endingCategory": "good",
+      "image": { "width": 16, "height": 16, "palette": ["#0a0812", "#1a1428", "#2f2748", "#4a3a2a", "#ffb347"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]], "glowPixels": [{"x":3,"y":14,"animation":"flicker","color":"#ffb347"},{"x":4,"y":14,"animation":"flicker","color":"#ffb347"},{"x":3,"y":15,"animation":"flicker","color":"#ffb347"}] }
+    },
+    "guardian_kills_you": {
+      "interaction": "ending",
+      "text": "Vokterens siste dom faller over deg. Steinene tar deg, og alt blir svart.",
+      "endingCategory": "death",
+      "image": { "width": 16, "height": 16, "palette": ["#0a0505", "#1a0808", "#3a0f0f", "#5c1414", "#ff4d4d"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]], "glowPixels": [{"x":6,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":5,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":5,"y":5,"animation":"pulse","color":"#ff4d4d"},{"x":9,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":10,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":11,"y":6,"animation":"pulse","color":"#ff4d4d"}] }
+    },
+    "hidden_moon_garden": {
+      "interaction": "ending",
+      "text": "Virkeligheten glipper et øyeblikk. Du faller gjennom en sprekk og lander mykt i en stille hage badet i månelys, uendelig langt fra tårnet du kom fra.",
+      "endingCategory": "twist",
+      "image": { "width": 16, "height": 16, "palette": ["#0a0f1a", "#141f33", "#2a1f4a", "#7c5cff", "#c9a8ff"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0],[0,0,0,2,0,2,0,0,0,0,2,0,0,0,0,0],[0,2,0,2,0,2,0,2,0,0,2,0,2,0,0,0],[0,2,0,2,2,2,0,2,0,2,2,0,2,0,2,0],[2,2,0,2,2,2,2,2,0,2,2,2,2,0,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]], "glowPixels": [{"x":8,"y":4,"animation":"sparkle","color":"#c9a8ff"},{"x":9,"y":6,"animation":"sparkle","color":"#c9a8ff"},{"x":8,"y":2,"animation":"sparkle","color":"#c9a8ff"},{"x":8,"y":6,"animation":"sparkle","color":"#c9a8ff"}] }
+    }
+  }
+}

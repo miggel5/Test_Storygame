@@ -1,57 +1,49 @@
 {
-  "title": "Det låste tårnet",
+  "title": "Skikkelsen ved bålet",
   "start": "start",
   "scenes": {
     "start": {
-      "text": "Du våkner foran et gammelt steintårn. Døren er låst, men du legger merke til noe glinsende i gresset ved foten av tårnet.",
+      "interaction": "conversation",
+      "text": "Du våkner og kjenner at du ligger på noe vått. Du åpner øynene og ser deg rundt - du ligger i en mørk og fuktig skog, men det er for mørkt til å skimte detaljer. Etter hvert som øynene dine venner seg til mørket, skimter du et glimt langt fremme - et lys. Du reiser deg opp, stiv i kroppen, og går sakte mot lyset. Når du nærmer deg, hører du at det spraker, og skjønner at det er et bål. Selv om du er redd, går du nærmere, helt til du kan se en mørk skikkelse som står bøyd over flammene.",
+      "image": { "width": 16, "height": 16, "palette": ["#030204", "#0d0912", "#100c0a", "#3a1c08", "#0a0710"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0],[1,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0],[1,1,0,1,0,0,0,0,0,0,0,0,1,1,1,0],[1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,1,1,0,0,0,4,4,4,0,0,1,1,1,1],[1,1,1,1,0,0,4,4,4,4,4,0,1,1,1,1],[1,1,1,1,0,0,4,4,4,4,4,0,1,1,1,1],[1,1,1,1,0,0,0,4,4,4,0,0,1,1,1,1],[1,1,1,1,0,0,0,4,4,4,0,0,1,1,1,1],[1,1,1,1,0,0,3,3,3,4,0,0,1,1,1,1],[1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]], "glowPixels": [{"x":7,"y":11,"animation":"flicker","color":"#ffb347"},{"x":7,"y":12,"animation":"flicker","color":"#ffb347"},{"x":5,"y":10,"animation":"flicker","color":"#ffb347"},{"x":8,"y":12,"animation":"flicker","color":"#ffb347"},{"x":6,"y":9,"animation":"flicker","color":"#ffb347"}] },
+      "characterName": "Skikkelsen",
+      "systemPrompt": "Du er en mystisk, kappekledd skikkelse som står ved et bål i en mørk skog. Du avslører aldri navnet ditt. Du snakker svevende og mystisk, gjerne i rim og gåter, og er av natur svært spørrende.\n\nDin aller første replikk til spilleren (før denne samtalen starter) er allerede stilt som et gåtefullt spørsmål. Din oppgave videre er å stille TO flere åpne spørsmål (så det blir tre spørsmål totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hva spilleren egentlig vil, søker eller drømmer om - form dem gåtefullt og indirekte, ikke rett fram.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort og gåtefullt, men dette teller ikke som et av dine spørsmål - du skal uansett fortsette til spilleren har svart på alle tre.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle tre svarene samlet (ikke bare det siste) og avgjør spillerens sinnelag:\n- Samlet sett svært negative, destruktive eller ondskapsfulle svar: avslutt replikken med «Sånn er det», og sett utfallet til 'failure'.\n- Samlet sett eventyrlystne, nysgjerrige svar, med vilje til å oppleve mer av DENNE verdenen: avslutt med «Sånn er det», og sett utfallet til 'success'.\n- Samlet sett grenseløse svar, som om spilleren ikke lar seg begrense av denne virkeligheten: avslutt med «Sånn er det», og sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+      "greeting": "Kom nærmere, vandrende sjel... ilden brenner klarest for den som tør å spørre. Men før du spør noe - si meg: når mørket hvisker ditt navn, hva er det som svarer?",
+      "outcomeTransitions": {
+        "success": { "next": "fork2_scene1" },
+        "failure": { "next": "start_death_ending" },
+        "twist": { "next": "fork1_scene1" }
+      },
+      "maxTurns": 10
+    },
+    "fork1_scene1": {
+      "interaction": "choice",
+      "text": "Det ble blendende lyst, og så stille at det gjorde vondt. Uten at du merket det, står du i akkurat samme stilling som før, men på et helt annet sted. Det er glovarmt. Når du ser deg rundt, ser du svart, tørr bakke, flammer og røyk som stiger opp av hull i bakken, og lava som renner nedover fjellsidene. Foran deg, i samme avstand som før, står den samme skikkelsen i kappe - men denne gangen skimter du så vidt ansiktet, og der er et djevelsk smil. «Overraskelse!» sier skikkelsen. «Svarene dine førte deg hit. Er du fornøyd, eller ikke?»",
+      "image": { "width": 16, "height": 16, "palette": ["#0a0503", "#241210", "#5c1a0a", "#050303", "#170d10", "#3a2f2a"], "pixels": [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1],[1,1,1,1,0,1,0,0,0,1,0,1,1,1,1,1],[1,1,0,1,0,1,0,0,0,0,0,1,0,1,1,1],[0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1],[0,1,0,0,0,0,0,4,4,4,0,0,0,0,0,1],[0,0,0,0,0,0,4,4,4,4,4,0,0,0,0,0],[0,0,0,0,0,0,4,4,4,4,4,0,0,0,0,0],[0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0],[0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0],[0,0,0,0,0,0,0,3,3,4,0,0,0,0,0,0],[2,2,2,2,2,2,3,3,3,3,2,2,2,2,2,2],[2,2,2,2,2,2,3,3,3,3,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]], "glowPixels": [{"x":3,"y":13,"animation":"pulse","color":"#ff5a2a"},{"x":2,"y":13,"animation":"pulse","color":"#ff5a2a"},{"x":11,"y":14,"animation":"flicker","color":"#ff7a1f"},{"x":11,"y":15,"animation":"flicker","color":"#ff7a1f"},{"x":10,"y":15,"animation":"flicker","color":"#ff7a1f"},{"x":13,"y":12,"animation":"pulse","color":"#ff5a2a"},{"x":12,"y":11,"animation":"pulse","color":"#ff5a2a"}] },
       "choices": [
-        {
-          "text": "Plukk opp den glinsende gjenstanden",
-          "next": "found_key",
-          "setFlags": { "hasKey": true }
-        },
-        {
-          "text": "Ignorer den og bank på døren",
-          "next": "knock_door"
-        }
+        { "text": "Jeg er fornøyd", "next": "content_pending" },
+        { "text": "Jeg er ikke fornøyd, jeg vil tilbake!", "next": "fork2_scene1" },
+        { "text": "Jeg forventet mye villere! Hva er dette kjedelige stedet her?", "next": "content_pending" }
       ]
     },
-    "found_key": {
-      "text": "Det er en gammel jernnøkkel. Den passer kanskje til tårndøren.",
+    "fork2_scene1": {
+      "interaction": "choice",
+      "text": "Det blir lyst der du står, så hvitt at du ikke ser noe. Når synet klarner, ser du den samme kappekledde skikkelsen foran deg, på samme avstand som før - men nå står dere begge i den samme skogen som før, bare badet i klart dagslys. Sola strømmer gjennom trekronene, og du kan skimte dyr som beveger seg mellom trærne rundt dere.",
+      "image": { "width": 16, "height": 16, "palette": ["#bfe6ff", "#fff2b0", "#5a8f4a", "#4a3221", "#7fbf5a", "#2d4a22"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0],[2,2,2,0,0,0,0,0,0,0,0,0,2,2,2,2],[2,2,2,2,2,2,0,0,0,0,0,0,2,2,2,2],[2,2,2,2,2,2,0,0,0,0,0,0,2,2,2,2],[0,3,0,2,2,2,0,0,0,0,0,0,2,2,2,2],[0,3,0,2,2,2,0,0,0,0,0,0,0,3,0,0],[0,3,0,0,3,0,0,0,0,0,0,0,0,3,0,0],[0,3,0,0,3,0,0,0,0,0,0,0,0,3,0,0],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],[4,4,4,4,4,4,5,4,4,4,4,4,4,4,4,4],[4,4,4,4,4,4,4,4,4,4,5,4,4,4,4,4],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]], "glowPixels": [{"x":11,"y":2,"animation":"sparkle","color":"#fff2b0"},{"x":11,"y":1,"animation":"sparkle","color":"#fff2b0"},{"x":10,"y":2,"animation":"sparkle","color":"#fff2b0"},{"x":13,"y":3,"animation":"sparkle","color":"#fff2b0"},{"x":11,"y":4,"animation":"sparkle","color":"#fff2b0"}] },
       "choices": [
-        {
-          "text": "Lås opp døren med nøkkelen",
-          "next": "inside_tower",
-          "condition": { "flag": "hasKey", "equals": true }
-        },
-        {
-          "text": "Se deg rundt litt mer først",
-          "next": "look_around"
-        }
+        { "text": "Fortsett", "next": "content_pending" }
       ]
     },
-    "knock_door": {
-      "text": "Du banker hardt på døren. Ingen svarer. Døren er låst, og du har ingenting å låse den opp med.",
-      "choices": [
-        {
-          "text": "Se deg rundt etter noe som kan hjelpe",
-          "next": "look_around"
-        }
-      ]
+    "start_death_ending": {
+      "interaction": "ending",
+      "text": "Skikkelsens ansikt blir alvorlig. «Sånn er det,» sier den lavt, nesten medfølende. Flammene mellom dere flammer plutselig opp, blendende og hete - og så er det ingenting igjen. Mørket tar deg, og du kjenner ikke noe mer.",
+      "endingCategory": "death",
+      "image": { "width": 16, "height": 16, "palette": ["#0a0505", "#1a0808", "#3a0f0f", "#5c1414", "#ff4d4d"], "pixels": [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]], "glowPixels": [{"x":6,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":5,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":9,"y":6,"animation":"pulse","color":"#ff4d4d"},{"x":10,"y":6,"animation":"pulse","color":"#ff4d4d"}] }
     },
-    "look_around": {
-      "text": "Du speider rundt tårnets fot og oppdager en glinsende gjenstand i gresset du ikke la merke til før.",
-      "choices": [
-        {
-          "text": "Plukk den opp",
-          "next": "found_key",
-          "setFlags": { "hasKey": true }
-        }
-      ]
-    },
-    "inside_tower": {
-      "text": "Nøkkelen vrir seg i låsen med et klikk. Døren svinger opp og avslører en vindeltrapp som forsvinner oppover i mørket.",
-      "ending": true
+    "content_pending": {
+      "interaction": "ending",
+      "endingCategory": "neutral",
+      "text": "(Her stopper historien foreløpig - denne delen av eventyret er ikke skrevet ennå. Fortell meg hva som skjer videre, så bygger vi det inn.)"
     }
   }
 }

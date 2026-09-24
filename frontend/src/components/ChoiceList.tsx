@@ -9,7 +9,7 @@ export function ChoiceList({ choices, onChoose }: ChoiceListProps) {
   return (
     <ul className="choice-list">
       {choices.map((choice) => (
-        <li key={choice.text}>
+        <li key={choice.id ?? choice.text}>
           <button type="button" onClick={() => onChoose(choice)}>
             {choice.text}
           </button>
