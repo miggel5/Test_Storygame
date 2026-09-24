@@ -6,11 +6,12 @@
 }
 
 .pixel-art {
-  max-width: 260px;
-  margin: 0 auto 1rem;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px var(--border), 0 12px 30px -10px rgba(0, 0, 0, 0.7);
+  max-width: 280px;
+  margin: 0 auto 1.75rem;
+  border: 3px double var(--accent-gold);
+  box-shadow: 0 0 0 1px #000, 0 16px 36px -14px rgba(0, 0, 0, 0.85);
+  padding: 4px;
+  background: #050408;
 }
 
 .pixel-art svg {
@@ -41,14 +42,36 @@
 .pixel-glow--flicker { animation: pixel-flicker 1.6s steps(6) infinite; }
 .pixel-glow--sparkle { animation: pixel-sparkle 1.1s ease-in-out infinite; }
 
-.dialogue-box {
+/* Shared gothic frame for the major text panels */
+.dialogue-box,
+.conversation-box,
+.ending {
+  position: relative;
   background: var(--bg-panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 0 0 1.5rem;
-  line-height: 1.6;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 3px double var(--accent-gold);
+  box-shadow: 0 0 0 1px #000, 0 18px 40px -16px rgba(0, 0, 0, 0.85), inset 0 0 40px rgba(107, 31, 42, 0.08);
+  padding: 1.9rem 1.6rem 1.6rem;
+  margin: 0 0 1.75rem;
+}
+
+.dialogue-box::before,
+.conversation-box::before,
+.ending::before {
+  content: '✦';
+  position: absolute;
+  top: -0.7em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  color: var(--accent-gold);
+  padding: 0 0.6em;
+  font-size: 0.85rem;
+}
+
+.dialogue-box {
+  font-family: var(--body);
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
 .choice-list {
@@ -63,20 +86,21 @@
 .choice-list button,
 .question-input button,
 .conversation-input button {
-  border-radius: 6px;
+  border-radius: 1px;
   border: 1px solid var(--border);
   background: var(--bg-panel);
   color: var(--text);
   cursor: pointer;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.2s, background 0.2s;
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .choice-list button {
   width: 100%;
   text-align: left;
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 1.1rem;
 }
 
 .choice-list button:hover,
@@ -84,6 +108,7 @@
 .conversation-input button:hover:not(:disabled) {
   border-color: var(--accent-arcane);
   background: rgba(139, 92, 246, 0.08);
+  box-shadow: 0 0 12px -2px rgba(139, 92, 246, 0.4);
 }
 
 .question-input {
@@ -97,12 +122,12 @@
   flex: 1;
   min-width: 0;
   padding: 0.75rem 1rem;
-  border-radius: 6px;
+  border-radius: 1px;
   border: 1px solid var(--border);
-  background: var(--bg-panel);
+  background: #0f0c14;
   color: var(--text);
-  font-size: 1rem;
-  font-family: inherit;
+  font-family: var(--body);
+  font-size: 1.05rem;
 }
 
 .question-input input:focus,
@@ -119,6 +144,7 @@
 .question-feedback--wrong {
   width: 100%;
   color: var(--accent-danger);
+  font-family: var(--heading);
   font-size: 0.9rem;
 }
 
@@ -128,49 +154,43 @@
   font-size: 0.85rem;
 }
 
-.conversation-box {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg-panel);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
 .conversation-character-name {
-  font-weight: 600;
-  color: var(--accent-arcane);
-  font-size: 0.85rem;
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--accent-gold-bright);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
 }
 
 .conversation-messages {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   max-height: 320px;
   overflow-y: auto;
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .conversation-message {
-  padding: 0.6rem 0.9rem;
-  border-radius: 10px;
+  padding: 0.65rem 0.95rem;
+  border-radius: 1px;
   max-width: 85%;
-  line-height: 1.4;
 }
 
 .conversation-message--character {
   align-self: flex-start;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .conversation-message--user {
   align-self: flex-end;
-  background: rgba(255, 122, 69, 0.12);
-  border: 1px solid rgba(255, 122, 69, 0.25);
+  background: rgba(171, 133, 82, 0.1);
+  border: 1px solid rgba(171, 133, 82, 0.35);
 }
 
 .conversation-message--pending {
@@ -179,52 +199,61 @@
 
 .conversation-error {
   color: var(--accent-danger);
+  font-family: var(--heading);
   font-size: 0.9rem;
 }
 
 .conversation-input {
   display: flex;
   gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .ending {
   text-align: center;
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+}
+
+.ending p:first-child {
+  font-family: var(--display);
+  letter-spacing: 0.1em;
 }
 
 .ending button {
-  margin-top: 1rem;
-  padding: 0.6rem 1.25rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
+  margin-top: 1.1rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 1px;
+  border: 1px solid var(--accent-gold);
   background: var(--bg-panel);
   color: var(--text);
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--heading);
+  letter-spacing: 0.05em;
+}
+
+.ending button:hover {
+  border-color: var(--accent-gold-bright);
+  box-shadow: 0 0 12px -2px rgba(212, 175, 106, 0.4);
 }
 
 .ending[data-ending-category="death"] {
-  border-color: rgba(255, 77, 77, 0.4);
-  box-shadow: 0 0 30px -10px rgba(255, 77, 77, 0.35);
+  border-color: var(--accent-danger);
+  box-shadow: 0 0 0 1px #000, 0 0 34px -6px rgba(255, 77, 77, 0.4);
 }
 .ending[data-ending-category="death"] p:first-child {
   color: var(--accent-danger);
 }
 
 .ending[data-ending-category="good"] {
-  border-color: rgba(255, 212, 121, 0.4);
-  box-shadow: 0 0 30px -10px rgba(255, 212, 121, 0.35);
+  border-color: var(--accent-good);
+  box-shadow: 0 0 0 1px #000, 0 0 34px -6px rgba(255, 212, 121, 0.4);
 }
 .ending[data-ending-category="good"] p:first-child {
   color: var(--accent-good);
 }
 
 .ending[data-ending-category="twist"] {
-  border-color: rgba(139, 92, 246, 0.5);
-  box-shadow: 0 0 30px -10px rgba(139, 92, 246, 0.45);
+  border-color: var(--accent-arcane);
+  box-shadow: 0 0 0 1px #000, 0 0 34px -6px rgba(139, 92, 246, 0.5);
   animation: pixel-flicker 3s steps(8) infinite;
 }
 .ending[data-ending-category="twist"] p:first-child {
@@ -233,5 +262,5 @@
 
 .ending[data-ending-category="bad"],
 .ending[data-ending-category="neutral"] {
-  border-color: var(--border);
+  border-color: var(--accent-gold);
 }

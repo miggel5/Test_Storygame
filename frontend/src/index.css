@@ -1,20 +1,24 @@
 :root {
-  --bg: #0b0a10;
-  --bg-panel: #15121f;
-  --border: #2c2440;
-  --text: #d8d3e6;
-  --text-dim: #8b84a0;
-  --text-h: #f3f0fa;
+  --bg: #0a080c;
+  --bg-panel: #14101a;
+  --border: #3a2f28;
+  --text: #d9cfc0;
+  --text-dim: #8f8374;
+  --text-h: #ede2c8;
   --accent-ember: #ff7a45;
   --accent-arcane: #8b5cf6;
   --accent-danger: #ff4d4d;
   --accent-good: #ffd479;
+  --accent-gold: #ab8552;
+  --accent-gold-bright: #d4af6a;
+  --accent-blood: #6b1f2a;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --display: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  --heading: 'Cinzel', Georgia, serif;
+  --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  font: 19px/155% var(--body);
+  letter-spacing: 0.2px;
   color-scheme: dark;
   color: var(--text);
   background: var(--bg);
@@ -24,28 +28,41 @@
   -moz-osx-font-smoothing: grayscale;
 
   @media (max-width: 1024px) {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
 body {
   margin: 0;
   min-height: 100svh;
-  background: radial-gradient(ellipse at 50% -10%, #201a33 0%, var(--bg) 60%);
+  background:
+    radial-gradient(ellipse at 50% -10%, #241419 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 110%, #1a1410 0%, transparent 55%),
+    var(--bg);
 }
 
 h1 {
-  font-family: var(--sans);
-  font-weight: 600;
+  font-family: var(--display);
+  font-weight: 700;
   color: var(--text-h);
-  font-size: 32px;
-  letter-spacing: -0.5px;
+  font-size: 34px;
+  letter-spacing: 1px;
   text-align: center;
-  margin: 32px 0 8px;
+  margin: 36px 0 0;
+  text-shadow: 0 0 18px rgba(171, 133, 82, 0.35);
   @media (max-width: 1024px) {
-    font-size: 24px;
-    margin: 20px 0 8px;
+    font-size: 26px;
   }
+}
+
+h1::after {
+  content: '❦';
+  display: block;
+  margin: 10px auto 28px;
+  color: var(--accent-gold);
+  font-size: 18px;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
 }
 
 p {
