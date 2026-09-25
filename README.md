@@ -51,3 +51,14 @@ Endepunkter:
 - `GET /api/save/{player_id}` — hent siste lagring
 
 Lagringer ligger i `backend/data/saves.json` (en enkel fil-database for å komme i gang — bytt til en ekte database når det trengs).
+
+### Passordbeskyttelse
+
+Backend krever HTTP Basic Auth på `/api/save` og `/api/conversation` hvis `APP_PASSWORD` er satt i `backend/.env`. Er den tom, er det ingen sperre (praktisk lokalt). Frontend spør om passord ved oppstart og husker det i fanen (sessionStorage) resten av økten.
+
+## Deploy (gratis)
+
+- **Frontend → Vercel**: importer GitHub-repoet, sett "Root Directory" til `frontend`. Vercel oppdager Vite automatisk. Legg til miljøvariabelen `VITE_API_BASE_URL` = backend-URL-en fra Render.
+- **Backend → Render**: "New Blueprint" → koble til GitHub-repoet, Render finner `render.yaml` i rotmappen automatisk (gratis plan). Fyll inn miljøvariablene `ANTHROPIC_API_KEY`, `CORS_ORIGINS` (den ferdige Vercel-URL-en) og `APP_USERNAME`/`APP_PASSWORD` i Render-dashboardet.
+
+Merk: Render sin gratis plan "sovner" etter litt inaktivitet — første kall etter en pause kan ta ca. 30–60 sekunder.

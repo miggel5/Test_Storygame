@@ -1,4 +1,5 @@
 import type { ConversationOutcome } from "../types/story";
+import { getAuthHeader } from "./auth";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8001";
 
@@ -30,9 +31,13 @@ export class ConversationUnavailableError extends Error {
 export async function postConversationTurn(req: ConversationTurnRequest): Promise<ConversationTurnResult> {
   let response: Response;
   try {
+    const authHeader = getAuthHeader();
     response = await fetch(`${API_BASE_URL}/api/conversation/turn`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(authHeader ? { Authorization: authHeader } : {}),
+      },
       body: JSON.stringify({
         scene_id: req.sceneId,
         character_name: req.characterName,
