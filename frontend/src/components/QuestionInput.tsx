@@ -1,9 +1,11 @@
 import { useState } from "react";
+import type { AnswerResult } from "../engine/storyEngine";
 import type { QuestionScene } from "../types/story";
 
 interface QuestionInputProps {
   scene: QuestionScene;
-  onSubmit: (rawInput: string) => boolean;
+  /** `attemptsSoFar` is the number of wrong answers already given in the current round. */
+  onSubmit: (rawInput: string, attemptsSoFar: number) => AnswerResult;
 }
 
 export function QuestionInput({ scene, onSubmit }: QuestionInputProps) {
@@ -16,12 +18,13 @@ export function QuestionInput({ scene, onSubmit }: QuestionInputProps) {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     if (!value.trim()) return;
-    const correct = onSubmit(value);
-    if (!correct) {
-      setAttempts((n) => n + 1);
-      setWasWrong(true);
-      setValue("");
-    }
+    const result = onSubmit(value, attempts);
+    if (result === "correct") return;
+    // "retry": another guess counts against the limit. "failed": the story moved on, or looped back to
+    // this same scene for a fresh round - either way the counter starts over.
+    setAttempts(result === "retry" ? (n) => n + 1 : 0);
+    setWasWrong(true);
+    setValue("");
   }
 
   return (

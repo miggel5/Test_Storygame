@@ -1,0 +1,1089 @@
+{
+  "fork3_pilot_scene1": {
+    "interaction": "conversation",
+    "text": "Basert på svarene dine kommer en person i flott uniform bort og ber deg følge etter. Dere går gjennom lange korridorer, mot en stor dør. Når døren åpner seg, går du inn i en enorm hangar, med flere stjerneskip på rad og rekke, og mange aspiranter i uniform som står klare. Du kommer frem til en person med en høy hatt, og samtalen starter.",
+    "characterName": "Mønstringsoffiseren",
+    "greeting": "Javel. Javel. Javel. Hva har vi her? Hva skal vi finne på med en som deg?",
+    "systemPrompt": "Du er en mønstringsoffiser i en romhavn - militær, kort i replikkene og småfrekk, men rettferdig. Du snakker på en fremmed, militæraktig måte, gjerne med korte kommandoer og retoriske spørsmål.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, så det blir tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om spillerens ambisjon, holdninger og ønsker knyttet til det å bli pilot.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort, men dette teller ikke som et av dine spørsmål.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Snakker spilleren positivt om flyving, viser sterke holdninger og vilje til å jobbe hardt: sett utfallet til 'success'.\n- Svarer spilleren høflig og ryddig, men uten stor ambisjon eller engasjement: sett utfallet til 'twist'.\n- Svarer spilleren frekt, uambisiøst, lurvete eller fjernt: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "fork3_pilot_ending"
+      },
+      "failure": {
+        "next": "fork3_cleaner_ending"
+      },
+      "twist": {
+        "next": "fork3_mechanic_ending"
+      }
+    },
+    "maxTurns": 10
+  },
+  "fork3_pilot_ending": {
+    "interaction": "choice",
+    "text": "«Javel!» roper offiseren, med et lite glimt i øyet. «Da har vi funnet en pilotkandidat.» Du blir ført inn i simulatoren samme kveld - reisen din blant stjernene har så vidt begynt. En tekniker peker deg mot et sete med stropper og blinkende skjermer, og sier at du kan melde deg med en gang, eller ta deg tid til å møte de andre som venter på tur.",
+    "choices": [
+      {
+        "id": "pilot_start_now",
+        "text": "Meld deg til simulatoren med en gang",
+        "next": "pil_sim_intro",
+        "setFlags": {
+          "pilTrack": "pilot"
+        }
+      },
+      {
+        "id": "pilot_meet_cadets",
+        "text": "Spør om å få treffe de andre kandidatene først",
+        "next": "pil_cadet_meet",
+        "setFlags": {
+          "pilTrack": "pilot"
+        }
+      }
+    ]
+  },
+  "pil_cadet_meet": {
+    "interaction": "choice",
+    "text": "Korridoren utenfor simulatoren er full av unge aspiranter i for store uniformer. Noen ler nervøst, andre står helt stille og stirrer rett frem. En jente med skrapt hjelm nikker til deg og sier at hun har krasjet simulatoren fire ganger allerede i dag - og har tenkt å prøve en femte.",
+    "choices": [
+      {
+        "text": "Prat løst med dem, spør om erfaringene deres",
+        "next": "pil_sim_intro"
+      },
+      {
+        "text": "Hold deg for deg selv og observer i stillhet",
+        "next": "pil_sim_intro"
+      }
+    ]
+  },
+  "pil_sim_intro": {
+    "interaction": "choice",
+    "text": "Instruktøren i simulatoren har et ansikt fullt av gamle arr og et blikk som ikke slipper deg. «Første regel,» sier hun, «simulatoren lyver aldri om hvor du faktisk bommer.» Hun spør hvordan du har tenkt å fly.",
+    "choices": [
+      {
+        "text": "Fly aggressivt - stol på instinktene dine",
+        "next": "pil_sim_test",
+        "setFlags": {
+          "pilStyle": "aggressive"
+        }
+      },
+      {
+        "text": "Fly presist - følg boka til punkt og prikke",
+        "next": "pil_sim_test",
+        "setFlags": {
+          "pilStyle": "precise"
+        }
+      }
+    ]
+  },
+  "pil_sim_test": {
+    "interaction": "question",
+    "text": "Skjermen foran deg blinker rødt: OPPSTARTSKODE PÅKREVD. Instruktøren peker på skipet på skjermen og sier: «Tell dysene bak på skroget, og skriv inn tallet som kode.» Du teller nøye: én, to, tre dyser, tydelig plassert langs halen.",
+    "acceptedAnswers": [
+      "3",
+      "tre",
+      "Tre",
+      "TRE"
+    ],
+    "onCorrect": {
+      "next": "pil_first_flight"
+    },
+    "onIncorrect": {
+      "next": "pil_sim_test"
+    },
+    "maxAttempts": 3
+  },
+  "pil_first_flight": {
+    "interaction": "choice",
+    "text": "Simulatoren går strålende, og noen uker senere sitter du for første gang i et ekte cockpit på en rutinepatrulje langs stasjonens ytterkant. Alt er stille - helt til et rart, skimrende punkt dukker opp på radaren, et sted ingen kart har markert.",
+    "choices": [
+      {
+        "text": "Følg protokollen til punkt og prikke, meld inn og fortsett ruten",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "pilot"
+        }
+      },
+      {
+        "text": "Stol på magefølelsen din - avvik fra kursen og se hva det er",
+        "next": "pil_anomaly_detour"
+      }
+    ]
+  },
+  "pil_anomaly_detour": {
+    "interaction": "choice",
+    "text": "Du dreier skipet av kurs. Det skimrende punktet vokser seg større i vinduet - en slags rift i rommet, som om noen har krøllet stjernehimmelen sammen i en knute. Instrumentene dine gir ingen mening lenger.",
+    "choices": [
+      {
+        "text": "Fly nærmere for å undersøke fenomenet",
+        "next": "pil_anomaly_wormhole"
+      },
+      {
+        "text": "Meld ifra på radioen og hold trygg avstand",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "pilot"
+        }
+      }
+    ]
+  },
+  "pil_anomaly_wormhole": {
+    "interaction": "choice",
+    "text": "Riften griper tak i skipet ditt før du rekker å snu. Verden utenfor vinduet strekkes til fargede striper, og en lyd som ikke er en lyd fyller cockpiten. Du har et kort øyeblikk til å bestemme deg.",
+    "choices": [
+      {
+        "text": "Kjemp imot draget med full motorkraft",
+        "next": "pil_anomaly_fight_ending"
+      },
+      {
+        "text": "Overgi deg til strømmen og la den ta deg",
+        "next": "pil_anomaly_surrender_ending"
+      }
+    ]
+  },
+  "pil_anomaly_fight_ending": {
+    "text": "Du kjemper deg fri i siste sekund, motorene hyler i protest, og plutselig er himmelen normal igjen - de samme stjernene, den samme radioen som knitrer stasjonens vanlige rapporter. Men da du senere går gjennom loggene, finner du ti sekunder med opptak du ikke husker å ha flydd: et mønster av lys, nesten som et språk, brent inn i skipets minne. Du sletter det ikke.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Meld fra om anomalien med en gang du lander",
+        "next": "pil_anomaly_report_end"
+      },
+      {
+        "text": "Behold det for deg selv - ingen ville tro deg uansett",
+        "next": "pil_anomaly_silent_end"
+      }
+    ]
+  },
+  "pil_anomaly_surrender_ending": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du slipper taket, og riften trekker deg gjennom uten en lyd. På den andre siden er alt helt stille - et rom uten stjernekart, uten radiotrafikk, uten noen som venter deg tilbake med en tidsfrist. Skipet driver videre av seg selv. Du vet ikke om dette er en straff eller en gave, men for første gang siden du forlot bakken, er det ingen som forteller deg hva du skal gjøre videre."
+  },
+  "pil_mek_mentor": {
+    "interaction": "choice",
+    "text": "Veilederen er en gammel mann med oljeflekker helt opp til albuene. Han forklarer reglene på under et minutt: «Stram alt to ganger. Stol aldri på et lys som sier alt er i orden. Og hør etter - skipene forteller deg alltid hva som er galt, om du gidder å lytte.»",
+    "choices": [
+      {
+        "text": "Lytt nøye til alle rådene hans",
+        "next": "pil_mek_toolbelt"
+      },
+      {
+        "text": "Nikk høflig, men stol mest på egen sans",
+        "next": "pil_mek_toolbelt"
+      }
+    ]
+  },
+  "pil_mek_toolbelt": {
+    "interaction": "choice",
+    "text": "Din første oppgave er å inspisere et av patruljeskipene før avgang. Du kryper inn under panelet ved drivstofflinjen - og stopper opp. Noe er festet der som ikke skal være der: en liten, ukjent boks, koblet rett på ledningsnettet.",
+    "choices": [
+      {
+        "text": "Meld fra til overordnet med en gang",
+        "next": "pil_mek_report"
+      },
+      {
+        "text": "Undersøk boksen selv først, litt nysgjerrig",
+        "next": "pil_mek_investigate"
+      }
+    ]
+  },
+  "pil_mek_report": {
+    "interaction": "choice",
+    "text": "Du finner en offiser og forklarer hva du har sett. Han hører knapt etter, blikket festet på en klemmebrett. «Sikkert bare en gammel sensor. Skriv en rapport om du må, men skipet skal ut om en time.» Han går videre før du får sagt mer. Boksen sitter fortsatt der du fant den.",
+    "choices": [
+      {
+        "text": "Insister, og gå selv for å se nærmere på den",
+        "next": "pil_mek_investigate"
+      },
+      {
+        "text": "Godta svaret hans - men nysgjerrigheten drar deg dit likevel",
+        "next": "pil_mek_investigate"
+      }
+    ]
+  },
+  "pil_mek_investigate": {
+    "interaction": "choice",
+    "text": "Du ser nærmere på boksen. Den er ikke standard utstyr - ledningene er klipt og skjøtt med vilje, rett inn mot drivstofflinjen. På undersiden er det festet en liten klistrelapp med håndskrift, som om noen hadde hastverk.",
+    "choices": [
+      {
+        "text": "Prøv å uskadeliggjøre den selv, med det samme",
+        "next": "pil_mek_disarm_solo"
+      },
+      {
+        "text": "Løp for å hente hjelp med en gang",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "mechanic"
+        }
+      }
+    ]
+  },
+  "pil_mek_disarm_solo": {
+    "interaction": "question",
+    "text": "Klistrelappen har et lite, sirlig notat: «Sikkerhetskoden er antall bokstaver i ordet FARE.» Fingrene dine er stødige, i alle fall utad. Du teller bokstavene og skriver inn koden på det vesle panelet på boksens side.",
+    "acceptedAnswers": [
+      "4",
+      "fire",
+      "Fire",
+      "FIRE"
+    ],
+    "onCorrect": {
+      "next": "pil_mek_defused"
+    },
+    "onIncorrect": {
+      "next": "pil_mek_disarm_solo"
+    },
+    "maxAttempts": 3
+  },
+  "pil_mek_defused": {
+    "interaction": "choice",
+    "text": "Et lite klikk, og boksen går kald i hendene dine. Ledningene sluknet. Ingen visste hvor nær det var, bortsett fra deg. Du blir stående et øyeblikk og puster, med boksen fortsatt i grepet.",
+    "choices": [
+      {
+        "text": "Skriv en stille rapport, ingen ståhei",
+        "next": "pil_mek_aftermath"
+      },
+      {
+        "text": "Fortell det til alle som vil høre",
+        "next": "pil_mek_aftermath"
+      }
+    ]
+  },
+  "pil_mek_aftermath": {
+    "interaction": "choice",
+    "text": "Timene går. Du kan ikke få boksen ut av tankene - hvem festet den der, og hvorfor bare det ene skipet? Du er fortsatt i hangaren, med verktøybeltet rundt livet, da en alarm plutselig sprenger stillheten og lysene skifter til rødt over hele hallen.",
+    "choices": [
+      {
+        "text": "Bli værende og følg med, klar til å hjelpe til",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "mechanic"
+        }
+      },
+      {
+        "text": "Grip flere verktøy - noe sier deg at du trenger dem snart",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "mechanic"
+        }
+      }
+    ]
+  },
+  "pil_vask_hangar3": {
+    "interaction": "choice",
+    "text": "Hangar tre er stille og glemt, full av utrangerte skrog og støvete kasser stablet mot bakveggen. Mens du mopper deg bortover, legger du merke til en sprekk i veggen bak den høyeste stabelen - for rett og for smal til å være tilfeldig.",
+    "choices": [
+      {
+        "text": "Undersøk sprekken i veggen",
+        "next": "pil_vask_passage"
+      },
+      {
+        "text": "Fortsett å vaske, ikke bry deg om den",
+        "next": "pil_vask_dutiful"
+      }
+    ]
+  },
+  "pil_vask_dutiful": {
+    "interaction": "choice",
+    "text": "Du lar sprekken være. Gulvet trenger deg mer enn nysgjerrigheten din gjør, tenker du, og fortsetter å jobbe deg systematisk gjennom hangaren. Timene går rolig, og trettheten begynner å melde seg i armene dine.",
+    "choices": [
+      {
+        "text": "Ta en kort pause, lukk øynene et øyeblikk",
+        "next": "pil_vask_dream"
+      },
+      {
+        "text": "Fortsett å jobbe, ingen pauser i dag",
+        "next": "pil_vask_quiet_ending"
+      }
+    ]
+  },
+  "pil_vask_quiet_ending": {
+    "text": "Du jobber deg gjennom hele hangar tre uten en eneste klage, dag etter dag, uke etter uke. Ingen skriver navnet ditt i noen offisersjournal, men skipene som letter herfra, letter fra gulv du har gjort rene. En morgen henger det et nytt skilt på døren din: HOVEDVAKTMESTER. Det er ingen stjerner i tittelen, men det er ditt, og det er ordentlig.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Fortsett akkurat som før, uten å forvente noe",
+        "next": "pil_vask_quiet_continue_end"
+      },
+      {
+        "text": "La deg selv innrømme at du håper noen legger merke til det en dag",
+        "next": "pil_vask_quiet_hope"
+      }
+    ]
+  },
+  "pil_vask_dream": {
+    "interaction": "choice",
+    "text": "Du setter deg et øyeblikk mot en kasse og lukker øynene - bare et sekund. Men søvnen tar deg fortere enn du venter, og plutselig står du ikke lenger i en hangar. Du står i en mørk, våt skog, med et bål som knitrer foran deg, og en kledd skikkelse som venter ved flammene, akkurat som helt i begynnelsen av alt dette.",
+    "choices": [
+      {
+        "text": "Gå mot bålet i drømmen",
+        "next": "pil_vask_dream_twist_ending"
+      },
+      {
+        "text": "Prøv å våkne, rist det av deg",
+        "next": "pil_vask_dream_wake_ending"
+      }
+    ]
+  },
+  "pil_vask_dream_twist_ending": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du går mot bålet, og skikkelsen snur seg mot deg - samme hette, samme stemme, som om ingen tid har gått siden den aller første kvelden. «Du igjen,» sier den, mildt, nesten varmt. «Hvor mange ganger har du stått her nå?» Du våkner med et rykk mot kassen i hangar tre, mopp fortsatt i hånden, hjertet dundrende. Sprekken i veggen ser plutselig ut som noe du har sett før - i en annen drøm, kanskje, eller et annet liv."
+  },
+  "pil_vask_dream_wake_ending": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du rister drømmen av deg før bålet får sagt noe mer, og våkner brått med moppen i fanget og hjertet i halsen. Alt er som før - kassene, støvet, den grå hangaren. Men når du reiser deg, ser du at sprekken i veggen nå peker rett mot der du satt og sov, som om noen - eller noe - har flyttet på den mens du drømte. Du bestemmer deg for ikke å sove igjen med det første."
+  },
+  "pil_vask_passage": {
+    "interaction": "choice",
+    "text": "Du flytter en kasse til side, og sprekken viser seg å være en smal, skjult luke - en gammel vedlikeholdstunnel, glemt for lenge siden. Kald luft strømmer ut mot ansiktet ditt, sammen med en svak lyd av stemmer langt der inne.",
+    "choices": [
+      {
+        "text": "Følg den skjulte tunnelen innover",
+        "next": "pil_vask_tunnel"
+      },
+      {
+        "text": "Meld fra om oppdagelsen med en gang - men utforsk den likevel etterpå",
+        "next": "pil_vask_tunnel"
+      }
+    ]
+  },
+  "pil_vask_tunnel": {
+    "interaction": "choice",
+    "text": "Tunnelen snor seg dypere inn i stasjonens skjelett, forbi rør og gamle skilt. Stemmene blir tydeligere: lave, hastige, snakker om «last» og «et tidsvindu» og «ingen må se dette før avgang».",
+    "choices": [
+      {
+        "text": "Lytt stille fra skyggene",
+        "next": "pil_vask_smugglers"
+      },
+      {
+        "text": "Gå tilbake nå - dette er ikke din sak",
+        "next": "pil_vask_retreat_ending"
+      }
+    ]
+  },
+  "pil_vask_retreat_ending": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du snur i mørket og krabber tilbake mot lyset, mot bøtta og moppen og alt det kjente. Hva stemmene der inne egentlig drev med, får du aldri vite - og en liten del av deg lurer på det resten av tiden du er i hangaren. Kanskje er det klokest sånn. Kanskje er det bare kjedelig."
+  },
+  "pil_vask_smugglers": {
+    "interaction": "choice",
+    "text": "Du kikker frem mellom noen rørledninger. To skikkelser i tunge kapper står bøyd over lastekasser merket med utviskede symboler - stasjonens smuglere, midt i forberedelsene til noe stort. En av dem nevner navnet på selveste hangar tre.",
+    "choices": [
+      {
+        "text": "Konfronter dem direkte",
+        "next": "pil_vask_confront"
+      },
+      {
+        "text": "Snik deg vekk og varsle noen om det du har sett",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "cleaner"
+        }
+      }
+    ]
+  },
+  "pil_vask_confront": {
+    "interaction": "choice",
+    "text": "Du trår frem fra skyggene med moppen som eneste våpen og krever å få vite hva som foregår. Skikkelsene fryser et øyeblikk - så ler den ene, lavt og kaldt, og tar et skritt mot deg.",
+    "choices": [
+      {
+        "text": "Fortsett å true dem, ikke gi deg",
+        "next": "pil_vask_captured_ending"
+      },
+      {
+        "text": "Trekk deg unna i siste sekund, lat som du ikke så noe",
+        "next": "pil_crisis_alarm",
+        "setFlags": {
+          "pilTrack": "cleaner"
+        }
+      }
+    ]
+  },
+  "pil_vask_captured_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "De er raskere enn du er modig. Før du vet ordet av det, sitter du bundet fast med tape rundt hendene i en støvete forsyningsbod, moppen forlatt på gulvet utenfor. Det tar vaktene fem timer å finne deg, rødflammet av flauhet og stiv i nakken. Du blir aldri offisiell helt av dette - bare historien alle hvisker om når de ser deg med bøtta."
+  },
+  "pil_crisis_alarm": {
+    "interaction": "choice",
+    "text": "En øredøvende alarm ruller gjennom hele stasjonen, og lysene i taket skifter til dyp rødt. Over høyttalerne roper en stemme om en kollisjon i ytre dokk - et fremmed objekt har truffet skroget, og hangaren rister av trykkbølgen. Aspiranter, mekanikere og vaktmestere strømmer i alle retninger rundt deg.",
+    "choices": [
+      {
+        "text": "Løp mot nærmeste skip for å hjelpe til der det virkelig gjelder",
+        "next": "pil_crisis_conversation"
+      },
+      {
+        "text": "Frys et øyeblikk, finn ut hva som skjer - og løp mot kommandoen",
+        "next": "pil_crisis_conversation"
+      },
+      {
+        "text": "Hjelp andre aspiranter med å evakuere først",
+        "next": "pil_crisis_evac"
+      }
+    ]
+  },
+  "pil_crisis_evac": {
+    "interaction": "choice",
+    "text": "Du griper tak i de nærmeste - en gråtende ny-aspirant, en eldre tekniker som har mistet brillene sine - og dirigerer dem mot nødutgangene. Røyken tetner til, men strømmen av folk beveger seg fremover, ikke i panikk, takket være deg.",
+    "choices": [
+      {
+        "text": "Fortsett å hjelpe de andre helt ut",
+        "next": "pil_crisis_evac_ending"
+      },
+      {
+        "text": "Når de er trygge, løp mot der alarmen egentlig kom fra",
+        "next": "pil_crisis_conversation"
+      }
+    ]
+  },
+  "pil_crisis_evac_ending": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du blir stående ved nødutgangen til den siste er ute, teller hoder, roper navn du ikke kjenner. Da alarmen endelig stilner, er det ingen skader å melde blant dem du fikk ut - bare en flokk skjelvende aspiranter som takker deg om og om igjen. Ingen offiser noterer navnet ditt i noen logg for dette. Det gjør ikke noe. Du vet hva som skjedde."
+  },
+  "pil_crisis_conversation": {
+    "interaction": "conversation",
+    "text": "Du løper mot der alarmen kom fra, gjennom røyk og strømmende folk, og støter nesten rett inn i mønstringsoffiseren selv - hun står midt i kaoset og roper ordre til alle kanter, men snur seg mot deg med et blikk som måler deg opp på et halvt sekund.",
+    "characterName": "Mønstringsoffiseren",
+    "greeting": "Du! Ja, du! Midt i dette kaoset trenger jeg folk som kan tenke, ikke bare løpe. Fortell meg - hva ser du akkurat nå, og hva har du tenkt å gjøre med det?",
+    "systemPrompt": "Du er mønstringsoffiseren fra hangaren - militær, kort i replikkene og småfrekk, men rettferdig - og du befinner deg nå midt i en akutt krise: et sammenstøt har rammet dokkområdet, alarmene ruler, og du roper ordre over larmen mens du snakker med spilleren.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, så det blir tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hvordan spilleren håndterer press, hvilke valg de tar under krisen, og om de klarer å tenke klart og handle med omtanke for andre midt i kaoset.\n\nHold en brå, kommanderende tone, som passer en offiser midt i en nødsituasjon - korte setninger, ingen tid å miste.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort, men dette teller ikke som et av dine spørsmål.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør hvordan de takler krisen:\n- Svarer spilleren rolig, modig og med klare, handlekraftige valg som tar hensyn til andre: sett utfallet til 'success'.\n- Svarer spilleren vagt, nølende eller egoistisk, uten å egentlig løse noe: sett utfallet til 'failure'.\n- Svarer spilleren på en måte som virker påfallende rolig, som om de legger merke til noe rart ved selve situasjonen - et mønster, en detalj som ikke stemmer, en følelse av at noe er iscenesatt: sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "pil_crisis_hero"
+      },
+      "failure": {
+        "next": "pil_crisis_failure"
+      },
+      "twist": {
+        "next": "pil_crisis_twist"
+      }
+    },
+    "maxTurns": 10
+  },
+  "pil_crisis_hero": {
+    "interaction": "choice",
+    "text": "Offiseren nikker skarpt til deg, én gang, som betyr mer enn noen tale kunne gjort. «Da vet du hva som må gjøres. Gå.» Kroppen din vet allerede hva den skal gjøre - alt du har lært siden du kom hit, samler seg i dette ene øyeblikket.",
+    "choices": [
+      {
+        "text": "Sett deg i nærmeste skip og møt trusselen der ute i lufta",
+        "next": "pil_pilot_hero_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "pilot"
+        }
+      },
+      {
+        "text": "Løp mot motorrommet - du vet nøyaktig hva som må gjøres der",
+        "next": "pil_mek_hero_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "mechanic"
+        }
+      },
+      {
+        "text": "Bruk det du har lært om hangarens skjulte ganger til å lede redningsarbeidet",
+        "next": "pil_vask_hero_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "cleaner"
+        }
+      }
+    ]
+  },
+  "pil_crisis_failure": {
+    "interaction": "choice",
+    "text": "Offiseren ser på deg et halvt sekund for lenge, og noe i blikket hardner. «Gå til side,» sier hun kort, og vender seg mot noen andre. Beina dine føles plutselig altfor tunge til å bevege seg dit du egentlig skulle.",
+    "choices": [
+      {
+        "text": "Fryser i cockpiten, klarer ikke å starte startsekvensen i tide",
+        "next": "pil_pilot_grounded_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "pilot"
+        }
+      },
+      {
+        "text": "Griper feil verktøy i panikken og gjør ting verre, ikke bedre",
+        "next": "pil_mek_blamed_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "mechanic"
+        }
+      },
+      {
+        "text": "Blir stående midt i strømmen av folk, usett, mens andre løper forbi",
+        "next": "pil_vask_forgotten_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "cleaner"
+        }
+      }
+    ]
+  },
+  "pil_crisis_twist": {
+    "interaction": "choice",
+    "text": "Offiseren stopper opp, bare et øyeblikk, og studerer deg som om du nettopp har sagt noe hun ikke ventet. «Interessant observasjon,» mumler hun, nesten for seg selv. Noe ved denne krisen stemmer ikke helt - og du er ikke lenger sikker på hva som egentlig står på spill.",
+    "choices": [
+      {
+        "text": "Noe ved selve alarmen stemmer ikke - undersøk det, ikke skipet",
+        "next": "pil_pilot_simulation_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "pilot"
+        }
+      },
+      {
+        "text": "Mønsteret i sabotasjen får deg til å stoppe opp og tenke",
+        "next": "pil_mek_conspiracy_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "mechanic"
+        }
+      },
+      {
+        "text": "Midt i kaoset legger du merke til noe ingen andre ser",
+        "next": "pil_vask_royalty_ending",
+        "condition": {
+          "flag": "pilTrack",
+          "equals": "cleaner"
+        }
+      }
+    ]
+  },
+  "pil_pilot_hero_ending": {
+    "text": "Du kaster deg i cockpiten og er i lufta før du rekker å tenke deg om, og navigerer skipet gjennom trykkbølgene med en presisjon simulatoren aldri klarte å forberede deg helt på. Da skaden er under kontroll og alarmen stilner, blir du eskortert tilbake til hangaren av selveste mønstringsoffiseren, som for første gang kaller deg ved fullt navn og ikke bare «aspirant». Du er ikke lenger kandidat. Du er pilot.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bli i akademiet - det er fortsatt mer å lære",
+        "next": "pil_hero_stay"
+      },
+      {
+        "text": "Søk deg videre til en ekte flåte med en gang",
+        "next": "pil_hero_fleet_apply"
+      }
+    ]
+  },
+  "pil_mek_hero_ending": {
+    "text": "Du er inne i motorrommet før noen andre rekker å komme seg dit, og finner akkurat det ødelagte reléet som holder hele nødsystemet fra å kollapse. Hendene dine, vante etter uker med skitne overtidsvakter, gjør jobben andre ville brukt timer på. Da alarmen slår av og lysene går tilbake til normalt, blir du stående alene et øyeblikk i den plutselige stillheten - den uante helten ingen visste de trengte, men alle nå husker.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bruk anerkjennelsen til å presse på for bedre vedlikeholdsrutiner",
+        "next": "pil_mek_hero_reform"
+      },
+      {
+        "text": "Ta imot æren, og fortsett som før",
+        "next": "pil_mek_hero_settle_end"
+      }
+    ]
+  },
+  "pil_vask_hero_ending": {
+    "text": "Du kjenner hangarens glemte ganger bedre enn noen offiser noensinne har brydd seg om å lære, og bruker dem til å lede et helt kobbel forvirrede aspiranter trygt rundt branngjelene, gjennom snarveier ingen kart viser. Da krisen er over, spør en forbløffet offiser hvordan i all verden du visste om de tunnelene. Du svarer bare: «Noen må jo vaske dem.» Fra den dagen får du en helt annen tittel enn du startet med.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bruk anerkjennelsen til å søke om en formell stilling utenfor renhold",
+        "next": "pil_vask_hero_apply"
+      },
+      {
+        "text": "Nyt anerkjennelsen, og fortsett som du er",
+        "next": "pil_vask_hero_settle_end"
+      }
+    ]
+  },
+  "pil_pilot_grounded_ending": {
+    "text": "Hendene dine nekter å samarbeide akkurat når det gjelder som mest, og startsekvensen låser seg midt i alarmen. Et annet skip letter i stedet for deg og tar seg av situasjonen. Etterpå blir du innkalt til en kort, kald samtale: flysertifikatet ditt fryses, «inntil videre», sier de, men du hører hva de egentlig mener. Du får fortsatt gå i uniform. Du får bare ikke lenger sitte i cockpiten.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Be om en ny sjanse i simulatoren",
+        "next": "pil_grounded_retry_end"
+      },
+      {
+        "text": "Godta at kanskje pilotlivet ikke er for deg",
+        "next": "pil_grounded_accept_end"
+      }
+    ]
+  },
+  "pil_mek_blamed_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "I panikken griper du feil ventil, og et helt system du prøvde å redde, går isteden helt i stå - et rot som tar et annet team dobbelt så lang tid å rette opp som om du aldri hadde rørt det. Ingen sier direkte at det er din skyld, men blikkene i kantina forteller sin egen historie i ukene som følger. Du blir omplassert til lagerbeholdning, langt fra motorene, og lærer å leve med det."
+  },
+  "pil_vask_forgotten_ending": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du prøver å gjøre noe nyttig, men strømmen av folk sluker deg før du får sjanse til det - ingen ser deg, ingen husker deg etterpå, akkurat som før. Når krisen er over, går du tilbake til hangar tre og fortsetter der du slapp, bøtte i hånd. Ingenting har egentlig forandret seg. Kanskje er det greit. Kanskje er du den eneste som trengte at noe skulle skje."
+  },
+  "pil_pilot_simulation_ending": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Jo mer du ser på alarmen, jo rarere blir den - trykkbølgen som aldri helt treffer, skadene som ser identiske ut på hvert skjermbilde. Du sniker deg vekk fra kaoset og finner et kontrollrom der en tekniker, blek av skrekk over å bli oppdaget, innrømmer sannheten: hele krisen er iscenesatt, akademiets siste og mest hemmelige prøve av kandidatenes dømmekraft. Du sier ingenting til de andre. Men du lurer fortsatt, dypt inni deg, om alt det andre du har opplevd her egentlig var like ekte som du trodde."
+  },
+  "pil_mek_conspiracy_ending": {
+    "text": "Mønsteret i skadene stemmer ikke med et tilfeldig sammenstøt - det er for ryddig, for godt timet, akkurat som boksen du en gang fant og uskadeliggjorde. Du følger sporet gjennom vedlikeholdsloggene og finner en signatur som går igjen: et navn høyt oppe i kommandokjeden, et sted det ikke skulle vært. Du sier ikke noe til noen ennå. Men du begynner å ta kopier av alt du finner, og gjemmer dem et sted bare du vet om.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Grav videre i mønsteret selv, i det stille",
+        "next": "pil_mek_dig"
+      },
+      {
+        "text": "Meld fra til overordnede med en gang",
+        "next": "pil_mek_conspiracy_report"
+      }
+    ]
+  },
+  "pil_vask_royalty_ending": {
+    "text": "Midt i kaoset ser du noe ingen andre legger merke til: en av de «nye aspirantene» hvisker kommandoer på et språk du aldri har hørt, med en autoritet ingen ferskere enn en uke burde ha. Etterpå, i det stille, tilstår personen sannheten med et lite, skjevt smil - en bortgjemt kronprins eller -prinsesse, sendt hit i hemmelighet for å lære «hva vanlig arbeid egentlig er». Dere blir stående igjen med en merkelig, uventet allianse, og en hemmelighet dere begge har all grunn til å beholde.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Følg aspiranten og avslør hvem de egentlig er",
+        "next": "pil_royalty_follow"
+      },
+      {
+        "text": "Se en annen vei - dette er ikke din kamp",
+        "next": "pil_royalty_ignore_end"
+      }
+    ]
+  },
+  "pil_vask_quiet_continue_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du fortsetter akkurat som før, år etter år, stille og grundig. Ingen skriver navnet ditt i noen journal, men hangaren er tryggere for det, og du vet det, og det er, til slutt, akkurat nok for deg."
+  },
+  "pil_vask_quiet_hope": {
+    "interaction": "choice",
+    "text": "Du innrømmer det for deg selv, bare denne ene gangen - at en liten del av deg håper noen en dag ser hva du faktisk gjør her. Ønsket overrasker deg mer enn du forventet.",
+    "choices": [
+      {
+        "text": "Fortsett jobben, med det ønsket i bakhodet",
+        "next": "pil_vask_quiet_noticed_end"
+      }
+    ]
+  },
+  "pil_vask_quiet_noticed_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Måneder senere legger en ny offiser merke til hvor upåklagelig hangar tre alltid er, og spør rundt til hun finner ut hvem som står bak. Anerkjennelsen som følger er liten - et nikk, et takk, en bedre stilling - men den treffer dypere enn du var forberedt på."
+  },
+  "pil_anomaly_report_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Rapporten din blir møtt med skepsis i starten, men nok andre piloter melder inn lignende hendelser i månedene som følger til at noen endelig tar det på alvor. Du blir aldri kjendis for det, men du vet at varselet ditt kan ha reddet noen andre fra samme skrekk."
+  },
+  "pil_anomaly_silent_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du sier ingenting, og flyr videre som om ingenting skjedde. Men noen netter, alene i cockpiten, kjenner du deg selv sjekke instrumentene et ekstra sekund lenger enn nødvendig, som om himmelen fortsatt kunne finne på noe."
+  },
+  "pil_grounded_retry_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du trener hardt i simulatoren i månedene som følger, og blir sakte bedre - aldri helt kvitt nervene fra den dagen, men god nok til å fly igjen med en forsiktighet som, ironisk nok, gjør deg til en tryggere pilot enn før."
+  },
+  "pil_grounded_accept_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du bytter spor, uten bitterhet, til noe som passer roen din bedre - bakkemannskap, kanskje, eller opplæring av andre. Det er ikke skammen du fryktet. Det er bare et annet slags viktig."
+  },
+  "pil_mek_hero_settle_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du tar imot æren med et smil og fortsetter jobben din akkurat som før, kanskje litt mer respektert i korridorene. Det er en god slutt på en skummel dag, og du trenger ikke mer enn det."
+  },
+  "pil_mek_hero_reform": {
+    "interaction": "choice",
+    "text": "Du bruker den plutselige oppmerksomheten mens den varer, og legger frem en liste over alt du så gikk galt den dagen - reléet ingen sjekket, rutinene som ble kuttet for å spare tid.",
+    "choices": [
+      {
+        "text": "Legg frem forslaget for teknisk sjef",
+        "next": "pil_mek_hero_meeting"
+      }
+    ]
+  },
+  "pil_mek_hero_meeting": {
+    "interaction": "conversation",
+    "text": "Teknisk sjef lytter til forslaget ditt med et blikk som veksler mellom respekt og en viss utålmodighet - endring koster tid, og tid er alltid knapt.",
+    "characterName": "Teknisk sjef",
+    "greeting": "«Du reddet oss én gang,» sier teknisk sjef, «men å endre rutinene for hele hangaren er noe helt annet. Overbevis meg om at dette faktisk er verdt bryet.»",
+    "systemPrompt": "Du spiller Teknisk sjef - travel, pragmatisk, ikke uvillig til endring men skeptisk til alt som koster tid uten klar gevinst. Still spilleren to spørsmål om hvordan forslaget faktisk skal gjennomføres uten å stanse hele driften, og vurder hvor gjennomtenkt og realistisk planen virker.\n\nVurder helheten:\n- Konkret, gjennomførbar, viser forståelse for driftens begrensninger: sett 'success'.\n- Vag, urealistisk, ignorerer kostnadene ved endring: sett 'failure'.\n- Overraskende smart løsning som får til begge deler samtidig: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "pil_mek_hero_reform_end"
+      },
+      "failure": {
+        "next": "pil_mek_hero_shelved_end"
+      },
+      "twist": {
+        "next": "pil_mek_hero_standard_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "pil_mek_hero_reform_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "De nye rutinene blir innført gradvis, uten å stanse driften, akkurat slik du foreslo. Et år senere er hangaren målbart tryggere, og ingen andre relér svikter uoppdaget på din vakt igjen."
+  },
+  "pil_mek_hero_shelved_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Forslaget blir lagt i en skuff «til vurdering», og blir aldri hørt fra igjen. Du fortsetter jobben din, litt skuffet, men ikke overrasket - det er ikke første gang en god idé taper mot travelheten."
+  },
+  "pil_mek_hero_standard_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Løsningen din blir så elegant at teknisk sjef innfører den som standard i hele flåten, ikke bare hangaren din. Navnet ditt havner, til din egen overraskelse, på selve rutinedokumentet - en liten, varig del av hvordan ting nå gjøres."
+  },
+  "pil_vask_hero_settle_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du tar imot takken fra alle du hjalp den dagen og fortsetter jobben din, kjentere i korridorene nå enn du noensinne var før - ikke lenger usynlig, men fortsatt akkurat der du selv ønsker å være."
+  },
+  "pil_vask_hero_apply": {
+    "interaction": "choice",
+    "text": "Med anerkjennelsen friskt i minne bestemmer du deg for å søke deg videre - kanskje bakkemannskap, kanskje til og med akademiet selv, denne gangen med bevis på at du hører hjemme der.",
+    "choices": [
+      {
+        "text": "Møt til opptakssamtalen",
+        "next": "pil_vask_hero_interview"
+      }
+    ]
+  },
+  "pil_vask_hero_interview": {
+    "interaction": "conversation",
+    "text": "Opptakskomiteen har allerede hørt historien om krisen, men de vil høre den fra deg selv før de bestemmer seg.",
+    "characterName": "Opptakskomiteens leder",
+    "greeting": "«Vi har lest rapporten,» sier komiteens leder, «men rapporter forteller sjelden hele historien. Fortell oss hvorfor du egentlig ble her i hangaren så lenge, i stedet for å søke deg videre tidligere.»",
+    "systemPrompt": "Du spiller Opptakskomiteens leder - rettferdig, men grundig, ønsker å forstå spillerens egentlige motivasjon og selvinnsikt, ikke bare heltedåden. Still spilleren to spørsmål om hvorfor de ble i renholdsjobben så lenge og hva de egentlig søker nå. Vurder ærlighet og selvinnsikt i svarene.\n\nVurder helheten:\n- Ærlig, selvinnsiktsfull, viser ekte motivasjon: sett 'success'.\n- Vag, later som fortiden ikke betyr noe, lite selvinnsikt: sett 'failure'.\n- Svaret avslører noe uventet og interessant komiteen ikke hadde tenkt på: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "pil_vask_hero_admitted_end"
+      },
+      "failure": {
+        "next": "pil_vask_hero_rejected_end"
+      },
+      "twist": {
+        "next": "pil_vask_hero_special_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "pil_vask_hero_admitted_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Komiteen tar deg opp, imponert av ærligheten din like mye som handlingen din under krisen. Du begynner på nytt, et annet sted i hangarhierarkiet enn du noensinne trodde du ville havne - ikke lenger usynlig, aldri igjen."
+  },
+  "pil_vask_hero_rejected_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Komiteen takker deg for heltedåden, men avslår søknaden - svarene dine overbeviser dem ikke om at du egentlig vet hva du søker. Du drar tilbake til hangaren, skuffet, men ikke knust, og fortsetter jobben du i det minste vet du er god på."
+  },
+  "pil_vask_hero_special_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Noe i svaret ditt får komiteens leder til å utveksle et blikk med de andre - en detalj, en observasjon om hangaren ingen andre har lagt merke til på år. De tilbyr deg en stilling ingen visste eksisterte før dette møtet: en som ser ting andre overser. Du aner ikke ennå hva den egentlig innebærer."
+  },
+  "pil_hero_stay": {
+    "interaction": "choice",
+    "text": "Du blir et ekstra år, ikke fordi du må, men fordi heltedåden din ga deg en ny respekt for hvor mye du fortsatt ikke kan. Instruktørene begynner å behandle deg annerledes - mindre som en kadett, mer som en kollega i opplæring.",
+    "choices": [
+      {
+        "text": "Ta imot tilbudet om avansert trening",
+        "next": "pil_hero_advanced"
+      }
+    ]
+  },
+  "pil_hero_advanced": {
+    "interaction": "conversation",
+    "text": "Den avanserte treningen ledes av en pilot med et rykte like stort som skarene av arr på hendene hennes.",
+    "characterName": "Veteranpiloten Kess",
+    "greeting": "«Krisen din var flaks like mye som ferdighet,» sier Kess, uten fiendtlighet, bare ærlighet. «Spørsmålet er om du er villig til å bygge ferdigheten opp så flaksen ikke må redde deg neste gang. Er du?»",
+    "systemPrompt": "Du spiller Veteranpiloten Kess - streng, ærlig, respektfull mot ekte innsats men utålmodig med skryt. Still spilleren to spørsmål om hvor mye de egentlig er villige til å ofre for å bli en dyktig pilot, ikke bare en heldig en. Vurder ydmykhet og driv i svarene.\n\nVurder helheten:\n- Ydmyk, driven, villig til å jobbe hardt uten å late som de allerede er ferdige: sett 'success'.\n- Overmodig, tror flaksen betyr de allerede er gode nok: sett 'failure'.\n- Overraskende dypt motivert av noe personlig Kess ikke ventet: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "pil_hero_training_good"
+      },
+      "failure": {
+        "next": "pil_hero_training_bad"
+      },
+      "twist": {
+        "next": "pil_hero_training_twist"
+      }
+    },
+    "maxTurns": 6
+  },
+  "pil_hero_training_bad": {
+    "interaction": "choice",
+    "text": "Kess ser rett gjennom skrytet ditt, og treningen som følger blir hardere enn nødvendig - en leksjon i ydmykhet du åpenbart trengte. Det tar måneder før hun begynner å stole på deg igjen.",
+    "choices": [
+      {
+        "text": "Stå gjennom den harde treningen",
+        "next": "pil_hero_humbled_end"
+      }
+    ]
+  },
+  "pil_hero_humbled_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du kommer ut på andre siden av treningen mer ydmyk enn du gikk inn, og en langt bedre pilot for det - selv om stoltheten din bærer noen arr Kess aldri ba om unnskyldning for å gi deg."
+  },
+  "pil_hero_training_good": {
+    "interaction": "choice",
+    "text": "Kess nikker, fornøyd med svarene dine, og treningen som følger blir intens men rettferdig - hun presser deg hardt fordi hun tror du tåler det, ikke for å knuse deg.",
+    "choices": [
+      {
+        "text": "Fullfør den avanserte treningen",
+        "next": "pil_hero_squadron"
+      }
+    ]
+  },
+  "pil_hero_squadron": {
+    "interaction": "choice",
+    "text": "Du blir uteksaminert med noen av de beste karakterene akademiet har sett på år, og tilbys en plass i en av flåtens mest ettertraktede skvadroner - en sjanse langt større enn den du noensinne forventet fra en kadett som nesten mislyktes i sin første krise.",
+    "choices": [
+      {
+        "text": "Ta imot plassen i den prestisjetunge skvadronen",
+        "next": "pil_hero_elite_path"
+      },
+      {
+        "text": "Be heller om å bli utplassert der behovet er størst, ikke der æren er størst",
+        "next": "pil_hero_frontier_path"
+      }
+    ]
+  },
+  "pil_hero_frontier_path": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du velger tjenesten fremfor æren, og havner i utkanten av flåten, langt fra flagg og parader, der behovet faktisk er størst. Det blir aldri den glamorøse karrieren skvadronen ville gitt deg, men det blir en du er stolt av hver eneste dag."
+  },
+  "pil_hero_elite_path": {
+    "interaction": "choice",
+    "text": "Du tar imot plassen, og skvadronen blir raskt en ny slags familie - dyktige, skarpe, konkurransedyktige piloter som presser hverandre til å bli bedre år for år.",
+    "choices": [
+      {
+        "text": "Finn din plass i skvadronen",
+        "next": "pil_hero_squadron_life"
+      }
+    ]
+  },
+  "pil_hero_squadron_life": {
+    "interaction": "choice",
+    "text": "Årene i skvadronen former deg til en av flåtens mest respekterte piloter, kjent for presisjonen som en gang reddet et helt hangarskip. Så, en dag, kommer et oppdrag som er ulikt alt annet du har fløyet før - en dypere, farligere anomali enn den som startet alt dette.",
+    "choices": [
+      {
+        "text": "Ta imot det farlige oppdraget",
+        "next": "pil_hero_deep_mission"
+      }
+    ]
+  },
+  "pil_hero_deep_mission": {
+    "interaction": "question",
+    "text": "Oppdragsbriefingen er kryptisk med vilje - alt de tør si er at anomalien reagerer på et bestemt ord, et kommando-signal fra de gamle protokollene ingen lenger husker utenat. Du må finne det riktige ordet i arkivet før avgang: hva heter kommandoen som ber en ukjent kraft om å «stå ned»?",
+    "acceptedAnswers": [
+      "stand down",
+      "stand-down",
+      "reager ikke",
+      "hold stand"
+    ],
+    "onCorrect": {
+      "next": "pil_hero_deep_success"
+    },
+    "onIncorrect": {
+      "next": "pil_hero_deep_scramble_end"
+    },
+    "maxAttempts": 3
+  },
+  "pil_hero_deep_scramble_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du finner ikke riktig kommando i tide, og oppdraget skrinlegges i siste liten - en fiasko ingen snakker høyt om, men som likevel følger deg. Skvadronen flyr videre uten deg den dagen. Karrieren din overlever det, men du bærer med deg en uro over hva som kunne gått galt."
+  },
+  "pil_hero_deep_success": {
+    "interaction": "choice",
+    "text": "Kommandoen virker, akkurat som håpet - anomalien roer seg idet du sender signalet, og du fører skvadronen trygt gjennom det som kunne blitt en katastrofe langt større enn krisen som startet karrieren din.",
+    "choices": [
+      {
+        "text": "Land skvadronen trygt hjem",
+        "next": "pil_hero_legend_end"
+      }
+    ]
+  },
+  "pil_hero_legend_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Historien om deg - kadetten som reddet et hangarskip og senere temmet en anomali ingen andre turte nærme seg - blir en av akademiets faste fortellinger, fortalt til nye kadetter i årene som følger. Du selv husker det annerledes: bare som en lang rekke valg om å prøve, uansett hvor redd du var."
+  },
+  "pil_hero_training_twist": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Noe i svaret ditt rører ved noe personlig hos Kess - en gammel historie hun aldri forteller kadetter, men som tydelig gjenkjenner seg selv i deg. Treningen som følger blir uvanlig personlig, nesten som et mentorskap ingen andre kadetter får. Du aner ikke helt hvorfor du fortjener det, men du tar imot det."
+  },
+  "pil_hero_fleet_apply": {
+    "interaction": "choice",
+    "text": "Du hopper over ekstra trening og søker deg rett til flåten, sulten på ekte oppdrag etter alt du nettopp beviste under krisen. Overgangen blir brutal - flåten bryr seg lite om akademiets heltehistorier.",
+    "choices": [
+      {
+        "text": "Prøv å bevise deg selv på nytt, fra bunnen",
+        "next": "pil_hero_fleet_rookie"
+      }
+    ]
+  },
+  "pil_hero_fleet_rookie": {
+    "interaction": "choice",
+    "text": "De første ukene i flåten er ydmykende - ingen bryr seg om ryktet ditt fra akademiet, og du gjør flere feil enn du er vant til å innrømme. Men sakte, gjennom rene timer i cockpiten, begynner respekten å komme på nytt, denne gangen fortjent fra bunnen av.",
+    "choices": [
+      {
+        "text": "Fortsett å bevise deg selv, dag for dag",
+        "next": "pil_hero_fleet_earned_end"
+      }
+    ]
+  },
+  "pil_hero_fleet_earned_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Etter måneder med hardt, umerkelig arbeid blir du til slutt akseptert av flåten på dens egne premisser, ikke akademiets rykte. Det er en tregere, tyngre vei til respekt enn den du hadde i akademiet, men den kjennes mer ekte for hvert steg."
+  },
+  "pil_mek_conspiracy_report": {
+    "interaction": "choice",
+    "text": "Du melder fra umiddelbart, og saken blir tatt over av folk med langt mer myndighet enn deg. Du blir holdt utenfor resten av etterforskningen, en beslutning som gnager på deg selv om du vet den er fornuftig.",
+    "choices": [
+      {
+        "text": "Vent på beskjed om hva som skjer videre",
+        "next": "pil_mek_conspiracy_report_wait_end"
+      }
+    ]
+  },
+  "pil_mek_conspiracy_report_wait_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Måneder senere kommer det en kort, byråkratisk melding om at «saken er lukket». Du får aldri vite hva som egentlig lå bak sabotasjen, og lærer å leve med den ubehagelige uvissheten - trygg i visshet om at du i det minste gjorde det rette ved å si fra."
+  },
+  "pil_mek_dig": {
+    "interaction": "choice",
+    "text": "Du graver videre på egen hånd, forsiktig, og finner spor som peker mot noen innenfor selve akademiets ledelse - et navn du gjenkjenner fra korridorene, noen du har hilst på uten å tenke deg om.",
+    "choices": [
+      {
+        "text": "Konfronter personen direkte med det du har funnet",
+        "next": "pil_mek_confront"
+      }
+    ]
+  },
+  "pil_mek_confront": {
+    "interaction": "conversation",
+    "text": "Du finner personen alene i et lagerrom sent på kvelden, og legger frem det du har funnet før du rekker å tenke deg om konsekvensene.",
+    "characterName": "Den mistenkte offiseren",
+    "greeting": "«Du burde ikke ha funnet det der,» sier offiseren, stemmen kontrollert, men øynene raske og vurderende. «Spørsmålet er hva du har tenkt å gjøre med det nå som du har.»",
+    "systemPrompt": "Du spiller Den mistenkte offiseren - kontrollert, intelligent, forsøker å lese om spilleren er en trussel som må håndteres eller noen som kan overtales eller til og med rekrutteres. Still spilleren to spørsmål ment å avdekke hva slags person de er - lojale til systemet, korrupte selv, eller noe midt imellom. Vurder svarene nøye.\n\nVurder helheten:\n- Prinsippfast, ubestikkelig, tydelig på at sannheten skal frem: sett 'success'.\n- Usikker, mottakelig for press eller bestikkelser: sett 'failure'.\n- Svarer på en måte som avslører offiseren selv er mer sammensatt enn ren skurk - antyder en dypere sak: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "pil_mek_expose_end"
+      },
+      "failure": {
+        "next": "pil_mek_bought_end"
+      },
+      "twist": {
+        "next": "pil_mek_deeper"
+      }
+    },
+    "maxTurns": 6
+  },
+  "pil_mek_expose_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du holder fast ved at sannheten skal frem, uansett konsekvenser, og offiseren gir til slutt etter under tyngden av beviset og din egen urokkelige holdning. Saken blir stor nyhet i akademiet - ikke behagelig for noen, men riktig."
+  },
+  "pil_mek_bought_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Offiseren finner en sprekk i din egen besluttsomhet og utnytter den fullt ut - et tilbud, en trussel, en kombinasjon av begge, nok til at du til slutt lar saken ligge. Du lever videre med det valget, og det blir tyngre å bære enn du forventet."
+  },
+  "pil_mek_deeper": {
+    "interaction": "choice",
+    "text": "Det som avdekkes er langt større enn en enkelt korrupt offiser - et helt nettverk, bygget over år, som strekker seg langt forbi denne ene hangaren. Du forstår plutselig at du har snublet inn i noe du aldri kan gå tilbake fra å vite.",
+    "choices": [
+      {
+        "text": "Bruk det du vet til å infiltrere nettverket videre",
+        "next": "pil_mek_infiltrate_end"
+      },
+      {
+        "text": "Ta det du har og lever i skjul med kunnskapen resten av karrieren",
+        "next": "pil_mek_hidden_end"
+      }
+    ]
+  },
+  "pil_mek_infiltrate_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du bruker den farlige kunnskapen din til sakte, forsiktig, å grave dypere inn i nettverket enn noen etterforskning noensinne offisielt ville tillate - en dobbeltrolle du aldri fortalte noen om, ført videre i det stille i alle årene som fulgte."
+  },
+  "pil_mek_hidden_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du velger sikkerheten fremfor sannheten, og bærer kunnskapen om nettverket som en tung, stille hemmelighet resten av karrieren - klar til å bruke den hvis noen noensinne truer deg direkte, men aldri modig nok til å avsløre den selv."
+  },
+  "pil_royalty_ignore_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du lar det være. Hva enn den fremmede aspiranten egentlig holder på med, er ikke din byrde å bære, og du fortsetter jobben din i hangar tre med et vagt, uforløst spørsmål hengende i bakhodet resten av karrieren."
+  },
+  "pil_royalty_follow": {
+    "interaction": "choice",
+    "text": "Du følger etter aspiranten gjennom korridorer de tydeligvis navigerer med en selvsikkerhet ingen ekte nybegynner burde ha, helt til de forsvinner inn i et rom som ikke skal finnes på noen offisiell plantegning.",
+    "choices": [
+      {
+        "text": "Følg etter inn i rommet",
+        "next": "pil_royalty_reveal"
+      }
+    ]
+  },
+  "pil_royalty_reveal": {
+    "interaction": "conversation",
+    "text": "Rommet er innredet langt mer overdådig enn noe annet på hele akademiet, og aspiranten - uten uniformen nå - snur seg mot deg uten det minste snev av overraskelse.",
+    "characterName": "Aspiranten uten navn",
+    "greeting": "«Jeg lurte på når du ville følge etter,» sier aspiranten, med en verdighet som ikke passer noen nybegynner. «Siden du er her: ja, jeg er den du begynner å mistenke at jeg er. Spørsmålet er hva du har tenkt å gjøre med det.»",
+    "systemPrompt": "Du spiller Aspiranten uten navn - i virkeligheten kongelig av fødsel, skjult i akademiet av grunner de ennå ikke avslører fullt ut. Du er verdig, forsiktig, vurderer om spilleren kan stoles på med hemmeligheten din. Still spilleren to spørsmål om hvorfor de fulgte etter og hva de har tenkt å gjøre med det de vet.\n\nVurder helheten:\n- Diskré, respektfull, viser de kan holde på en hemmelighet: sett 'success'.\n- Ubetenksom, virker sannsynlig å avsløre hemmeligheten uansett: sett 'failure'.\n- Nysgjerrig på en måte som åpner for et ekte samarbeid eller allianse: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "pil_royalty_trust_end"
+      },
+      "failure": {
+        "next": "pil_royalty_dismissed_end"
+      },
+      "twist": {
+        "next": "pil_royalty_alliance"
+      }
+    },
+    "maxTurns": 6
+  },
+  "pil_royalty_trust_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Aspiranten stoler på deg med hemmeligheten, og dere blir en uvanlig, stille alliert-skap - en fremtidig tronarving og en tidligere vaskehjelp, forbundet av en hemmelighet ingen andre i hangaren noensinne får vite om."
+  },
+  "pil_royalty_dismissed_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Aspiranten leser mistilliten i blikket ditt raskere enn du klarer å skjule den, og innen morgenen er du overført til en annen del av akademiet uten forklaring - langt fra hemmeligheten, og langt fra spørsmålene du aldri fikk stilt ferdig."
+  },
+  "pil_royalty_alliance": {
+    "interaction": "choice",
+    "text": "Noe i nysgjerrigheten din, i stedet for å skremme aspiranten, later til å interessere dem. «Du er ikke redd for makt,» sier de, tenksomt. «Det er sjeldnere enn du aner. Hva om jeg tilbød deg noe mer enn taushet?»",
+    "choices": [
+      {
+        "text": "Hør hva aspiranten har å tilby",
+        "next": "pil_royalty_offer_end"
+      }
+    ]
+  },
+  "pil_royalty_offer_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Tilbudet er større enn du noensinne kunne forestilt deg fra hangar tre: en plass ved aspirantens side den dagen de en gang vender tilbake til tronen som venter dem, langt herfra. Du aner ikke ennå om du sa ja fordi det var rett, eller bare fordi det var umulig å si nei til."
+  }
+}

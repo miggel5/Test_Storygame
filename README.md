@@ -5,19 +5,42 @@ Et interaktivt fortellingsspill med dialog og valg. Frontend i React/TypeScript,
 ## Struktur
 
 ```
+content/    Kilden til historien (scener og pikselkunst) - det du redigerer.
 frontend/   React + TypeScript (Vite). Selve spillet kjører her.
-backend/    FastAPI. Valgfri å bruke - spillet lagrer lokalt (localStorage) uten den.
+backend/    FastAPI. Samtalene (LLM) krever den; lagring av fremgang skjer lokalt (localStorage).
 ```
 
 ### Historieformat
 
-Historien er data (JSON), ikke kode. Se [`frontend/src/story/example.json`](frontend/src/story/example.json) og typene i [`frontend/src/types/story.ts`](frontend/src/types/story.ts).
+Historien er data (JSON), ikke kode. Typene ligger i [`frontend/src/types/story.ts`](frontend/src/types/story.ts).
+
+```
+content/meta.json             tittel og startscene
+content/scenes/<spor>.json    scener for ett spor, pent formatert (lesbare git-diff)
+content/art/<spor>.json       pikselkunst for samme spor, én scene per linje (RLE-kodet)
+```
+
+Sporet en scene hører til bestemmes av id-prefikset (se `TRACK_PREFIXES` i [`frontend/scripts/storyBuild.ts`](frontend/scripts/storyBuild.ts)); scener uten kjent prefiks ligger i `intro.json`.
 
 Hver scene har en tekst og en liste med valg. Et valg kan:
 - sette flagg (`setFlags`) som huskes resten av spillet
 - kreve at et flagg har en bestemt verdi for å vises (`condition`)
 
 Dette gir forgrenede historier med minne ("spilleren husker valget fra tidligere") uten noe eget scriptspråk.
+
+Samtalescener har en `systemPrompt` i kilden. Den havner **ikke** i frontend-bundelen: `build-story` flytter den til `backend/app/conversations.json`, og klienten sender bare scene-id.
+
+#### Arbeidsflyt for historien
+
+Kjøres fra `frontend/`:
+
+```bash
+npm run validate-story   # sjekker lenker, flagg, softlock, kunst og gren-statistikk
+npm run build-story      # genererer frontend/src/story/story.generated.json og backend/app/conversations.json
+npm run verify           # validate + at genererte filer er oppdatert + lint + typecheck
+```
+
+De genererte filene skal committes (Vercel og Render bygger uten `content/`). Nye bilder lages med hjelperne i `frontend/scripts/pixelArtHelpers.ts`; `buildSpec` gir ferdig kodet kunst du legger i `content/art/<spor>.json`.
 
 ## Kom i gang
 
@@ -54,7 +77,7 @@ Lagringer ligger i `backend/data/saves.json` (en enkel fil-database for å komme
 
 ### Passordbeskyttelse
 
-Backend krever HTTP Basic Auth på `/api/save` og `/api/conversation` hvis `APP_PASSWORD` er satt i `backend/.env`. Er den tom, er det ingen sperre (praktisk lokalt). Frontend spør om passord ved oppstart og husker det i fanen (sessionStorage) resten av økten.
+Backend krever HTTP Basic Auth på `/api/save` og `/api/conversation` hvis `APP_PASSWORD` er satt i `backend/.env`. Er den tom, er det ingen sperre (praktisk lokalt) - **sett alltid passord i produksjon**, ellers kan hvem som helst bruke API-nøkkelen din via samtale-endepunktet. Brukernavn er `spiller` som standard (`APP_USERNAME`; sett `VITE_APP_USERNAME` i frontend hvis du bytter). Passord kan inneholde æøå. Frontend spør om passord ved oppstart og husker det i fanen (sessionStorage) resten av økten.
 
 ## Deploy (gratis)
 

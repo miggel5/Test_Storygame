@@ -67,15 +67,28 @@ export function isAnswerCorrect(scene: QuestionScene, rawInput: string): boolean
   return scene.acceptedAnswers.some((answer) => normalizeAnswer(answer) === normalized);
 }
 
+/**
+ * - `correct`: took `onCorrect`.
+ * - `retry`: wrong, but attempts remain (`maxAttempts`); state is unchanged.
+ * - `failed`: wrong with no attempts left (or no `maxAttempts`, where every miss counts); took `onIncorrect`,
+ *   which may point back at this same scene for another round.
+ */
+export type AnswerResult = "correct" | "retry" | "failed";
+
 export function submitAnswer(
   state: GameState,
   scene: QuestionScene,
   rawInput: string,
+  attemptsSoFar = 0,
   rng?: () => number
-): { state: GameState; correct: boolean } {
-  const correct = isAnswerCorrect(scene, rawInput);
-  const nextState = applyTransition(state, correct ? scene.onCorrect : scene.onIncorrect, rng);
-  return { state: nextState, correct };
+): { state: GameState; result: AnswerResult } {
+  if (isAnswerCorrect(scene, rawInput)) {
+    return { state: applyTransition(state, scene.onCorrect, rng), result: "correct" };
+  }
+  if (scene.maxAttempts !== undefined && attemptsSoFar + 1 < scene.maxAttempts) {
+    return { state, result: "retry" };
+  }
+  return { state: applyTransition(state, scene.onIncorrect, rng), result: "failed" };
 }
 
 export function resolveConversationOutcome(

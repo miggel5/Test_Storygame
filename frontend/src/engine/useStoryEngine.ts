@@ -1,54 +1,48 @@
 import { useCallback, useEffect, useState } from "react";
 import type { Choice, ConversationOutcome, ConversationScene, QuestionScene, Story } from "../types/story";
+import { loadSavedState, persistState } from "./saveState";
 import {
   applyTransition,
   createInitialState,
   resolveConversationOutcome,
   submitAnswer,
+  type AnswerResult,
   type GameState,
 } from "./storyEngine";
 
-const SAVE_KEY = "storygame:save";
-
-function loadSavedState(): GameState | null {
-  try {
-    const raw = localStorage.getItem(SAVE_KEY);
-    return raw ? (JSON.parse(raw) as GameState) : null;
-  } catch {
-    return null;
-  }
-}
-
-function persistState(state: GameState) {
-  try {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(state));
-  } catch {
-    // localStorage utilgjengelig (f.eks. privat nettlesing) - ignorer stille
-  }
+/**
+ * One random roll per player action, taken outside the state updater: updaters must be pure
+ * (React may run them twice), so the roll is fixed up front and reused if that happens.
+ */
+function fixedRoll(): () => number {
+  const roll = Math.random();
+  return () => roll;
 }
 
 export function useStoryEngine(story: Story) {
-  const [state, setState] = useState<GameState>(() => loadSavedState() ?? createInitialState(story));
+  const [state, setState] = useState<GameState>(() => loadSavedState(story) ?? createInitialState(story));
 
   useEffect(() => {
     persistState(state);
   }, [state]);
 
   const choose = useCallback((choice: Choice) => {
-    setState((prev) => applyTransition(prev, choice));
+    const rng = fixedRoll();
+    setState((prev) => applyTransition(prev, choice, rng));
   }, []);
 
   const answerQuestion = useCallback(
-    (scene: QuestionScene, rawInput: string) => {
-      const { state: next, correct } = submitAnswer(state, scene, rawInput);
-      setState(next);
-      return correct;
+    (scene: QuestionScene, rawInput: string, attemptsSoFar: number): AnswerResult => {
+      const { state: next, result } = submitAnswer(state, scene, rawInput, attemptsSoFar, fixedRoll());
+      if (result !== "retry") setState(next);
+      return result;
     },
     [state]
   );
 
   const resolveConversation = useCallback((scene: ConversationScene, outcome: ConversationOutcome) => {
-    setState((prev) => resolveConversationOutcome(prev, scene, outcome));
+    const rng = fixedRoll();
+    setState((prev) => resolveConversationOutcome(prev, scene, outcome, rng));
   }, []);
 
   const restart = useCallback(() => {

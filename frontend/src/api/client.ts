@@ -1,5 +1,5 @@
 import type { ConversationOutcome } from "../types/story";
-import { getAuthHeader } from "./auth";
+import { clearAuthHeader, getAuthHeader } from "./auth";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8001";
 
@@ -8,10 +8,9 @@ export interface ConversationMessage {
   text: string;
 }
 
+/** The character's prompt lives on the server, so a turn is identified by scene id alone. */
 export interface ConversationTurnRequest {
   sceneId: string;
-  characterName: string;
-  systemPrompt: string;
   history: ConversationMessage[];
   message: string;
 }
@@ -40,8 +39,6 @@ export async function postConversationTurn(req: ConversationTurnRequest): Promis
       },
       body: JSON.stringify({
         scene_id: req.sceneId,
-        character_name: req.characterName,
-        system_prompt: req.systemPrompt,
         history: req.history.map((m) => ({ role: m.role, text: m.text })),
         message: req.message,
       }),
@@ -53,10 +50,17 @@ export async function postConversationTurn(req: ConversationTurnRequest): Promis
   }
 
   if (!response.ok) {
+    if (response.status === 401) {
+      clearAuthHeader();
+      throw new ConversationUnavailableError("Innloggingen er utløpt. Last siden på nytt og skriv inn passordet igjen.");
+    }
     if (response.status === 503) {
       throw new ConversationUnavailableError(
         "Denne questen krever en backend som er satt opp med en API-nøkkel, men det mangler akkurat nå."
       );
+    }
+    if (response.status === 429) {
+      throw new ConversationUnavailableError("Karakteren trenger en pause. Prøv igjen om litt.");
     }
     throw new ConversationUnavailableError("Karakteren svarer ikke akkurat nå. Prøv igjen om litt.");
   }

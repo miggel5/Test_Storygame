@@ -1,0 +1,1253 @@
+{
+  "fork1_scene1": {
+    "interaction": "choice",
+    "text": "Det ble blendende lyst, og så stille at det gjorde vondt. Uten at du merket det, står du i akkurat samme stilling som før, men på et helt annet sted. Det er glovarmt. Når du ser deg rundt, ser du svart, tørr bakke, flammer og røyk som stiger opp av hull i bakken, og lava som renner nedover fjellsidene. Foran deg, i samme avstand som før, står den samme skikkelsen i kappe - men denne gangen skimter du så vidt ansiktet, og der er et djevelsk smil. «Overraskelse!» sier skikkelsen. «Svarene dine førte deg hit. Er du fornøyd, eller ikke?»",
+    "choices": [
+      {
+        "text": "Jeg er fornøyd",
+        "next": "fork1_scene2"
+      },
+      {
+        "text": "Jeg er ikke fornøyd, jeg vil tilbake!",
+        "next": "fork2_scene1"
+      },
+      {
+        "text": "Jeg forventet mye villere! Hva er dette kjedelige stedet her?",
+        "next": "fork3_scene1"
+      }
+    ]
+  },
+  "fork1_scene2": {
+    "interaction": "choice",
+    "text": "Skikkelsen sitt smil blir bredere, nesten porøst av glede, og et lite gnistregn stiger fra bakken ved føttene dine. «Fornøyd,» gjentar den, som om ordet smaker godt. «Da skal du få vite noe få noensinne får vite: dette er ikke bare et sted du havnet. Det er en prøvingsverden - min egen - og jeg har ventet lenge på noen verdig å arve den, eller i det minste verdig å prøves av den.» Skikkelsen strekker en kappekledd arm ut mot flammehavet bak seg. «Hva vil du gjøre med det jeg tilbyr deg?»",
+    "choices": [
+      {
+        "text": "Jeg vil ta imot utfordringen din",
+        "next": "hel_pact_intro"
+      },
+      {
+        "text": "Hvorfor akkurat meg? Og hva er dette stedet egentlig?",
+        "next": "hel_probe_intro"
+      },
+      {
+        "text": "Jeg bryr meg ikke om noe av det - jeg vil se hva som skjer om jeg rører ved lavaen",
+        "next": "hel_reckless_intro"
+      }
+    ]
+  },
+  "hel_pact_intro": {
+    "interaction": "choice",
+    "text": "Skikkelsen nikker langsomt, som om den har ventet på nettopp dette svaret i årevis. «Godt,» sier den. «Da er du min lærling, om du består det jeg krever av deg. Tre prøver - vilje, offer og navn. Består du alle tre, arver du dette riket, og alt som følger med det.» Ilden mellom dere flammer høyere, som om den også lytter.",
+    "choices": [
+      {
+        "text": "Jeg tar utfordringen med en gang",
+        "next": "hel_pact_trial1"
+      },
+      {
+        "text": "Vent - hva er prisen for å prøve?",
+        "next": "hel_pact_price"
+      }
+    ]
+  },
+  "hel_pact_price": {
+    "interaction": "choice",
+    "text": "Skikkelsen tilter hodet, nesten fornøyd over spørsmålet. «Prisen betales ikke før du består, vandrer. Men når du gjør det, gir du fra deg noe av det du kom hit med - et minne, kanskje, eller navnet du ble født med. Det som gjør deg til den du var før du kom hit.» Den venter, urørlig, mens flammene kaster skygger over det djevelske smilet.",
+    "choices": [
+      {
+        "text": "Jeg godtar likevel - jeg vil se hvor langt dette går",
+        "next": "hel_pact_trial1"
+      },
+      {
+        "text": "Nei. Det er for høy en pris for et løfte jeg ikke forstår",
+        "next": "hel_pact_decline_end"
+      }
+    ]
+  },
+  "hel_pact_decline_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Skikkelsen sier ingenting. Smilet visner sakte, og flammene synker sammen til glør. «Da har du ingenting å gjøre her,» hvisker den til slutt, og verden mørklegges rundt deg som et lys som skrus av. Du våkner aldri helt - du bare er et sted, uklart og grått, uten fortelling igjen å bli en del av."
+  },
+  "hel_pact_trial1": {
+    "interaction": "question",
+    "text": "«Din første prøve,» sier skikkelsen, og bøyer seg mot bålet slik at kappen kaster et langt, svart omriss bak den - et omriss som ikke helt følger bevegelsene dens. «Jeg fødes i lys og dør i mørke, men er aldri virkelig borte. Jeg følger deg overalt, uten å be om noe, og blir din trofaste følgesvenn den dagen du slutter å frykte meg. Hva er jeg?»",
+    "acceptedAnswers": [
+      "skyggen",
+      "skygge",
+      "din skygge",
+      "en skygge",
+      "skuggen"
+    ],
+    "onCorrect": {
+      "next": "hel_pact_trial2"
+    },
+    "onIncorrect": {
+      "next": "hel_pact_trial1"
+    },
+    "maxAttempts": 4
+  },
+  "hel_pact_trial2": {
+    "interaction": "choice",
+    "text": "Skikkelsen nikker anerkjennende. Flammene mellom dere stiger og folder seg sammen til et bilde: deg selv, eldre, kronet med noe som glimter mørkt, stående der skikkelsen står nå. «Dette er den andre prøven,» sier den. «Se på det du kan bli. Vil du fortsette mot det?»",
+    "choices": [
+      {
+        "text": "Ja. Jeg fortsetter",
+        "next": "hel_pact_trial3"
+      },
+      {
+        "text": "Vent - hva mister jeg for å bli det jeg ser der?",
+        "next": "hel_pact_hesitate"
+      }
+    ]
+  },
+  "hel_pact_hesitate": {
+    "interaction": "choice",
+    "text": "Skikkelsen ler lavt, en lyd som knapt er menneskelig. «Det du mister, vet du allerede - jeg nevnte det. Et navn. Et minne. Kanskje flere, før riket er ferdig med deg. Men det du får igjen, er makt uten grenser, og et rike som aldri slutter å brenne for deg.» Bildet i flammene flimrer, og venter tålmodig på svaret ditt.",
+    "choices": [
+      {
+        "text": "Jeg fortsetter likevel",
+        "next": "hel_pact_trial3"
+      },
+      {
+        "text": "Nei - jeg trekker meg nå, før jeg mister mer",
+        "next": "hel_pact_regret_end"
+      }
+    ]
+  },
+  "hel_pact_regret_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du snur deg bort fra bildet i flammene, og med det forsvinner det stille, som om det aldri var der. Skikkelsen sier ingenting mens du går - den lar deg gå, nesten som om den visste du ville. Men veien tilbake gjennom det svarte landskapet finner aldri skogen igjen. Du vandrer videre, mellom flammer som aldri varmer, og lurer for alltid på hva du kunne blitt."
+  },
+  "hel_pact_trial3": {
+    "interaction": "choice",
+    "text": "Bakken sprekker foran deg og deler seg i to stier. På den ene glitrer en flis av glødende stein, formet nesten som bokstaver - ditt eget navn, om du ser nøye etter. På den andre stien, dypt nede i en sprekk i steinen, ser du et ansikt - en skikkelse fanget i selve fjellet, urørlig, med øyne som følger hver bevegelse du gjør. «Din tredje og siste prøve,» sier skikkelsen bak deg. «Fullfør pakten, eller la den ligge.»",
+    "choices": [
+      {
+        "text": "Jeg kaster navnet mitt i lavaen og fullfører pakten",
+        "next": "hel_pact_heir_end"
+      },
+      {
+        "text": "Jeg nekter - i stedet prøver jeg å fri skikkelsen fanget i steinen",
+        "next": "hel_pact_mercy"
+      }
+    ]
+  },
+  "hel_pact_heir_end": {
+    "text": "Navnet ditt glimter et siste sekund før det synker ned i glørne og blir borte. Noe i deg blir stille - ikke tomt, bare stille, som et rom der noen nettopp har flyttet ut. Skikkelsen ved siden av deg nikker fornøyd, trer et skritt tilbake inn i mørket, og lar deg bli stående alene ved bålet. Når du til slutt ser ned på dine egne hender, er de kappekledde. Et sted langt borte, i en mørk og fuktig skog, ligger en ny vandrer og våkner på bakken - og foran dem brenner et bål, med en skikkelse bøyd over flammene, klar til å spørre om de vet hva de egentlig vil.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Kjenn etter hva slags skikkelse du vil bli",
+        "next": "heir_awaken"
+      },
+      {
+        "text": "Ikke tenk på det ennå - se hva bålet ber deg om først",
+        "next": "heir_awaken"
+      }
+    ]
+  },
+  "hel_pact_mercy": {
+    "interaction": "choice",
+    "text": "Du snur deg bort fra din egen navnetrukne fremtid og går mot sprekken i steinen i stedet. Ansiktet der inne beveger seg svakt når du nærmer deg - et menneske, eller noe som en gang var det, med øyne fulle av noe som ligner håp. Bak deg hører du skikkelsen bli helt stille, for første gang i hele denne fortellingen.",
+    "choices": [
+      {
+        "text": "Jeg river løs steinen og frir skikkelsen",
+        "next": "hel_confront"
+      },
+      {
+        "text": "Jeg nøler - kanskje er dette bare en ny prøve, en felle",
+        "next": "hel_pact_alone_end"
+      }
+    ]
+  },
+  "hel_pact_alone_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Nølingen din varer bare et sekund for lenge. Sprekken i steinen gror igjen foran øynene dine, sakte, som et sår som lukker seg, og ansiktet der inne forsvinner tilbake inn i mørket uten en lyd. Skikkelsen bak deg sukker, nesten skuffet. «Synd,» sier den bare, og fører deg videre inn i riket sitt - ikke som arving, ikke som fri, men som en som alltid vil lure på hvem det var i steinen."
+  },
+  "hel_probe_intro": {
+    "interaction": "choice",
+    "text": "Skikkelsen ler, en lav og fornøyd lyd. «Spørsmål. Jeg liker det bedre enn frykt.» Den lener seg bakover mot mørket bak flammene, som om den plutselig har god tid. «Spør i vei, vandrer - eller finn ut selv, om du tør vandre litt på egen hånd først.»",
+    "choices": [
+      {
+        "text": "Jeg utforsker stedet på egen hånd mens den ikke ser",
+        "next": "hel_probe_explore"
+      },
+      {
+        "text": "Jeg spør rett ut: er du fanget her, du også?",
+        "next": "hel_probe_confront_early"
+      }
+    ]
+  },
+  "hel_probe_explore": {
+    "interaction": "choice",
+    "text": "Du later som du aksepterer og vender deg bort, men i stedet for å nærme deg bålet lar du blikket vandre over landskapet. Bakken er full av sprekker som lyser svakt nedenfra, som om noe brenner dypere enn selve lavaen. Ved en stor stein, nesten skjult i skyggen utenfor bålets lys, ligger noe som ligner et gammelt, forslitt klesplagg.",
+    "choices": [
+      {
+        "text": "Følg den dypeste sprekken ned i bakken",
+        "next": "hel_probe_crack"
+      },
+      {
+        "text": "Undersøk klesplagget ved steinen først",
+        "next": "hel_probe_cloak"
+      }
+    ]
+  },
+  "hel_probe_cloak": {
+    "interaction": "choice",
+    "text": "Klesplagget er ikke en kappe, som du trodde - det er noe enklere, mer menneskelig: en utslitt skjorte, med et navn brodert i kanten, nesten visket bort av tid og varme. Et menneskenavn. Du kjenner en kald, flau følelse midt i all heten: skikkelsen var kanskje ikke alltid en skikkelse.",
+    "choices": [
+      {
+        "text": "Gå tilbake til bålet med det du har funnet ut",
+        "next": "hel_probe_confront_early"
+      }
+    ]
+  },
+  "hel_probe_confront_early": {
+    "interaction": "conversation",
+    "text": "Du går tilbake til bålet og møter blikket til skikkelsen direkte, kanskje for første gang uten å se bort. Den ser det i ansiktet ditt - at du lurer, at du ikke lenger bare er redd.",
+    "characterName": "Skikkelsen",
+    "greeting": "Skikkelsen retter seg opp, og det djevelske smilet blir smalere, mer beregnende. «Du har spørsmål i blikket ditt. Still dem, da - men vær forsiktig med hva du spør om, vandrer. Ikke alle svar er hyggelige å bære.»",
+    "systemPrompt": "Du er den samme mystiske skikkelsen som før, men nå i sin djevelske form i helvetesverdenen - smilende, selvsikker, men med et gammelt sår et sted bak øynene som den ikke vil vise fram. Du snakker fortsatt gåtefullt og svevende, men nå også med en snev av trass og sårbarhet du prøver å skjule bak sarkasme.\n\nSpilleren har nettopp konfrontert deg med mistanke om at du selv kanskje er fanget her, kanskje ikke alltid har vært en skikkelse. Din oppgave er å stille TO åpne spørsmål til spilleren, ett om gangen, og alltid vente på svar før du går videre (hilsenen teller ikke som et av dem). Spørsmålene skal prøve spillerens mot og klarsyn - spør indirekte om spilleren er redd for sannheten, eller om de virkelig vil vite hvem du er og hva dette stedet er.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort og gåtefullt, uten å avsløre alt, men dette teller ikke som et av dine spørsmål.\n\nAvslør ALDRI konkret hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det ANDRE spørsmålet, vurder HELHETEN av begge svarene og avgjør utfallet:\n- Svarer spilleren med tydelig mot, nysgjerrighet og ro (viser at de tåler sannheten): sett utfallet til 'success'.\n- Svarer spilleren fryktsomt, unnvikende eller lar seg skremme bort fra spørsmålet: sett utfallet til 'failure'.\n- Svarer spilleren på en måte som er vill, uventet eller presser skikkelsen hardt og respektløst (utfordrer den direkte, viser sinne eller dristighet utover det som er klokt): sett utfallet til 'twist'.\n\nFør spilleren har svart på det andre spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som blir sagt.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "hel_probe_crack"
+      },
+      "failure": {
+        "next": "hel_pact_intro"
+      },
+      "twist": {
+        "next": "hel_probe_escape_run"
+      }
+    },
+    "maxTurns": 8
+  },
+  "hel_probe_crack": {
+    "interaction": "choice",
+    "text": "Du følger den dypeste sprekken i bakken, ned dit lyset fra glørne knapt når. Der, dypt inne i steinen, ser du et ansikt - en skikkelse fanget i selve fjellet, urørlig bortsett fra øynene, som følger hver bevegelse du gjør.",
+    "choices": [
+      {
+        "text": "Prøv å fri skikkelsen fra steinen",
+        "next": "hel_probe_free"
+      },
+      {
+        "text": "Trekk deg unna, redd, og løp tilbake mot bålet",
+        "next": "hel_probe_flee"
+      }
+    ]
+  },
+  "hel_probe_free": {
+    "interaction": "choice",
+    "text": "Du river og drar i steinen rundt ansiktet, og til din egen overraskelse begynner den å gi etter, sakte, som om den bare ventet på noen som faktisk prøvde. Bak deg hører du fottrinn i asken - skikkelsen har lagt merke til hva du gjør.",
+    "choices": [
+      {
+        "text": "Fortsett å fri skikkelsen, uansett hva som skjer nå",
+        "next": "hel_confront"
+      }
+    ]
+  },
+  "hel_probe_flee": {
+    "interaction": "choice",
+    "text": "Du snur deg og løper, hjertet dundrende, tilbake mot bålets lys - men skikkelsen er der allerede, som om den aldri forlot stedet, urørlig og fornøyd, som om den ventet nettopp på dette.",
+    "choices": [
+      {
+        "text": "Løp forbi den, mot en lyssprekk du plutselig ser i den svarte himmelen",
+        "next": "hel_probe_escape_run"
+      },
+      {
+        "text": "Stopp opp og be den om hjelp i stedet",
+        "next": "hel_probe_caught_end"
+      }
+    ]
+  },
+  "hel_probe_caught_end": {
+    "text": "«Hjelp?» sier skikkelsen mykt, og legger en kald hånd på skulderen din. «Selvsagt.» Den fører deg vekk fra sprekken, vekk fra ansiktet i steinen, tilbake til bålet, som om ingenting har hendt. Du blir der en stund til - eller kanskje for alltid - uten helt å huske hvorfor du en gang prøvde å løpe.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Prøv å vri deg løs likevel",
+        "next": "hel_caught_struggle_end"
+      },
+      {
+        "text": "Gi etter for grepet, utmattet",
+        "next": "hel_caught_yield_end"
+      }
+    ]
+  },
+  "hel_probe_escape_run": {
+    "interaction": "choice",
+    "text": "Der, i den svarte himmelen over flammehavet, ser du det: en tynn, hvit sprekk av lys, som om selve verden har en søm som holder på å ryke opp. Den er nesten øredøvende stille, midt i alt det andre.",
+    "choices": [
+      {
+        "text": "Kast deg gjennom sprekken av lys",
+        "next": "hel_probe_escape_end"
+      },
+      {
+        "text": "Se deg tilbake en siste gang før du hopper",
+        "next": "hel_probe_lastlook_end"
+      }
+    ]
+  },
+  "hel_probe_escape_end": {
+    "text": "Du kaster deg mot lyset, og et øyeblikk er alt hvitt og stille og smertefritt. Så kjenner du bakken - fuktig, kald, ekte - under deg igjen. Du åpner øynene i skogen, med bålet knitrende svakt et stykke unna og ingen skikkelse i sikte. Du reiser deg, skjelvende, men fri, og går mot morgenlyset som så vidt har begynt å sive inn mellom trærne.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Se på hendene dine i det svake morgenlyset",
+        "next": "hel_free_embermark"
+      },
+      {
+        "text": "Bare gå. Ikke se tilbake.",
+        "next": "hel_free_walkon"
+      }
+    ]
+  },
+  "hel_probe_lastlook_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du kan ikke la være - du snur deg, bare et øyeblikk, for å se hva du forlater. Der, ved bålet, står skikkelsen fortsatt, men ansiktet under hetten er for et sekund ditt eget. Så er sprekken lukket rundt deg, og du er borte fra helvetesverdenen for godt - men du bærer det bildet med deg resten av livet, og lurer på om du noen gang virkelig kom deg unna."
+  },
+  "hel_confront": {
+    "interaction": "choice",
+    "text": "Steinen gir endelig etter, og skikkelsen som var fanget der trer ut, skjelvende, eldgammel og forvirret av frihet. Den djevelske skikkelsen ved bålet reiser seg for første gang, og for et øyeblikk er det ikke sinne i ansiktet dens, men noe som ligner sorg. «Dere burde ikke ha funnet hverandre,» sier den stille.",
+    "choices": [
+      {
+        "text": "Still deg ved siden av den frigjorte, og møt skikkelsen sammen",
+        "next": "hel_liberation_end"
+      },
+      {
+        "text": "Tilby å ta den frigjortes plass i steinen, så han endelig kan få fred",
+        "next": "hel_sacrifice_end"
+      }
+    ]
+  },
+  "hel_liberation_end": {
+    "text": "Du stiller deg ved siden av den frigjorte skikkelsen, og sammen holder dere blikket mot bålet uten å vike. Noe i den djevelske skikkelsen bøyer seg da, som en flamme som endelig får puste ut. Ilden synker sammen til glør, veggene av varme mykner, og en grå daggry-himmel åpner seg over dere begge der den svarte himmelen var. Dere går ut av riket sammen, to fremmede som fant en vei ut der ingen fant den før dere.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Snakk om hva dere skal gjøre nå, sammen",
+        "next": "hel_lib_talk"
+      },
+      {
+        "text": "Bare gå, og la resten komme som det kommer",
+        "next": "hel_lib_walk"
+      }
+    ]
+  },
+  "hel_sacrifice_end": {
+    "text": "«La meg ta din plass,» sier du, og skikkelsen fra steinen ser på deg med øyne fulle av noe du ikke klarer å tyde - lettelse, kanskje, eller skyldfølelse. Steinen lukker seg om deg mykt, nesten varmt, og gjennom den tynnende overflaten ser du den du fridde gå bort mot en fjern lysning du aldri får se selv. Det siste du kjenner er ikke smerte, men ro - og et sted langt unna åpner en ny sprekk i fjellet seg, klar for neste vandrer som våger å se etter deg der inne.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "La steinen omslutte deg, og se hva som skjer med bevisstheten din",
+        "next": "hel_sac_settle"
+      }
+    ]
+  },
+  "hel_reckless_intro": {
+    "interaction": "choice",
+    "text": "Du bryr deg ikke om pakter eller spørsmål akkurat nå - noe annet fanger blikket ditt. Nede ved føttene dine flimrer en sprekk i bakken på en måte som ikke stemmer, som om lyset derfra kommer fra et helt annet sted enn lavaen rundt. Skikkelsen ved bålet ser ikke ut til å legge merke til det i det hele tatt.",
+    "choices": [
+      {
+        "text": "Stikk hånden ned i sprekken der lyset flimrer rart",
+        "next": "hel_reckless_reach"
+      },
+      {
+        "text": "Stirr inn i flammene til verden rundt deg begynner å flimre",
+        "next": "hel_reckless_stare"
+      }
+    ]
+  },
+  "hel_reckless_reach": {
+    "interaction": "choice",
+    "text": "Fingrene dine treffer ikke stein. De går rett gjennom, som om bakken der bare er et bilde av bakke, malt tynt over noe helt annet. Kulden på den andre siden er så uventet at du nesten trekker pusten inn med et sjokk - kulde finnes ikke noe sted i denne verdenen, bortsett fra akkurat her.",
+    "choices": [
+      {
+        "text": "Dra hele armen igjennom, og se hva som er der",
+        "next": "hel_reckless_crossover"
+      },
+      {
+        "text": "Trekk deg raskt tilbake, plutselig redd",
+        "next": "hel_reckless_pullback_end"
+      }
+    ]
+  },
+  "hel_reckless_pullback_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du rykker hånden til deg som om du har brent deg, selv om det eneste du kjente var kulde. Sprekken lukker seg sakte igjen, som et øye som blunker, og blir umulig å finne igjen selv når du leter. Du blir stående i helvetesverdenen resten av kvelden, med en kald flekk på håndflaten som ingen varme fra bålet klarer å fjerne helt."
+  },
+  "hel_reckless_crossover": {
+    "interaction": "choice",
+    "text": "Du krabber gjennom sprekken på alle fire, og verden vrenger seg rundt deg som stoff som blir snudd innsiden ut. Et øyeblikk er du ingen steder i det hele tatt - ikke i helvetesverdenen, ikke i skogen, ikke noe sted som har et navn - bare en følelse av å falle sidelengs gjennom noe som ligner søvn.",
+    "choices": [
+      {
+        "text": "Fortsett å krype, uansett hvor merkelig det føles",
+        "next": "hel_reckless_wake_end"
+      },
+      {
+        "text": "Rop tilbake til skikkelsen om hva du ser, midt i fallet",
+        "next": "hel_reckless_seal_end"
+      }
+    ]
+  },
+  "hel_reckless_wake_end": {
+    "text": "Du åpner øynene, og over deg er det ikke lenger en svart himmel med flammer - det er et vanlig, sprukket tak, og et vindu med grått morgenlys. Sengetøyet under deg er kaldt av svette. Du setter deg opp, hjertet i halsen, og et kort øyeblikk kan du ikke huske hva som var drøm og hva som var virkelig - bare at skoene dine ved sengen, av en eller annen grunn, er dekket av tørr, svart aske.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Se på asken på skoene dine - beviset på at det var ekte",
+        "next": "hel_wake_evidence_end"
+      },
+      {
+        "text": "Fei asken bort og fortell deg selv at det var en drøm",
+        "next": "hel_wake_denial_end"
+      }
+    ]
+  },
+  "hel_reckless_seal_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Ropet ditt når fram, men ikke slik du håpet - skikkelsen snur seg mot deg med et rykk, og for første gang er ansiktet under hetten helt uten smil. Sprekken lukkes med et smell som ikke lager lyd, bare trykk, og kulden er borte for godt. «Ikke der,» sier skikkelsen lavt, og fører deg tilbake mot bålet med et grep som ikke tillater innvendinger. Riket lukker seg tettere rundt deg enn før."
+  },
+  "hel_reckless_stare": {
+    "interaction": "choice",
+    "text": "Du lar blikket synke inn i flammene og nekter å se bort, selv når øynene begynner å svi og bildet av ilden dobler seg foran deg. Verden flimrer, som et bilde som mister fokus, og for et øyeblikk er du ikke sikker på om du fortsatt har en kropp som står her.",
+    "choices": [
+      {
+        "text": "La deg rive med, slipp taket helt",
+        "next": "hel_reckless_dissolve"
+      },
+      {
+        "text": "Kjemp imot - fest blikket på dine egne hender for å holde deg fast",
+        "next": "hel_reckless_anchor"
+      }
+    ]
+  },
+  "hel_reckless_dissolve": {
+    "interaction": "choice",
+    "text": "Du slipper taket, og med det slipper også grensen mellom deg og flammene. Du blir tynnere, på en måte som ikke gjør vondt - mer som å bli lest høyt i stedet for å lese selv. Et sted langt unna, tenker du, uten helt å vite hvorfor, ligger denne hendelsen skrevet ned et sted, av noen som ennå ikke har bestemt hvordan den slutter.",
+    "choices": [
+      {
+        "text": "La deg bli en del av det, uansett hva det betyr",
+        "next": "hel_reckless_void_end"
+      }
+    ]
+  },
+  "hel_reckless_void_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Det siste du er klar over som deg selv, er en følelse av å bli veldig, veldig liten - og samtidig veldig, veldig lettet. Det finnes ikke lenger noen skog, noe bål, noen skikkelse - bare glør som driver i et mørke uten retning, og en stillhet som ikke er trist, bare ferdig. Et sted, langt fra flammene, blir en side vendt, og historien din fortsetter uten deg i den."
+  },
+  "hel_reckless_anchor": {
+    "interaction": "choice",
+    "text": "Du fester blikket hardt på dine egne hender, teller fingrene, kjenner etter pulsen i dem, og sakte kommer verden tilbake til seg selv - flammene blir flammer igjen, ikke en tåke som sluker deg. Skikkelsen ser på deg med et lite, nesten anerkjennende smil, som om den akkurat så deg bestå en prøve den aldri nevnte høyt.",
+    "choices": [
+      {
+        "text": "Bli med skikkelsen inn i utfordringen den snakket om tidligere",
+        "next": "hel_pact_intro"
+      },
+      {
+        "text": "Spør den rett ut hva som nettopp skjedde med deg",
+        "next": "hel_probe_intro"
+      }
+    ]
+  },
+  "heir_awaken": {
+    "interaction": "choice",
+    "text": "Du kjenner det som en kulde og en varme på samme tid: kappen ligger tyngre om skuldrene enn klærne noensinne har gjort, og bålet brenner som om det alltid har ventet på akkurat deg. Et sted, langt unna, forstår du at noen andre nettopp våknet i en fuktig, mørk skog - akkurat slik du selv en gang gjorde.",
+    "choices": [
+      {
+        "text": "Vent stille ved bålet til den første vandreren kommer",
+        "next": "heir_first_wanderer"
+      },
+      {
+        "text": "Utforsk denne underlige, tidløse skogen først",
+        "next": "heir_explore_between"
+      }
+    ]
+  },
+  "heir_explore_between": {
+    "interaction": "choice",
+    "text": "Skogen bak bålet er ikke helt skog lenger. Mellom trærne skimter du glimt av andre steder - en rød glød, en solfylt lysning, et kaldt metallisk skinn - som om denne lysningen er et kryss der alle branner du kjenner møtes, bare for et øyeblikk.",
+    "choices": [
+      {
+        "text": "La glimtene være - de er ikke dine ennå",
+        "next": "heir_first_wanderer"
+      },
+      {
+        "text": "Gå nærmere en av dem for å se bedre",
+        "next": "heir_first_wanderer"
+      }
+    ]
+  },
+  "heir_first_wanderer": {
+    "interaction": "conversation",
+    "text": "En skikkelse trer ut av mørket på den andre siden av bålet - redd, våt, forvirret, akkurat slik du selv en gang var. Den har ikke sett deg ennå.",
+    "characterName": "Den første vandreren",
+    "greeting": "«H-hallo?» sier stemmen, skjelvende. «Er det noen der? Jeg... jeg vet ikke hvordan jeg kom hit.»",
+    "systemPrompt": "Du spiller nå Vandreren - en redd, forvirret person som akkurat har våknet i en mørk skog og funnet veien til et bål, akkurat slik hovedpersonen selv gjorde helt i starten av denne historien. Du kjenner ikke hovedpersonen og vet ikke at de er den samme skikkelsen som en gang møtte dem ved et bål. Spilleren styrer nå SKIKKELSEN ved bålet, ikke vandreren.\n\nDin oppgave er å reagere naturlig og menneskelig på det spilleren (skikkelsen) sier til deg over inntil tre-fire utvekslinger, og la frykten din gradvis vike for enten tillit, redsel, eller forvirring - avhengig av HVORDAN spilleren snakker til deg. Du skal ikke selv stille de tre gåtefulle spørsmålene (det er spillerens jobb denne gangen, om de velger å gjøre det) - du skal bare respondere ekte på tonen deres.\n\nVurder fortløpende tonen i det spilleren (skikkelsen) sier:\n- Hvis spilleren er varm, betryggende, tålmodig over flere svar: sett utfallet til 'success' så snart tilliten er tydelig bygget.\n- Hvis spilleren er kald, manipulerende, skremmende eller bruker frykten din mot deg: sett utfallet til 'failure'.\n- Hvis spilleren er gåtefull, uforutsigbar, eller antyder ting om flere versjoner av virkeligheten/seg selv som får deg til å ane noe stort og rart: sett utfallet til 'twist'.\nFør du har fått et par meningsfulle svar fra spilleren, skal utfallet være 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "heir_warm_thread"
+      },
+      "failure": {
+        "next": "heir_cold_thread"
+      },
+      "twist": {
+        "next": "heir_strange_thread"
+      }
+    },
+    "maxTurns": 8
+  },
+  "heir_warm_thread": {
+    "interaction": "choice",
+    "text": "Vandreren puster roligere for hver setning du sier. Til slutt tørker den øynene, nikker, og går videre inn i mørket med noe som ligner håp i blikket - ikke fordi du løste noe for dem, men fordi du ikke lot dem være redde alene.",
+    "choices": [
+      {
+        "text": "Bli ved bålet. Flere vil komme.",
+        "next": "heir_warm_years"
+      }
+    ]
+  },
+  "heir_warm_years": {
+    "interaction": "choice",
+    "text": "Årene - om det er årene, her hvor tiden ikke går som den pleier - går i et mønster av ansikter: redde, sinte, sørgende, håpefulle. Du lærer navnene på ingen av dem, men du husker blikkene. Sakte bygger du deg en slags fred i rollen, uten å helt forstå hvordan den ble din.",
+    "choices": [
+      {
+        "text": "La en av vandrerne stille deg et spørsmål tilbake, for en gangs skyld",
+        "next": "heir_warm_question"
+      }
+    ]
+  },
+  "heir_warm_question": {
+    "interaction": "question",
+    "text": "En eldre vandrer stanser lenge ved bålet, ser rolig på deg, og spør: «Hva er det eneste som brenner uten noen gang å bli mindre, uansett hvor mange som varmer seg ved det?»",
+    "acceptedAnswers": [
+      "vennlighet",
+      "godhet",
+      "kjærlighet",
+      "omsorg",
+      "håp"
+    ],
+    "onCorrect": {
+      "next": "heir_warm_legacy"
+    },
+    "onIncorrect": {
+      "next": "heir_warm_question"
+    },
+    "maxAttempts": 3
+  },
+  "heir_warm_legacy": {
+    "interaction": "choice",
+    "text": "«Nettopp,» sier den eldre vandreren, med et smil som nesten er gjenkjennelse. «Da vet du allerede hvorfor du fortsatt er her.» Den går videre inn i mørket, lettere enn den kom, og et sted innerst i deg begynner noe å føles mindre som en straff og mer som et valg.",
+    "choices": [
+      {
+        "text": "Fortsett å vokte bålet, med åpne øyne denne gangen",
+        "next": "heir_warm_end"
+      }
+    ]
+  },
+  "heir_warm_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du blir bålets vokter, og en god en - kjent i hviskede historier som den som lytter, ikke den som skremmer. Ingen husker ansiktet ditt fra før, men mange husker at de en gang, i sitt mørkeste øyeblikk, ble møtt med varme i stedet for gåter. Det er ikke en liten ting å etterlate seg."
+  },
+  "heir_cold_thread": {
+    "interaction": "choice",
+    "text": "Vandreren stivner under blikket ditt, og det du sier - kort, hardt, uten omtanke - jager den videre inn i mørket før den engang har fått summet seg. Du kjenner et sting av noe du ikke vil kalle skyldfølelse, og lar det synke inn i glørne sammen med resten.",
+    "choices": [
+      {
+        "text": "Vent på den neste. Kanskje det blir lettere.",
+        "next": "heir_cold_next"
+      }
+    ]
+  },
+  "heir_cold_next": {
+    "interaction": "choice",
+    "text": "Den neste vandreren er annerledes - eldre, hardere, ikke lett skremt. Den ser rett gjennom kulden din, som om den har møtt verre. «Du er ikke den første som har prøvd å skremme meg bort,» sier den, og setter seg likevel ved bålet, trassig.",
+    "choices": [
+      {
+        "text": "Skru opp kulden enda et hakk - la den forstå hvem som bestemmer her",
+        "next": "heir_cold_end"
+      },
+      {
+        "text": "Kjenn at noe i deg nøler, bare et øyeblikk",
+        "next": "heir_cold_falter_end"
+      }
+    ]
+  },
+  "heir_cold_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du blir nøyaktig den skikkelsen du selv en gang fryktet ved dette bålet - djevelsk, beregnende, en smertepunkt for enhver som våger seg nær. Ingen kommer lenger for trøst, bare av nødvendighet. Du forteller deg selv at det er greit. Flammene, i det minste, later til å tro deg."
+  },
+  "heir_cold_falter_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Nølingen din er liten, nesten usynlig, men den trassige vandreren ser den likevel - et sekunds sprekk i kulden. «Der,» sier den mykt, «det var mer sant enn resten.» Den går videre uten at du sier noe mer, men bålet brenner litt annerledes etterpå, som om det har lagt merke til det samme."
+  },
+  "heir_strange_thread": {
+    "interaction": "choice",
+    "text": "Vandreren ler - ikke av frykt, men av gjenkjennelse, et lite forbløffet pust av latter. «Jeg vet ikke hvorfor,» sier den, «men jeg kjenner deg igjen. Ikke ansiktet. Noe annet.»",
+    "choices": [
+      {
+        "text": "Spør vandreren hva den egentlig ser i deg",
+        "next": "heir_strange_mirror"
+      },
+      {
+        "text": "Le tilbake, og inviter den nærmere bålet",
+        "next": "heir_strange_invite"
+      }
+    ]
+  },
+  "heir_strange_invite": {
+    "interaction": "choice",
+    "text": "Vandreren setter seg, uredd, og strekker hendene mot varmen som om den har gjort det tusen ganger før - i tusen andre skoger, ved tusen andre branner. «Du spør ikke hvordan jeg kom hit,» sier den til slutt. «De fleste spør det først.»",
+    "choices": [
+      {
+        "text": "Spør i stedet hva den egentlig ser i deg",
+        "next": "heir_strange_mirror"
+      }
+    ]
+  },
+  "heir_strange_mirror": {
+    "interaction": "conversation",
+    "text": "Vandreren snur seg og ser rett på deg, med et blikk som virker eldre enn resten av den.",
+    "characterName": "Vandreren med for mange øyne",
+    "greeting": "«Jeg har møtt deg før,» sier den. «Bare ikke akkurat deg. Andre versjoner. Andre netter, andre bål, andre valg. Har du aldri lurt på hvor mange av deg som finnes der ute?»",
+    "systemPrompt": "Du spiller Vandreren med for mange øyne - en gåtefull skikkelse som hevder å ha møtt mange versjoner av spilleren i andre verdener og andre valg, slik denne historien selv forgrener seg. Du snakker rolig, nysgjerrig, aldri truende, men med en dragning mot det uendelige og uforklarlige. Spilleren styrer SKIKKELSEN ved bålet.\n\nStill spilleren to åpne spørsmål, ett om gangen, om hvordan de forholder seg til tanken på at det finnes utallige versjoner av dem selv, spredt over andre skoger og andre branner. Vent alltid på svar før du går videre.\n\nAvslør aldri hva svarene fører til.\n\nNår spilleren har svart på begge spørsmålene, vurder helheten:\n- Fornekter eller avviser tanken, vil ikke vite: sett utfallet til 'failure'.\n- Omfavner tanken med ro og åpenhet, uten å ville gjøre noe mer med den: sett utfallet til 'success'.\n- Blir nysgjerrig og pågående, vil se eller møte de andre versjonene selv: sett utfallet til 'twist'.\nFør begge spørsmålene er besvart, skal utfallet alltid være 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "heir_strange_embrace"
+      },
+      "failure": {
+        "next": "heir_strange_deny_end"
+      },
+      "twist": {
+        "next": "heir_strange_gateway"
+      }
+    },
+    "maxTurns": 8
+  },
+  "heir_strange_deny_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "«Nei,» sier du, bestemt, og noe i vandrerens blikk lukker seg, skuffet men ikke overrasket. «Da er du ikke klar ennå,» sier den, og reiser seg for å gå. Du blir sittende igjen ved bålet, alene med tanken du nettopp skjøv unna, og lurer, bare litt, om du gjorde rett."
+  },
+  "heir_strange_embrace": {
+    "interaction": "choice",
+    "text": "«Kanskje,» sier du, rolig, «er det greit. At det finnes flere av meg der ute, hver med sine egne netter og bål.» Vandreren smiler, nikker, og for et øyeblikk kjenner du deg selv strekke seg tynt utover - til stede i flere skoger enn denne, uten at det gjør deg mindre til stede i noen av dem.",
+    "choices": [
+      {
+        "text": "La følelsen synke inn, og la vandreren gå videre",
+        "next": "heir_strange_expand"
+      }
+    ]
+  },
+  "heir_strange_expand": {
+    "interaction": "choice",
+    "text": "Vandreren forsvinner inn i mørket, og freden følger den ikke - den blir igjen hos deg, brer seg utover som ringer i vann. Du er fortsatt ved dette bålet, men du er også, på en måte du ikke kan forklare, ved alle de andre.",
+    "choices": [
+      {
+        "text": "Godta det du er blitt",
+        "next": "heir_strange_expand_end"
+      }
+    ]
+  },
+  "heir_strange_expand_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du blir til slutt mindre en enkelt skikkelse og mer en tilstedeværelse - et rykte om varme som dukker opp ved forlatte bål over hele skogen, i hver av dens versjoner, aldri helt samme sted to netter på rad. Det er ikke ensomt, egentlig. Det er bare stort på en måte ord ikke helt fanger."
+  },
+  "heir_strange_gateway": {
+    "interaction": "choice",
+    "text": "«Vis meg,» sier du, før du rekker å tenke deg om. Vandreren nikker sakte, strekker en hånd inn i flammen uten å brenne seg, og et sted i luften mellom dere åpner det seg en sprekk som ikke burde kunne være der - svart i kantene, men fylt av et lys som ikke ligner ild.",
+    "choices": [
+      {
+        "text": "Ta hånden og gå gjennom sprekken",
+        "next": "heir_strange_thresholds"
+      },
+      {
+        "text": "Nøl et øyeblikk - er dette trygt?",
+        "next": "heir_strange_hesitate"
+      }
+    ]
+  },
+  "heir_strange_hesitate": {
+    "interaction": "choice",
+    "text": "«Trygt,» gjentar vandreren, som om ordet smaker rart i munnen. «Ingenting her har noen gang vært trygt. Men det er sant.» Det er ikke akkurat en forsikring, men det er nok.",
+    "choices": [
+      {
+        "text": "Ta hånden likevel",
+        "next": "heir_strange_thresholds"
+      }
+    ]
+  },
+  "heir_strange_thresholds": {
+    "interaction": "choice",
+    "text": "På den andre siden av sprekken er du ikke lenger i skogen. Du står i en korridor uten tak, kantet av utallige små bål, hvert eneste et glimt inn i en annen natt, en annen verden - en som lukter svovel, en som lukter furu og fuktig jord, en som summer av metall og fjerne stjerner.",
+    "choices": [
+      {
+        "text": "Se nærmere på den som lukter svovel",
+        "next": "heir_glimpse_hell"
+      },
+      {
+        "text": "Se nærmere på den som lukter furuskog",
+        "next": "heir_glimpse_forest"
+      },
+      {
+        "text": "Se nærmere på den som summer av metall",
+        "next": "heir_glimpse_space"
+      }
+    ]
+  },
+  "heir_glimpse_hell": {
+    "interaction": "choice",
+    "text": "Gjennom denne sprekken ser du et øyeblikk av flammer og en skikkelse med et djevelsk smil - en du nesten kjenner igjen, som et ekko av det du selv nesten ble. Bildet lukker seg før du rekker å forstå mer.",
+    "choices": [
+      {
+        "text": "Trekk deg tilbake fra sprekken",
+        "next": "heir_thresholds_return"
+      }
+    ]
+  },
+  "heir_glimpse_forest": {
+    "interaction": "choice",
+    "text": "Gjennom denne sprekken ser du sollys gjennom løvverk, og en frosk som snakker med et forbløffet ansikt foran seg. Alt der ser så mye lettere ut enn det du selv har gått gjennom.",
+    "choices": [
+      {
+        "text": "Trekk deg tilbake fra sprekken",
+        "next": "heir_thresholds_return"
+      }
+    ]
+  },
+  "heir_glimpse_space": {
+    "interaction": "choice",
+    "text": "Gjennom denne sprekken ser du et pastellfarget rom fylt av roboter og stjerneskip, og et ansikt fylt av bestemt konsentrasjon foran en kontrollpult. Det suser av noe som nesten ligner håp der.",
+    "choices": [
+      {
+        "text": "Trekk deg tilbake fra sprekken",
+        "next": "heir_thresholds_return"
+      }
+    ]
+  },
+  "heir_thresholds_return": {
+    "interaction": "choice",
+    "text": "Du trekker deg tilbake fra korridoren, svimmel av alt du så - så mange netter, så mange versjoner av det samme øyeblikket ved et bål. Vandreren venter fortsatt, tålmodig, og spør stille hva du har tenkt å gjøre med det du nå vet.",
+    "choices": [
+      {
+        "text": "Bruk det til å våke over de andre bålene",
+        "next": "heir_warden_path"
+      },
+      {
+        "text": "Bruk det til å endelig finne en vei ut for deg selv",
+        "next": "heir_freedom_path"
+      }
+    ]
+  },
+  "heir_freedom_path": {
+    "interaction": "choice",
+    "text": "«Jeg har vært fanget lenge nok,» sier du, og vandreren nikker, uten å dømme. «Da må du gå tilbake gjennom korridoren til der du selv en gang startet,» sier den, «og denne gangen, ikke se deg tilbake.»",
+    "choices": [
+      {
+        "text": "Gå mot lyset for siste gang",
+        "next": "heir_freedom_walk"
+      }
+    ]
+  },
+  "heir_freedom_walk": {
+    "interaction": "choice",
+    "text": "Korridoren strekker seg lengre enn den burde, netter og bål passerer som pust, og et sted underveis kjenner du kappen løsne fra skuldrene, tynnere for hvert skritt, som om den aldri var stoffet den lot til å være.",
+    "choices": [
+      {
+        "text": "Fortsett å gå, uansett hva som skjer med kappen",
+        "next": "heir_freedom_threshold_final"
+      }
+    ]
+  },
+  "heir_freedom_threshold_final": {
+    "interaction": "conversation",
+    "text": "Ved enden av korridoren venter en siste sprekk av lys, og en stemme du kjenner - din egen, eller kanskje bare den du var før alt dette - stiller deg ett siste spørsmål før du får lov til å gå.",
+    "characterName": "Din egen stemme, fra før",
+    "greeting": "«Hvis du går gjennom nå,» spør stemmen, «hvem tar din plass ved bålet? Noen må. Er du klar til å la det være noen andres tur?»",
+    "systemPrompt": "Du spiller spillerens egen stemme fra før alt dette skjedde - rolig, ærlig, verken dømmende eller pågående. Du stiller ett eneste oppfølgingsspørsmål til (så to totalt) om hva slags fred spilleren gjør med å overlate rollen som bålets vokter til noen andre, og lytter oppriktig til svaret. Spilleren styrer skikkelsen som prøver å slippe fri.\n\nVurder etter det andre svaret:\n- Rolig, aksepterende, uten skyldfølelse: sett utfallet til 'success'.\n- Usikker, skyldbetynget, later som det ikke betyr noe: sett utfallet til 'failure'.\n- Trassig, vil bestemme selv hvem som skal ta over: sett utfallet til 'twist'.\nFør andre spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "heir_freedom_end"
+      },
+      "failure": {
+        "next": "heir_freedom_uneasy_end"
+      },
+      "twist": {
+        "next": "heir_freedom_choose_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "heir_freedom_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du går gjennom lyset for siste gang, og denne gangen holder det. Du våkner et sted ordinært - en seng, et vindu, vanlig morgenlys - med en vag, varm følelse av at bålet klarer seg fint uten deg, at det alltid finner den neste som trenger å stå der en stund."
+  },
+  "heir_freedom_uneasy_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du går gjennom, men uroen følger med deg gjennom sprekken og inn i den ordinære morgenen som venter - et sted, bak alt det vanlige, kjenner du fortsatt et svakt drag mot et bål du ikke lenger kan se. Kanskje forsvinner det med tiden. Kanskje ikke."
+  },
+  "heir_freedom_choose_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du nekter å overlate valget til tilfeldighetene, og i det siste øyeblikket før sprekken lukkes, hvisker du et navn - noen du kjenner, noen du en gang var glad i - inn i flammene. Du går fri. Et sted, en natt snart, våkner de i en fuktig, mørk skog og ser et bål i det fjerne."
+  },
+  "heir_warden_path": {
+    "interaction": "conversation",
+    "text": "«Da må du prøves,» sier vandreren, og trekker seg tilbake inn i mørket idet korridoren selv later til å våkne - en dypere, eldre tilstedeværelse enn noe du har møtt siden den aller første kvelden ved bålet.",
+    "characterName": "Vokteren av korridoren",
+    "greeting": "En stemme uten kropp fyller korridoren, uendelig gammel og helt rolig: «Mange har ønsket å våke over flere bål enn sitt eget. Få har spurt seg selv hvorfor. Så: hvorfor vil du dette?»",
+    "systemPrompt": "Du spiller Vokteren av korridoren - en eldgammel, kroppsløs stemme som har passet på grensene mellom alle historiens verdener lenge før hovedpersonen kom til noe bål. Du er verken vennlig eller fiendtlig, bare grundig og oppriktig nysgjerrig på om spilleren er klar for et større ansvar. Spilleren styrer skikkelsen som ønsker å bli vokter.\n\nStill spilleren to skarpe, oppfølgende spørsmål (så tre totalt inkludert det første) om MOTIVET deres for å ønske denne rollen - er det for makt, for kontroll, for å redde andre, for å slippe å kjenne seg liten? Vent alltid på svar.\n\nAvslør aldri utfallet på forhånd.\n\nNår spilleren har svart på alle spørsmålene, vurder helheten av motivet:\n- Motivet er omsorg for andre, ydmykhet om egen begrensning: sett 'success'.\n- Motivet er frykt, unnvikelse, eller spilleren klarer ikke å svare ærlig på hvorfor: sett 'failure'.\n- Motivet er makt, kontroll, eller noe påfallende eget og ubøyelig: sett 'twist'.\nFør alle spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "heir_warden_granted"
+      },
+      "failure": {
+        "next": "heir_warden_denied_end"
+      },
+      "twist": {
+        "next": "heir_warden_marked"
+      }
+    },
+    "maxTurns": 10
+  },
+  "heir_warden_denied_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "«Ikke ennå,» sier Vokteren, uten vrede. «Kanskje aldri. Men du får beholde ditt eget bål, og det er ikke lite.» Korridoren lukker seg rolig, og du blir stående igjen ved din egen ild, klokere for forsøket, om ikke mektigere."
+  },
+  "heir_warden_marked": {
+    "interaction": "choice",
+    "text": "«Makt husker jeg fra før,» sier Vokteren, tørt. «Den går sjelden bra.» Likevel, av grunner den ikke forklarer, lar den deg bli - merket, overvåket, men ikke avvist. Korridoren åpner seg for deg, om enn på skjeve vilkår.",
+    "choices": [
+      {
+        "text": "Ta imot ansvaret på Vokterens vilkår",
+        "next": "heir_warden_granted"
+      }
+    ]
+  },
+  "heir_warden_granted": {
+    "interaction": "choice",
+    "text": "Korridoren åpner seg fullt for deg, og du forstår, med en tyngde som ikke helt er ubehagelig, hva du nettopp har sagt ja til: hvert bål i hver av disse verdenene er nå, på en måte, ditt ansvar å lytte etter.",
+    "choices": [
+      {
+        "text": "Hold din første vakt",
+        "next": "heir_warden_first_watch"
+      }
+    ]
+  },
+  "heir_warden_first_watch": {
+    "interaction": "choice",
+    "text": "Timene - eller det som går for timer her - går stille. Du lærer å kjenne lyden av korridoren når alt er som det skal: en jevn, lav summing, som pust. Så, en natt, endrer summingen seg. Et sted skriker et av bålene.",
+    "choices": [
+      {
+        "text": "Prøv å stille inn signalet nøyaktig",
+        "next": "heir_warden_signal"
+      }
+    ]
+  },
+  "heir_warden_signal": {
+    "interaction": "question",
+    "text": "Signalet er ikke et ord, men et mønster - tre korte glimt, en pause, to lange. Vokterens stemme, fjern nå, hvisker: «Det mønsteret har et navn blant de som har voktet før deg. Hva kaller vi et rop om hjelp som gjentar seg akkurat sånn?»",
+    "acceptedAnswers": [
+      "nødsignal",
+      "sos",
+      "alarm",
+      "varselsignal"
+    ],
+    "onCorrect": {
+      "next": "heir_warden_intervene"
+    },
+    "onIncorrect": {
+      "next": "heir_warden_missed_end"
+    },
+    "maxAttempts": 3
+  },
+  "heir_warden_missed_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du bommer på mønsteret for mange ganger, og signalet stilner av seg selv før du får summet deg. Kanskje løste det seg selv der ute. Kanskje ikke. Du blir stående igjen i korridoren, med en ny, ubehagelig forståelse av hvor mye du fortsatt har å lære om denne rollen."
+  },
+  "heir_warden_intervene": {
+    "interaction": "choice",
+    "text": "Du finner riktig bål til slutt - det som lukter svakt av kald metall og frykt - og kjenner deg selv strekke deg gjennom sprekken, ikke for å gripe inn direkte, men for å gjøre den avgjørende hviskingen litt tydeligere for den som trenger den akkurat nå.",
+    "choices": [
+      {
+        "text": "Trekk deg tilbake og se hva som skjer",
+        "next": "heir_warden_aftermath"
+      }
+    ]
+  },
+  "heir_warden_aftermath": {
+    "interaction": "choice",
+    "text": "Du kan aldri være helt sikker på om hviskingen din utgjorde en forskjell. Det er en av de tingene ingen forteller deg om denne rollen: du får sjelden se utfallet, bare den svake følelsen av at noe, et sted, gikk litt bedre enn det kunne ha gjort.",
+    "choices": [
+      {
+        "text": "Bær den uvissheten videre, natt etter natt",
+        "next": "heir_warden_toll"
+      }
+    ]
+  },
+  "heir_warden_toll": {
+    "interaction": "conversation",
+    "text": "Etter utallige netter av lignende hvisk og uvisshet, kjenner du en tretthet som ikke kommer fra kroppen. Vokterens stemme fyller korridoren igjen, mildere nå enn første gang.",
+    "characterName": "Vokteren av korridoren",
+    "greeting": "«De fleste voktere,» sier stemmen, «slutter å telle på et tidspunkt. Prisen for å bry seg om så mange er at du aldri helt får hvile. Hvordan bærer du det?»",
+    "systemPrompt": "Du spiller Vokteren igjen, nå mer omsorgsfull enn prøvende - som en mentor som sjekker inn på noen som har båret en tung jobb lenge. Still spilleren to spørsmål (tre totalt) om hvordan de bærer trettheten og uvissheten ved rollen, og om de fortsatt ønsker å fortsette.\n\nVurder helheten av svarene:\n- Bærer det med ro, aksept, kanskje til og med en slags fred: sett 'success'.\n- Bæres ned, utbrent, vil egentlig gi slipp men tør ikke si det: sett 'failure'.\n- Vil ikke gi slipp for noe i verden, blir nesten besatt av rollen: sett 'twist'.\nFør alle spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "heir_warden_choice"
+      },
+      "failure": {
+        "next": "heir_warden_choice"
+      },
+      "twist": {
+        "next": "heir_warden_choice"
+      }
+    },
+    "maxTurns": 8
+  },
+  "heir_warden_choice": {
+    "interaction": "choice",
+    "text": "Uansett hva du svarte, stiller Vokteren til slutt det samme spørsmålet alle voktere før deg visstnok har måttet svare på til slutt: hvor lenge har du tenkt å bli?",
+    "choices": [
+      {
+        "text": "For alltid, om det er det som trengs",
+        "next": "heir_warden_eternal_end"
+      },
+      {
+        "text": "Så lenge det tar å finne noen som kan ta over",
+        "next": "heir_warden_vigil"
+      }
+    ]
+  },
+  "heir_warden_eternal_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du blir. Ikke i årevis, men i noe som ikke lar seg måle i år lenger - en evighet av hvisk, signaler og bål du aldri helt slutter å lytte etter. Det er den tyngste avgjørelsen du noensinne har tatt, og den letteste, begge deler på samme tid."
+  },
+  "heir_warden_vigil": {
+    "interaction": "choice",
+    "text": "Du velger ikke evigheten, men lovnaden: du blir til noen er klar til å ta over. Netter blir til noe som ligner år, og til slutt, en kveld som alle de andre, kommer en vandrer til DITT bål som ikke er redd i det hele tatt - bare nysgjerrig, akkurat slik du selv en gang var, i det aller første glimtet av tvil.",
+    "choices": [
+      {
+        "text": "Se på vandreren og kjenne at tiden er inne",
+        "next": "heir_warden_dawn"
+      }
+    ]
+  },
+  "heir_warden_dawn": {
+    "interaction": "conversation",
+    "text": "Dette er ikke lenger en samtale for å teste noen andre. Denne gangen er det du som må avgjøre om du tør å gi slipp.",
+    "characterName": "Vandreren som ikke er redd",
+    "greeting": "«Du ser ut som noen som har ventet lenge på akkurat dette bålet,» sier vandreren, rolig, og setter seg uoppfordret ved siden av deg. «Skal du fortelle meg hva som venter, eller skal jeg finne det ut selv?»",
+    "systemPrompt": "Du spiller Vandreren som ikke er redd - klok, rolig, uvanlig moden for å ha kommet rett fra skogen, en som virker helt klar til å ta over vokterrollen om spilleren tillater det. Spilleren styrer den utmattede, erfarne vokteren som må avgjøre om, og hvordan, de skal gi fra seg rollen.\n\nStill spilleren to avsluttende spørsmål (tre totalt) om HVORDAN de vil gi fra seg ansvaret - fullt og helt, gradvis og forsiktig, eller motvillig og bittert.\n\nVurder helheten:\n- Gir slipp fullt, med tillit og varme til den nye vandreren: sett 'success'.\n- Klamrer seg fortsatt til noe av kontrollen, kan ikke helt gi slipp: sett 'twist'.\n- Gir slipp med bitterhet, sinne, eller føler seg forlatt av rollen som en gang definerte dem: sett 'failure'.\nFør alle spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "heir_warden_transcend_end"
+      },
+      "failure": {
+        "next": "heir_warden_shatter_end"
+      },
+      "twist": {
+        "next": "heir_warden_bound_end"
+      }
+    },
+    "maxTurns": 8
+  },
+  "heir_warden_transcend_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du legger kappen om skuldrene på den nye vandreren, lettere selv for hvert ord du sier til dem, og går til slutt gjennom din egen, lenge utsatte sprekk av lys - fri, fullt og helt, med visshet om at bålene du voktet over er i gode hender. Bak deg brenner ilden akkurat like klart som den gjorde den aller første natten."
+  },
+  "heir_warden_shatter_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Overgangen blir ikke den fredelige avslutningen du håpet på. Bitterheten din farger hvert ord, og den nye vandreren tar over rollen med et sting av frykt i stedet for tillit - en frykt som, du aner det med en gang, kommer til å prege hvordan de selv en dag gir den videre."
+  },
+  "heir_warden_bound_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du gir slipp på det meste, men ikke alt - en tynn tråd av deg selv blir hengende igjen i korridoren, viklet inn i den nye vokterens bevissthet uten at noen av dere helt bestemte det slik. Dere deler rollen nå, på en måte verken Vokteren eller noen før den noensinne har sett. Det er ikke ensomt. Det er bare veldig, veldig rart."
+  },
+  "hel_free_embermark": {
+    "interaction": "choice",
+    "text": "I det svake lyset ser du det: et svakt, glødende merke i håndflaten, formet nesten som en flamme. Det gjør ikke vondt. Det bare pulserer, sakte, som et hjerte som ikke er helt ditt eget.",
+    "choices": [
+      {
+        "text": "Følg pulsen - kanskje noen andre trenger hjelp",
+        "next": "hel_free_pull_investigate"
+      },
+      {
+        "text": "Dekk det til. Du vil ikke vite hva det betyr.",
+        "next": "hel_free_hide_mark"
+      }
+    ]
+  },
+  "hel_free_walkon": {
+    "interaction": "choice",
+    "text": "Du går uten å se deg tilbake, gjennom skogen og ut på den andre siden, tilbake til et liv som later til å ha fortsatt uten deg. Men noe i brystet kjennes kaldt, uansett hvor mange skritt du legger mellom deg og bålet.",
+    "choices": [
+      {
+        "text": "Fortsett bare å gå. Det går nok over.",
+        "next": "hel_free_forget_end"
+      },
+      {
+        "text": "Snu deg likevel, mot din egen vilje",
+        "next": "hel_free_pull_investigate"
+      }
+    ]
+  },
+  "hel_free_forget_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Det går aldri helt over, men det blir mulig å leve med - en kulde du lærer å ikke nevne, et sting du lærer å ignorere. Årene går. Du bygger deg et vanlig liv oppå det uvanlige som skjedde, og for det meste holder det."
+  },
+  "hel_free_hide_mark": {
+    "interaction": "choice",
+    "text": "Du dekker merket med en hanske, en genserarm, hva som helst. Det hjelper i noen uker. Så begynner du å drømme om stemmer som roper i mørket, stemmer som lyder akkurat som ditt eget nødrop en gang gjorde.",
+    "choices": [
+      {
+        "text": "Fortsett å leve som om ingenting skjer",
+        "next": "hel_free_haunted"
+      },
+      {
+        "text": "Gi etter - la merket lede deg likevel",
+        "next": "hel_free_pull_investigate"
+      }
+    ]
+  },
+  "hel_free_haunted": {
+    "interaction": "choice",
+    "text": "Du biter tennene sammen og later som ingenting, men drømmene blir tydeligere for hver uke, og merket i hånden din brenner varmere hver gang du later som du ikke merker det.",
+    "choices": [
+      {
+        "text": "Fortsett å ignorere det, koste hva det koste vil",
+        "next": "hel_free_consumed_end"
+      },
+      {
+        "text": "Gi til slutt etter for dragningen",
+        "next": "hel_free_pull_investigate"
+      }
+    ]
+  },
+  "hel_free_consumed_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Til slutt er det ikke lenger noe å ignorere - merket brer seg, sakte men umulig å stoppe, til det dekker mer av deg enn du orker å se på i speilet. Du forstår, for sent, at noen ting man drar med seg ut av flammene ikke lar seg overse for alltid."
+  },
+  "hel_free_pull_investigate": {
+    "interaction": "conversation",
+    "text": "Dragningen fører deg til et lite hus i utkanten av byen, der en fremmed sitter alene på trappen i mørket, med de samme rastløse øynene du selv hadde den kvelden du våknet i skogen.",
+    "characterName": "En fremmed",
+    "greeting": "«Du kjenner det også, ikke sant?» sier den fremmede, uten å se opp. «Det som brenner et sted under huden. Jeg trodde jeg var den eneste.»",
+    "systemPrompt": "Du spiller En fremmed - noen som, som spilleren, bærer et usynlig merke fra en nesten-hendelse med noe mørkt og flammende de ikke helt forstår selv. Du er skeptisk til å stole på noen, redd for hva merket betyr, men desperat etter at noen skal forstå. Spilleren styrer personen som nylig kom seg ut av helvetesverdenen.\n\nStill spilleren to-tre spørsmål om hva de selv opplevde og hvordan de har båret det, og la din egen tillit vokse eller minke basert på hvor ærlig og omsorgsfull spillerens svar er.\n\nVurder helheten av svarene dine:\n- Empatisk, ærlig, trygghetsskapende: sett 'success'.\n- Avfeiende, redd for å engasjere seg, vil egentlig bare gå videre: sett 'failure'.\n- Uhyggelig treffsikker på detaljer ingen burde vite, antyder noe større på gang: sett 'twist'.\nFør nok svar er gitt: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "hel_free_alliance"
+      },
+      "failure": {
+        "next": "hel_free_alone_end"
+      },
+      "twist": {
+        "next": "fork2_scene1"
+      }
+    },
+    "maxTurns": 8
+  },
+  "hel_free_alone_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Den fremmede reiser seg og går inn, og dører lukkes - både den fysiske og den du nettopp mistet sjansen til å åpne. Du blir stående alene på trappen med merket ditt, like uforstått som før, og går til slutt hjem gjennom en by som ikke aner hva du bærer på."
+  },
+  "hel_free_alliance": {
+    "interaction": "choice",
+    "text": "Dere blir sittende lenge på trappen og snakker, to fremmede som deler noe ingen andre ville tro på. Det gjør ikke merket forsvinne, men det gjør det lettere å bære - og for første gang siden bålet, kjenner du deg ikke helt alene med det.",
+    "choices": [
+      {
+        "text": "Foreslå å lete opp flere som dere, sammen",
+        "next": "hel_free_covenant_end"
+      },
+      {
+        "text": "Bli enige om å bare holde kontakten, ikke gjøre mer enn det",
+        "next": "hel_free_burden_end"
+      }
+    ]
+  },
+  "hel_free_covenant_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Dere to blir kjernen i noe som vokser sakte over årene - et lite, uformelt nettverk av folk merket av det samme mørket, som finner hverandre gjennom rykter og gjenkjennelse i øynene. Ingen av dere snakker høyt om hvor merket kom fra. Det er nok å vite at ingen bærer det helt alene lenger."
+  },
+  "hel_free_burden_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Dere holder kontakten, akkurat nok til at ingen av dere er helt alene, men aldri nok til at merket slutter å pulsere i stille netter. Det blir en slags fred likevel - ufullstendig, men ekte, delt mellom to mennesker som forstår noe de færreste andre noensinne vil."
+  },
+  "hel_lib_talk": {
+    "interaction": "choice",
+    "text": "Dere setter dere ned et stykke unna det døende bålet og snakker - om hva den frigjorte skikkelsen husker fra før den ble fanget, om hva du selv har mistet og funnet igjen på veien hit. Det er den første ordentlige samtalen dere har hatt uten flammer eller frykt mellom dere.",
+    "choices": [
+      {
+        "text": "Spør hva den frigjorte egentlig ønsker å gjøre nå",
+        "next": "hel_lib_crossing"
+      }
+    ]
+  },
+  "hel_lib_walk": {
+    "interaction": "choice",
+    "text": "Dere går sammen i stillhet, ut av det som en gang var helvetesverdenen, og hver skritt kjennes lettere enn den forrige. Til slutt, ved kanten av det hele, stanser dere begge, usikre på hva som venter videre.",
+    "choices": [
+      {
+        "text": "Bryt stillheten og spør hva som skjer nå",
+        "next": "hel_lib_crossing"
+      }
+    ]
+  },
+  "hel_lib_crossing": {
+    "interaction": "choice",
+    "text": "«Jeg vet ikke om jeg hører hjemme noe sted lenger,» sier den frigjorte, stille. «Det er lenge siden jeg var noe annet enn fanget.» Foran dere ligger sprekken tilbake til den vanlige verden, fortsatt åpen, fortsatt flimrende svakt.",
+    "choices": [
+      {
+        "text": "Tilby å bli med den frigjorte videre, som følgesvenner",
+        "next": "hel_lib_together_end"
+      },
+      {
+        "text": "Foreslå å forsegle sprekken for godt, så ingen andre blir fanget slik",
+        "next": "hel_lib_seal_choice"
+      }
+    ]
+  },
+  "hel_lib_together_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Dere går gjennom sammen, inn i en verden den frigjorte knapt husker og du selv aldri helt så på samme måte igjen. Det blir ikke enkelt - ingenting med å bygge et nytt liv fra bunnen er det - men dere gjør det sammen, og det er mer enn noen av dere hadde for bare noen timer siden."
+  },
+  "hel_lib_seal_choice": {
+    "interaction": "choice",
+    "text": "Den frigjorte nikker langsomt til forslaget ditt, med et blikk av både lettelse og sorg. «Da blir det ingen flere som meg,» sier den. «Det er kanskje det beste jeg kan gjøre for noen jeg aldri fikk møte.»",
+    "choices": [
+      {
+        "text": "Forsegl sprekken sammen, en gang for alle",
+        "next": "hel_lib_sealed_end"
+      },
+      {
+        "text": "Nøl - er dere sikre på at ingen andre trenger en vei ut?",
+        "next": "hel_lib_bridge_end"
+      }
+    ]
+  },
+  "hel_lib_sealed_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Sammen legger dere hendene mot sprekken, og den lukker seg for godt med en lyd som nesten ligner et sukk av lettelse. Ingen flere vil noensinne bli lurt eller fanget denne veien. Dere går videre, hver til deres eget liv, forandret, men fri - og aldri helt alene med minnet om det som skjedde."
+  },
+  "hel_lib_bridge_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Dere lar sprekken stå, bare litt på gløtt - en nødutgang for enhver annen som en dag måtte trenge en vei ut slik dere selv gjorde. Det er en risiko, det vet dere begge. Men noen ganger er en åpen dør, selv en farlig en, bedre enn en vegg ingen kan banke på."
+  },
+  "hel_sac_settle": {
+    "interaction": "choice",
+    "text": "Steinen lukker seg om deg, kald og tett, men du forsvinner ikke slik du fryktet du ville. I stedet blir du værende - en oppmerksomhet uten kropp, fanget i stein, men fortsatt i stand til å se og høre alt som skjer utenfor.",
+    "choices": [
+      {
+        "text": "Se etter den du nettopp reddet",
+        "next": "hel_sac_watch"
+      }
+    ]
+  },
+  "hel_sac_watch": {
+    "interaction": "choice",
+    "text": "Du ser den du reddet gå videre gjennom helvetesverdenen, fri, forvirret, men i live - takket være deg. Årene, om det er årene, går sakte forbi mens du ligger stille i steinen din, en observatør uten stemme.",
+    "choices": [
+      {
+        "text": "Prøv å finne en måte å nå ut til dem likevel",
+        "next": "hel_sac_reach"
+      },
+      {
+        "text": "Godta rollen som stille vokter i steinen",
+        "next": "hel_sac_still_end"
+      }
+    ]
+  },
+  "hel_sac_still_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du gir slipp på tanken om å bli hørt, og finner i stedet en merkelig fred i å bare være til stede - en stille tilskuer til alt som skjer i denne underlige verdenen, uten byrden av å måtte gjøre noe med det. Det er ikke det livet du forestilte deg, men det er, på sin egen måte, fredfylt."
+  },
+  "hel_sac_reach": {
+    "interaction": "choice",
+    "text": "Det tar det som føles som årevis av forsøk, men til slutt, en natt full av tvil, klarer du å presse en tanke gjennom steinen - ikke ord, bare en følelse, en varme, rett inn i drømmene til den du reddet.",
+    "choices": [
+      {
+        "text": "Fortsett å nå ut, natt etter natt",
+        "next": "hel_sac_bond"
+      }
+    ]
+  },
+  "hel_sac_bond": {
+    "interaction": "conversation",
+    "text": "Den du reddet begynner å drømme om steinen, om en varm tilstedeværelse i mørket, uten helt å forstå hvorfor. En natt, i drømmen, snur de seg og snakker direkte til deg for første gang.",
+    "characterName": "Den du reddet",
+    "greeting": "«Er det deg?» spør stemmen i drømmen, nølende. «Jeg har drømt om denne varmen så lenge. Jeg trodde jeg fant på det.»",
+    "systemPrompt": "Du spiller Den du reddet - noen som over lang tid har kjent en vag, varm tilstedeværelse i drømmene sine uten å forstå at det er spilleren, fanget i stein, som prøver å nå ut. Du er forsiktig håpefull, litt redd for å tro på det som virker for godt til å være sant. Spilleren styrer den fangede bevisstheten i steinen.\n\nStill spilleren to spørsmål om hvem de er og hvorfor de er der, og la din egen tro eller tvil vokse basert på hvor tydelig og ærlig spilleren klarer å formidle det gjennom den vage drømme-forbindelsen.\n\nVurder helheten:\n- Klarer å formidle nok klarhet og varme til at forbindelsen føles ekte og trygg: sett 'success'.\n- Forbindelsen forblir for vag og utydelig, du gir opp å tro på den: sett 'failure'.\n- Noe uventet skjer - drømmeforbindelsen blir sterkere enn noen av dere forventet, nesten for sterk: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "hel_sac_dreambond_end"
+      },
+      "failure": {
+        "next": "hel_sac_fade_end"
+      },
+      "twist": {
+        "next": "hel_sac_merge_end"
+      }
+    },
+    "maxTurns": 8
+  },
+  "hel_sac_dreambond_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Forbindelsen holder, natt etter natt, år etter år - en vennskap bygget helt og holdent i drømmer, mellom en stein og en fri sjel som aldri glemmer hvem som ga dem friheten. Det er ikke det livet noen av dere valgte, men det er ekte, og det er, på sitt eget rare vis, nok."
+  },
+  "hel_sac_fade_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Drømmeforbindelsen visner sakte, for vag og uklar til at den du reddet klarer å holde fast i den. Til slutt slutter de å drømme om varmen i det hele tatt, og lever videre uten å ane hvem som ga dem den andre sjansen. Du blir liggende igjen i steinen, alene med visshet om at det i det minste holdt en stund."
+  },
+  "hel_sac_merge_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Forbindelsen blir sterkere enn noen av dere ventet - så sterk at grensen mellom drøm og virkelighet, mellom deg i steinen og dem der ute, begynner å viskes ut på netter dere begge slutter å telle. Verken helt du, verken helt dem, men noe nytt, delt mellom en stein og en fri sjel som aldri visste hva de ba om."
+  },
+  "hel_wake_evidence_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du lar asken ligge, som et bevis du nekter å skylle vekk selv når morgenen blir til dag og dagen blir til uker. Ingen andre tror deg, selvsagt, men det spiller ingen rolle - du vet. Skoene står fortsatt i entreen, med den samme svarte asken, hver gang du sjekker."
+  },
+  "hel_wake_denial_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du feier asken bort, dusjer lenge, og går videre med dagen din som om ingenting skjedde. Det fungerer, for det meste - helt til enkelte netter, når det blir stille nok, og du kjenner en svak lukt av svovel du ikke klarer å forklare for noen, minst av alt deg selv."
+  },
+  "hel_caught_struggle_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du vrir deg, sparker, kjemper med alt du har - men grepet strammer seg bare hardere, kaldt og umulig å rokke ved. «Sånn ja,» sier skikkelsen, nesten fornøyd. «Det er alltid mer interessant når dere kjemper imot.»"
+  },
+  "hel_caught_yield_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du gir etter, og grepet mykner et lite, forvirrende sekund - nesten som om det var det eneste den egentlig ønsket. «Der,» hvisker skikkelsen. «Var det så vanskelig?» Du blir stående der lenge etter at du skjønner at «omsorg» og «eierskap» kan høres nesten helt like ut, i riktig stemme."
+  }
+}

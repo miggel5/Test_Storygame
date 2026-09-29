@@ -8,7 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "validate-story": "node scripts/validateStory.ts src/story/example.json"
+    "validate-story": "node scripts/validateStory.ts",
+    "build-story": "node scripts/buildStory.ts",
+    "check-story": "node scripts/buildStory.ts --check",
+    "verify": "npm run validate-story && npm run check-story && npm run lint && tsc -b"
   },
   "dependencies": {
     "react": "^19.2.8",

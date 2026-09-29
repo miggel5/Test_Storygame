@@ -43,10 +43,13 @@ export interface GlowPixel {
 export interface PixelArtSpec {
   width: number;
   height: number;
-  /** Hex colors, indexed by the values in `pixels`. */
+  /** Hex colors, indexed by the values in `rle`. */
   palette: string[];
-  /** [height][width] grid of palette indices; -1 means transparent. */
-  pixels: number[][];
+  /**
+   * Row-major, run-length encoded palette indices as flat `[index, runLength, ...]` pairs;
+   * index -1 means transparent. Runs may cross row boundaries; decoded length is width * height.
+   */
+  rle: number[];
   glowPixels?: GlowPixel[];
 }
 
@@ -74,8 +77,8 @@ export type ConversationOutcome = "success" | "failure" | "twist";
 export interface ConversationScene extends SceneBase {
   interaction: "conversation";
   characterName: string;
-  /** Persona, backstory, and win/fail/twist conditions for the LLM. */
-  systemPrompt: string;
+  // The persona/win/fail/twist prompt lives server-side (backend/app/conversations.json),
+  // keyed by scene id, so it never ships in the client bundle.
   /** Shown immediately without a backend call. */
   greeting?: string;
   outcomeTransitions: {

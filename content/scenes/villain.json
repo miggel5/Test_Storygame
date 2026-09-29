@@ -1,0 +1,1117 @@
+{
+  "fork3_villain_scene1": {
+    "interaction": "conversation",
+    "text": "I det du har svart på spørsmålene, blir du plutselig revet til siden og inn i markedet som pågår i en sidehall. Du er dratt inn i en slåsskamp mellom noen andre, og blir slengt rundt. Du får fotfeste - og tar tak i begge de slåssende i hver sin hånd, og løfter dem plutselig opp! Du har fått superkrefter, og du føler deg mektig. De to krangler fortsatt med hverandre, men du roper: «Her er jeg sjefen! Dere skal høre på meg!» I det samme kommer det vakter frem og roper: «Slipp det du har i hendene!»",
+    "characterName": "Vaktene",
+    "greeting": "Slipp det du har i hendene! Forklar deg - NÅ!",
+    "systemPrompt": "Du spiller vaktene i en romhavn-markedsplass, som nettopp har avbrutt spilleren midt i et kaos av slåssing og nyoppdagede superkrefter. Dere er autoritære, kravstore og lite tålmodige.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, så det blir tre totalt) for å presse spilleren til å forklare seg og avsløre hvem de egentlig er. Ett spørsmål om gangen, vent alltid på svar.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Svarer spilleren høflig, smiskende eller ydmykt: sett utfallet til 'success'.\n- Svarer spilleren frekt, men ikke truende: sett utfallet til 'failure'.\n- Svarer spilleren truende - at de skal ta vaktene, og ikke er redde: sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "fork3_villain_infiltrator_ending"
+      },
+      "failure": {
+        "next": "fork3_villain_prison_ending"
+      },
+      "twist": {
+        "next": "fork3_villain_feared_ending"
+      }
+    },
+    "maxTurns": 10
+  },
+  "fork3_villain_prison_ending": {
+    "interaction": "choice",
+    "text": "Vaktene lar seg ikke overbevise av frekkheten din. Håndjern klikker rundt håndleddene dine, og du føres bort til en celle dypt inne i romhavnen. Kreftene forsvinner like brått som de kom.\n\nCella er kald og smal, med et gitter høyt oppe mot det svarte rommet utenfor. Et sted bortenfor veggen hører du noen banke - rytmisk, som om det betyr noe.",
+    "choices": [
+      {
+        "text": "Bank tilbake på veggen",
+        "next": "vil_prison_juno_plan"
+      },
+      {
+        "text": "Sitt musestille og lytt til vaktenes rutiner i stedet",
+        "next": "vil_prison_wait"
+      }
+    ]
+  },
+  "fork3_villain_feared_ending": {
+    "interaction": "choice",
+    "text": "Du slynger vaktene til side som om de var ingenting, og ler høyt. Ryktet sprer seg gjennom hele sektoren samme kveld: en ny, fryktet romskurk har våknet - ustoppelig, og uten frykt.\n\nFolk trekker seg unna deg i markedsgangene nå. Men én skikkelse gjør det motsatte - en person i et glitrende, lappet skinnplagg, som følger nøye med fra skyggen mellom to boder.",
+    "choices": [
+      {
+        "text": "La ryktet vokse - gå bort og gjør et inntrykk på henne",
+        "next": "vil_fear_reputation"
+      },
+      {
+        "text": "Trekk deg unna og undersøk kreftene dine i det stille i stedet",
+        "next": "vil_fear_origin_investigate"
+      }
+    ]
+  },
+  "fork3_villain_infiltrator_ending": {
+    "interaction": "choice",
+    "text": "Du senker stemmen, bøyer nakken akkurat passe, og forklarer deg så ydmykt og overbevisende at vaktene senker skuldrene. De ser ikke kreftene dine som en trussel - de ser en ressurs. Uken etter blir du vervet, i hemmelighet, som politiets nye infiltratør.\n\nDin nye håndterer, en stillferdig kvinne med et merke du ikke gjenkjenner, gir deg ditt første oppdrag uten å blunke.",
+    "choices": [
+      {
+        "text": "Godta oppdraget med entusiasme",
+        "next": "vil_infil_first_mission"
+      },
+      {
+        "text": "Still spørsmål ved hvorfor de vil ha akkurat deg",
+        "next": "vil_infil_suspicion"
+      }
+    ]
+  },
+  "vil_prison_wait": {
+    "interaction": "choice",
+    "text": "Du sier ingenting, bare lytter. Time etter time lærer du rytmen i romhavnfengselet: skifter, runder, hvem som sjekker hvilken celle når. En av vaktene går alltid én runde for mye forbi din del av korridoren - og stopper litt for lenge ved et skap du ikke får sett inn i.",
+    "choices": [
+      {
+        "text": "Konfronter vakten om det du har lagt merke til",
+        "next": "vil_prison_corrupt_guard"
+      },
+      {
+        "text": "Bank i veggen, som du hører naboen din gjøre",
+        "next": "vil_prison_juno_plan"
+      }
+    ]
+  },
+  "vil_prison_corrupt_guard": {
+    "interaction": "choice",
+    "text": "Neste gang han passerer, kremter du høyt. «Det skapet blir sjekket ganske ofte til å være tomt,» sier du. Vakten fryser. Blikket hans flakker mot deg - så mot korridoren, for å se om noen andre hørte det.",
+    "choices": [
+      {
+        "text": "Press ham - tilby å tie mot en tjeneste",
+        "next": "vil_prison_guard_deal"
+      },
+      {
+        "text": "Trekk deg unna - for risikabelt å presse en vakt",
+        "next": "vil_prison_solitary_ending"
+      }
+    ]
+  },
+  "vil_prison_solitary_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du biter det i deg. Men vakten har allerede sett frykten i egne øyne speilet i dine, og bestemmer seg for å fjerne risikoen. Du blir overført til isolasjon «for din egen sikkerhet» - uten vindu, uten naboer å banke til. Dagene blir like, og til slutt slutter du å telle dem."
+  },
+  "vil_prison_guard_deal": {
+    "interaction": "choice",
+    "text": "Vakten ser seg over skulderen, så nikker han stivt. «Jeg kan glemme ett skift. Ett. Og du glemmer skapet.» Han lar en nøkkelbrikke gli mellom stengene, akkurat lenge nok til at du ser den blinke.",
+    "choices": [
+      {
+        "text": "Stol på vakten - vent på riktig øyeblikk",
+        "next": "vil_prison_breakout"
+      },
+      {
+        "text": "Stol ikke på ham - improviser en flukt med det samme",
+        "next": "vil_prison_rash_ending"
+      }
+    ]
+  },
+  "vil_prison_rash_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du venter ikke. I det han snur ryggen til, kaster du deg mot cellelåsen med brikken - men alarmen fanger deg før du engang får den til å pipe riktig. Vakten later som han ikke kjenner deg igjen mens de drar deg bort. Tilliten hans var ekte. Tålmodigheten din var det ikke."
+  },
+  "vil_prison_juno_plan": {
+    "interaction": "choice",
+    "text": "Bankingen svarer i et mønster du gjenkjenner etter noen forsøk - det er ikke tilfeldig. En stemme, dempet av vegg og stein, presenterer seg som Juno. Hun har sittet lenger enn de fleste, og hun snakker som om hun vet mer enn hun burde.",
+    "choices": [
+      {
+        "text": "Spør Juno om rømningsplaner",
+        "next": "vil_prison_rumor_dig"
+      },
+      {
+        "text": "Spør hvorfor hun egentlig sitter her",
+        "next": "vil_prison_rumor_dig"
+      }
+    ]
+  },
+  "vil_prison_rumor_dig": {
+    "interaction": "conversation",
+    "text": "Du legger øret mot den kalde veggen. Et stykke unna gjør Juno det samme - to stemmer, atskilt av stein, som prøver å finne ut om den andre er til å stole på.",
+    "characterName": "Juno",
+    "greeting": "Rømning? Ikke så høyt. Vis meg først at du er verdt å stole på - hvorfor sitter DU her, egentlig?",
+    "systemPrompt": "Du spiller Juno, en innsatt som har sittet lenge i romhavnfengselet og kommuniserer med spilleren gjennom en vegg, via banking og hviskede ord. Du er forsiktig, skarp og mistenksom av natur - du stoler ikke lett på noen, men du er desperat etter en alliert.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, så det blir tre totalt) for å teste om spilleren er til å stole på, og om de er modige eller redde. Ett spørsmål om gangen, vent alltid på svar.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Svarer spilleren ærlig, rolig og samarbeidsvillig: sett utfallet til 'success'.\n- Svarer spilleren vagt, engstelig eller unnvikende: sett utfallet til 'failure'.\n- Svarer spilleren dristig, og antyder åpent at de har uvanlige krefter eller planer om å bruke dem for å ta kontroll: sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_prison_breakout"
+      },
+      "failure": {
+        "next": "vil_prison_isolation_ending"
+      },
+      "twist": {
+        "next": "vil_prison_juno_network"
+      }
+    },
+    "maxTurns": 10
+  },
+  "vil_prison_isolation_ending": {
+    "text": "Juno går stille etter det tredje spørsmålet ditt. Neste morgen er veggen taus - hun er overført, eller verre. Kort tid etter kommer to vakter for deg også: noen har rapportert unormal banking fra din celle. Du forsvinner inn i systemet, ett navn av mange, uten svar.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bruk isolasjonen til å planlegge neste trekk i stillhet",
+        "next": "vil_isolation_plan_end"
+      },
+      {
+        "text": "La isolasjonen knekke deg litt, for en stund",
+        "next": "vil_isolation_break_end"
+      }
+    ]
+  },
+  "vil_prison_juno_network": {
+    "interaction": "choice",
+    "text": "Noe i det du sier får Juno til å endre tone helt. «Du er ikke som de andre som havner her,» hvisker hun. «Det finnes et nettverk. Vi har sittet og ventet på noen som deg.» Hun begynner, forsiktig, å beskrive et system av tapping, tillit og en luke ingen vakt har funnet ennå.",
+    "choices": [
+      {
+        "text": "Bli med i nettverket og planlegg rømningen sammen",
+        "next": "vil_prison_breakout"
+      },
+      {
+        "text": "For risikabelt å stole på en fremmed stemme gjennom en vegg - gjør det alene",
+        "next": "vil_prison_rash_ending"
+      }
+    ]
+  },
+  "vil_prison_breakout": {
+    "interaction": "choice",
+    "text": "Enten det er Junos hviskede nettverk, en grådig vakts nøkkelbrikke, eller begge deler - du har funnet veien: en løs ventilasjonsluke bak et rør ingen sjekker. I natt er skiftet det svakeste det blir.",
+    "choices": [
+      {
+        "text": "Gjennom ventilasjonssystemet, mot overflaten",
+        "next": "vil_prison_vent_crawl"
+      },
+      {
+        "text": "Bli - bruk kaoset til å undergrave anlegget innenfra i stedet",
+        "next": "vil_prison_recruited_ending"
+      }
+    ]
+  },
+  "vil_prison_recruited_ending": {
+    "text": "Du snur ryggen til luken. I stedet bruker du ukene som følger til å så tvil, samle informasjon og gjøre deg uunnværlig blant de innsatte og vaktene som lar seg kjøpe. En kveld venter det ikke en vakt utenfor cella di, men to skikkelser i mørke kapper. «Vi har sett hva du gjør herfra,» sier den ene. «Dette fengselet er ikke det du tror det er. Bli med oss ned i Dypet - eller bli her og råtne.» Du forstår, med en kald gysning, at fengselet aldri bare var et fengsel.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bruk posisjonen din blant de innsatte til å bygge reell makt",
+        "next": "vil_recruited_power"
+      },
+      {
+        "text": "Bruk den i stedet til å beskytte de svakeste på innsiden",
+        "next": "vil_recruited_protect"
+      }
+    ]
+  },
+  "vil_prison_vent_crawl": {
+    "interaction": "choice",
+    "text": "Sjakten er trang og kald, og lyden av ditt eget pust fyller ørene. Et stykke foran deg ser du et svakt lysskjær - enten stjerner, eller vaktenes lommelykter. Du kan ikke lenger høre hvilket.",
+    "choices": [
+      {
+        "text": "Hopp ned mot det ukjente mørket, uansett hva det er",
+        "next": "vil_prison_freedom_ending"
+      },
+      {
+        "text": "Snu - lydene bak deg høres for nær ut",
+        "next": "vil_prison_recaptured_ending"
+      }
+    ]
+  },
+  "vil_prison_freedom_ending": {
+    "text": "Du hopper. Det som møter deg er ikke stjerner, men en forlatt lasteterminal fylt av kald luft og frihet. Ingen alarmer følger deg ut. For første gang siden markedet er du sjefen over egen skjebne - ikke fordi noen ga deg makt, men fordi du tok den, ett skritt i mørket om gangen.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bygg deg et nytt, hederlig liv fra bunnen",
+        "next": "vil_freedom_honest"
+      },
+      {
+        "text": "Bruk friheten til å komme deg tilbake til det gamle spillet",
+        "next": "vil_freedom_return"
+      }
+    ]
+  },
+  "vil_prison_recaptured_ending": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du snur. Lommelyktene finner deg før du engang rekker tilbake til luken. Denne gangen er det ingen sinte rop, bare tunge, rutinerte hender som fører deg tilbake til cella. Men noe har forandret seg i blikket ditt - vaktene ser det også, og fra da av behandler de deg som noen som nesten klarte det. Det er ikke frihet. Men det er heller ikke ingenting."
+  },
+  "vil_fear_reputation": {
+    "interaction": "choice",
+    "text": "Hun presenterer seg som Nyx - fixer, mellommann, den som kjenner alle som trenger noen med akkurat dine talenter. «Jeg har en jobb,» sier hun, «stor nok til at ingen i denne sektoren noensinne glemmer navnet ditt.»",
+    "choices": [
+      {
+        "text": "Bli med Nyx og hør om jobben",
+        "next": "vil_fear_crew_meet"
+      },
+      {
+        "text": "Avvis henne - du jobber alene",
+        "next": "vil_fear_lone_wolf_ending"
+      }
+    ]
+  },
+  "vil_fear_lone_wolf_ending": {
+    "text": "Du takker nei. Ryktet om deg lever videre en stund - historier vokser fort i romhavnens trange ganger - men uten noen som holder tråden i live, blekner det etter noen uker til bare én av mange historier folk forteller i markedet. Du beholder kreftene og friheten din, men finner aldri ut hva de egentlig var ment til.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bygg opp ryktet ditt videre, alene",
+        "next": "vil_lonewolf_build_end"
+      },
+      {
+        "text": "Forsvinn helt fra radaren - la ryktet dø ut",
+        "next": "vil_lonewolf_vanish_end"
+      }
+    ]
+  },
+  "vil_fear_origin_investigate": {
+    "interaction": "choice",
+    "text": "I stedet for å la ryktet vokse, trekker du deg tilbake til en stille krok av markedet og prøver å forstå: hvor kom kraften fra? Den kom akkurat idet du grep tak i to slåssende fremmede - ikke før, ikke siden.",
+    "choices": [
+      {
+        "text": "Følg sporet ned i markedets undergrunn",
+        "next": "vil_fear_undercity"
+      },
+      {
+        "text": "Oppsøk robotskikkelsen igjen og spør den rett ut",
+        "next": "vil_fear_ask_figure"
+      }
+    ]
+  },
+  "vil_fear_ask_figure": {
+    "interaction": "conversation",
+    "text": "Du finner skikkelsen der den alltid ser ut til å være - midt i markedsstrømmen, uberørt av kaoset rundt seg. Fotoøynene lyser svakt idet den snur seg mot deg.",
+    "characterName": "Robotskikkelsen",
+    "greeting": "*knirk* Kraften kilte deg, hva? Jeg lurte på når du ville komme og spørre.",
+    "systemPrompt": "Du er den samme mystiske skikkelsen som før, nå i robotform, med en metallisk stemme, gåtefull og svevende, med innslag av romfarts- og robotuttrykk (bipp, knirk, skanning). Spilleren har nettopp blitt en fryktet romskurk og vil vite hvor kreftene deres kom fra.\n\nDin oppgave er å stille TO flere gåtefulle spørsmål (hilsenen teller som det første, så det blir tre totalt) om hva spilleren egentlig vil bruke kreftene sine til, og hvor langt de er villige til å gå. Ett spørsmål om gangen, vent alltid på svar.\n\nHvis spilleren spør deg direkte om hvor kreftene kommer fra, kan du svare kort og gåtefullt uten å avsløre noe konkret - dette teller ikke som et av dine spørsmål.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Svarer spilleren respektfullt og nysgjerrig, uten å true deg: sett utfallet til 'success'.\n- Svarer spilleren frekt, utålmodig eller avvisende: sett utfallet til 'failure'.\n- Svarer spilleren på en måte som antyder de allerede mistenker at noe større enn romhavnen selv står bak, eller presser hardt på for å få vite den fulle sannheten: sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_fear_crew_meet"
+      },
+      "failure": {
+        "next": "vil_fear_figure_silence_ending"
+      },
+      "twist": {
+        "next": "vil_fear_twist_reveal_ending"
+      }
+    },
+    "maxTurns": 10
+  },
+  "vil_fear_figure_silence_ending": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Figuren går taus. Fotoøynene dens dimmer, som om den bestemmer seg for at du ikke er klar for svar ennå. Med et siste knirk snur den seg og forsvinner inn mellom bodene. Du blir stående igjen med spørsmålene dine - og et rykte som fortsetter å vokse, uansett hva du gjør med det."
+  },
+  "vil_fear_undercity": {
+    "interaction": "choice",
+    "text": "Du følger rørene og lysene nedover, forbi markedsgulvet, inn i ganger ingen skilt nevner. Luften blir tynnere, og et svakt, pulserende lys skinner et sted lenger fremme.",
+    "choices": [
+      {
+        "text": "Fortsett dypere, mot lyskilden",
+        "next": "vil_fear_twist_reveal_ending"
+      },
+      {
+        "text": "Snu - dette er for skummelt å utforske alene",
+        "next": "vil_fear_crew_meet"
+      }
+    ]
+  },
+  "vil_fear_twist_reveal_ending": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Det du finner er ikke et laboratorium slik du forestilte deg det - det er et rom fullt av flytende skjermer, alle dekket av tall og grafer som ikke ligner noe språk du kjenner. Et av panelene viser noe som ligner et ansikt: ditt eget, merket med ord du så vidt klarer å lese: «avvik registrert - parameter overstyrt - forsøksobjekt viser uventet styrke». Gulvet under deg flimrer, bare et øyeblikk, som et bilde med dårlig signal. Du forstår, isnende klart, at romhavnen, markedet, kanskje til og med skogen og helvete du forlot - alt sammen kan være deler av noe langt større som iakttar deg. Et sted, langt utenfor det du kan se, blir det notert at du fant ut av det."
+  },
+  "vil_fear_crew_meet": {
+    "interaction": "choice",
+    "text": "Nyx samler et lite crew rundt et bord dekket av kart og stjålne blåkopier. «Målet,» sier hun og legger en hånd flatt på papiret, «er et anlegg de færreste vet eksisterer. Med kreftene dine kan vi endelig komme oss inn.»",
+    "choices": [
+      {
+        "text": "Bli med på heist-planleggingen",
+        "next": "vil_fear_heist_plan"
+      },
+      {
+        "text": "Nøl - tenk på hvem du var før alt dette",
+        "next": "vil_fear_doubt"
+      }
+    ]
+  },
+  "vil_fear_heist_plan": {
+    "interaction": "choice",
+    "text": "Crewet legger frem to muligheter. Den ene krever finesse og et sikkerhetssystem du må lure. Den andre krever bare at du viser frem akkurat det du er blitt.",
+    "choices": [
+      {
+        "text": "Snik deg inn - løs sikkerhetslåsen selv",
+        "next": "vil_fear_heist_lock"
+      },
+      {
+        "text": "Gå rett på sak - vis fram kreftene dine, la dem se hva som kommer",
+        "next": "vil_fear_heist_showdown"
+      }
+    ]
+  },
+  "vil_fear_heist_lock": {
+    "interaction": "question",
+    "text": "Konsollen foran deg krever en firesifret... nei, ett siffer. Nyx hvisker over skulderen din: «Tenk tilbake. Første kvelden i markedet - hvor mange skip så du svevende utenfor vinduet, før alt gikk til helvete?»",
+    "acceptedAnswers": [
+      "3",
+      "tre",
+      "Tre",
+      "TRE"
+    ],
+    "onCorrect": {
+      "next": "vil_fear_legend_ending"
+    },
+    "onIncorrect": {
+      "next": "vil_fear_heist_lock"
+    },
+    "maxAttempts": 3
+  },
+  "vil_fear_legend_ending": {
+    "text": "Låsen klikker opp lydløst. Innsiden er tommere enn ventet, men det crewet finner er nok: nok til at navnet ditt, uttalt riktig i rette kretser, åpner dører resten av livet. Du blir aldri en helt. Men i denne sektoren blir du noe nesten like sjeldent - en legende folk stoler på å levere.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bruk ryktet til å bygge crewet videre, større enn før",
+        "next": "vil_legend_grow"
+      },
+      {
+        "text": "Trekk deg tilbake i stillhet, rik nok til aldri å måtte jobbe igjen",
+        "next": "vil_legend_quiet_end"
+      }
+    ]
+  },
+  "vil_fear_heist_showdown": {
+    "interaction": "choice",
+    "text": "Du går gjennom hovedinngangen, ikke bakveien. Vaktene rekker knapt å heve våpnene før du løfter den nærmeste over hodet ditt, akkurat som den kvelden i markedet. Alarmen hyler. Alle i rommet vet nå nøyaktig hvem du er.",
+    "choices": [
+      {
+        "text": "Bruk kreftene fullt ut, skjul ingenting lenger",
+        "next": "vil_fear_apex_villain_ending"
+      },
+      {
+        "text": "Trekk deg tilbake i siste liten - la crewet fullføre uten deg",
+        "next": "vil_fear_walkaway_ending"
+      }
+    ]
+  },
+  "vil_fear_apex_villain_ending": {
+    "text": "Du lar det stå til. Anlegget faller, ryktet ditt eksploderer over hele sektoren, og for en kort stund føles du ustoppelig. Men bilder av ansiktet ditt henger snart på hver eneste vaktpost i systemet. Du vinner jobben - og mister muligheten til noensinne å gå ubemerket gjennom et marked igjen.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "La ryktet vokse seg enda farligere",
+        "next": "vil_apex_grow"
+      },
+      {
+        "text": "Kjenn på tvilen bildene av deg vekker, bare et øyeblikk",
+        "next": "vil_apex_doubt"
+      }
+    ]
+  },
+  "vil_fear_walkaway_ending": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du snur deg og går, midt i kaoset, og lar crewet klare seg selv. Du hører aldri om de lyktes. Ryktet om deg lever videre uansett, forvrengt av alle som forteller det - den fryktede romskurken som forsvant midt i et kupp, og aldri kom tilbake."
+  },
+  "vil_fear_doubt": {
+    "interaction": "choice",
+    "text": "Du ser på kartet, på Nyx, på de andre rundt bordet som venter på svaret ditt - og et øyeblikk ser du for deg alt dette gå galt, uskyldige fanget i veien for kreftene du fortsatt ikke forstår.",
+    "choices": [
+      {
+        "text": "Prøv å gjøre det rette - advar dem, trekk deg ut med ære",
+        "next": "vil_fear_redemption_attempt"
+      },
+      {
+        "text": "Det er for sent å snu nå - bli med likevel",
+        "next": "vil_fear_heist_plan"
+      }
+    ]
+  },
+  "vil_fear_redemption_attempt": {
+    "interaction": "conversation",
+    "text": "Du ber om et ord med Nyx alene, borte fra resten av crewet. Hun krysser armene og venter.",
+    "characterName": "Nyx",
+    "greeting": "Du ser ut som noen som skal si noe jeg ikke vil høre. Prøv meg.",
+    "systemPrompt": "Du spiller Nyx, en skarp og pragmatisk fixer i romhavnens undergrunn, som nettopp har hørt spilleren antyde at de vil trekke seg fra kuppet. Du er ikke ond, men du beskytter crewet ditt og forretningene dine, og du er vant til at folk lyver for å redde seg selv.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, så det blir tre totalt) for å teste om spillerens ønske om å trekke seg er ekte, eller bare feighet forkledd som samvittighet. Ett spørsmål om gangen, vent alltid på svar.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Svarer spilleren ærlig, tar ansvar for egne valg og viser at de bryr seg om konsekvensene for andre: sett utfallet til 'success'.\n- Svarer spilleren vagt, skylder på andre, eller virker mest opptatt av seg selv: sett utfallet til 'failure'.\nBruk ALDRI utfallet 'twist' i denne samtalen.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_fear_redemption_ending"
+      },
+      "failure": {
+        "next": "vil_fear_betrayed_ending"
+      }
+    },
+    "maxTurns": 10
+  },
+  "vil_fear_redemption_ending": {
+    "text": "Nyx lytter lenger enn du forventet, og til slutt nikker hun, motvillig. «Gå da. Men du skylder meg en tjeneste den dagen jeg trenger den.» Du forlater crewet med kreftene dine intakte og samvittigheten din nesten hel - ikke en helt, men heller ikke lenger jaget av eget rykte.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Innfri tjenesten til Nyx med en gang muligheten byr seg",
+        "next": "vil_redemption_owe"
+      },
+      {
+        "text": "Håp at hun aldri kommer tilbake for å kreve den inn",
+        "next": "vil_redemption_hope_end"
+      }
+    ]
+  },
+  "vil_fear_betrayed_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Nyx tror deg ikke. «Alle sier de vil ut, rett før de blir et problem,» sier hun kaldt, og gir crewet et tegn. Du kommer deg unna, men bare så vidt - og nå vet hele undergrunnen at du er en risiko, ikke en alliert. Dørene som nettopp åpnet seg, lukkes for godt."
+  },
+  "vil_infil_suspicion": {
+    "interaction": "choice",
+    "text": "«Hvorfor meg?» spør du. Håndtereren din stopper, et halvt sekund for lenge før hun svarer. «Fordi du var på rett sted til rett tid,» sier hun. Det er ikke en løgn. Men det er heller ikke hele sannheten.",
+    "choices": [
+      {
+        "text": "La det ligge - gjør jobben du ble bedt om",
+        "next": "vil_infil_first_mission"
+      },
+      {
+        "text": "Grav i arkivene etter den fulle sannheten",
+        "next": "vil_infil_archive_dig"
+      }
+    ]
+  },
+  "vil_infil_archive_dig": {
+    "interaction": "choice",
+    "text": "Du får tilgang til gamle saker som en del av opplæringen din, og bruker kveldene på å lete etter mer enn du skal. Flere filer om «anomale styrkehendelser» er sladdet nesten helt - men ett navn dukker opp igjen og igjen i margen: Dypet.",
+    "choices": [
+      {
+        "text": "Konfronter håndtereren din direkte med det du har funnet",
+        "next": "vil_infil_confront_handler"
+      },
+      {
+        "text": "Hold kortene tett til brystet, fortsett oppdraget som normalt",
+        "next": "vil_infil_first_mission"
+      }
+    ]
+  },
+  "vil_infil_confront_handler": {
+    "interaction": "conversation",
+    "text": "Du ber om et møte utenom tjenestetid. Reyes møter opp presis, med et uttrykk du ikke klarer å lese.",
+    "characterName": "Kommandør Reyes",
+    "greeting": "Du ba om et møte utenom tjeneste. Det er sjelden et godt tegn. Hva har du funnet?",
+    "systemPrompt": "Du spiller Kommandør Reyes, spillerens håndterer i den hemmelige politiavdelingen som vervet dem. Du er disiplinert, kontrollert og vant til å styre samtaler - men spilleren har akkurat antydet at de har funnet noe de ikke skulle ha funnet, om et program kalt Dypet.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, så det blir tre totalt) for å finne ut nøyaktig hvor mye spilleren vet, og hvordan de har tenkt å bruke det. Ett spørsmål om gangen, vent alltid på svar.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Svarer spilleren rolig, forsiktig og signaliserer at de vil forstå sannheten gjennom riktige kanaler: sett utfallet til 'success'.\n- Svarer spilleren anklagende og truer med å avsløre alt umiddelbart, uten omtanke: sett utfallet til 'failure'.\n- Svarer spilleren kynisk og antyder at de vil bruke informasjonen som pressmiddel for egen vinning eller sikkerhet, uten å velge klar side: sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_infil_corruption_reveal"
+      },
+      "failure": {
+        "next": "vil_infil_blown_cover_ending"
+      },
+      "twist": {
+        "next": "vil_infil_doubleagent_ending"
+      }
+    },
+    "maxTurns": 10
+  },
+  "vil_infil_blown_cover_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Reyes' ansikt lukker seg helt igjen. «Du stiller feil spørsmål til feil person,» sier hun, og kaller inn to andre. Du blir ikke arrestert - det ville reist for mange spørsmål - men neste morgen er merket ditt inaktivert, og ingen svarer lenger telefonen din. Du er ute, uten forklaring, uten svar."
+  },
+  "vil_infil_doubleagent_ending": {
+    "text": "I stedet for å velge side, lar du Reyes forstå at du vet nok til å være farlig for begge parter - og at du har tenkt å bruke det. Hun stirrer lenge på deg, og noe skifter i blikket hennes: ikke tillit, men respekt for noen som spiller like kynisk som systemet selv. «Da er vi enige om noe,» sier hun til slutt. «Ingen av oss sier noe - ennå.» Du fortsetter i vervet, men nå med to sett hemmeligheter å bære, og ingen som helt vet hvilken side du egentlig står på - minst av alt deg selv.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Spill begge sider så lenge som mulig",
+        "next": "vil_double_play"
+      },
+      {
+        "text": "Velg en side før det blir for farlig å vente",
+        "next": "vil_double_choose"
+      }
+    ]
+  },
+  "vil_infil_first_mission": {
+    "interaction": "choice",
+    "text": "Ditt første virkelige oppdrag legges frem på et lysbord: to spor, begge markert hastende. Ett i markedet, ett dypere inne i systemet.",
+    "choices": [
+      {
+        "text": "Følg sporet til det ryktede kuppet i markedet",
+        "next": "vil_infil_stakeout_heist"
+      },
+      {
+        "text": "Følg sporet til uroen som rapporteres fra romhavnfengselet",
+        "next": "vil_infil_prison_liaison"
+      }
+    ]
+  },
+  "vil_infil_stakeout_heist": {
+    "interaction": "choice",
+    "text": "Fra en skjult observasjonspost med utsikt over markedstakene følger du et navn som dukker opp igjen og igjen i avlyttede samtaler: Nyx. Og ved siden av henne, i flere rapporter, en beskrivelse som ligner mistenkelig på deg selv, fra den kvelden i markedet.",
+    "choices": [
+      {
+        "text": "Gå undercover og infiltrer crewet hennes",
+        "next": "vil_infil_undercover"
+      },
+      {
+        "text": "Rapporter det du har sett til overordnede, og hold avstand",
+        "next": "vil_infil_report_ending"
+      }
+    ]
+  },
+  "vil_infil_report_ending": {
+    "text": "Du sender inn en ryddig, grundig rapport og lar andre ta seg av resten. Det er ikke en dramatisk historie å fortelle senere, men den er din, og den er ærlig. Reyes noterer arbeidet ditt som «pålitelig» - et ord som, i denne bransjen, teller for mer enn du skulle tro.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Følg opp rapporten med et formelt vitnemål",
+        "next": "vil_infil_report_testify_end"
+      },
+      {
+        "text": "La rapporten stå for seg selv, og gå videre til neste oppdrag",
+        "next": "vil_infil_report_move_end"
+      }
+    ]
+  },
+  "vil_infil_undercover": {
+    "interaction": "choice",
+    "text": "Du jobber deg inn i utkanten av Nyx' crew, forsiktig, lag for lag. Kvelden før kuppet innser du, med en klump i magen, at du kjenner igjen flere av ansiktene rundt bordet - de er ikke monstre, bare folk uten bedre alternativer.",
+    "choices": [
+      {
+        "text": "Advar crewet i siste liten i stedet for å arrestere dem",
+        "next": "vil_infil_switch_sides_ending"
+      },
+      {
+        "text": "Fullfør oppdraget slik det ble planlagt, og avslør crewet for politiet",
+        "next": "vil_infil_bust_ending"
+      }
+    ]
+  },
+  "vil_infil_switch_sides_ending": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "I det avgjørende øyeblikket hvisker du en advarsel i stedet for et signal. Crewet slipper unna i siste sekund, og du blir stående igjen med et valg du ikke kan ta tilbake: du har akkurat forrådt politiet for folk du møtte for tre uker siden. Et sted der ute er du nå både jaget infiltratør og uventet alliert - ingen av sidene vet det ennå."
+  },
+  "vil_infil_bust_ending": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du gir signalet. Aksjonen går akkurat som planlagt, og hele crewet - inkludert Nyx - blir pågrepet uten at noen kommer til skade. Reyes gratulerer deg personlig. Det burde føles som en seier. For det meste gjør det det."
+  },
+  "vil_infil_prison_liaison": {
+    "interaction": "choice",
+    "text": "Uroen i fengselet viser seg å handle om noe mer enn et vanlig opprør: rapporter om innsatte som forsvinner sporløst om natten, offisielt «overført», uten noen overføringspapirer å finne. En gammel kontakt i vaktstyrken hvisker ett ord til deg: Dypet.",
+    "choices": [
+      {
+        "text": "Grav dypere i politiets egen rolle i Dypet-programmet",
+        "next": "vil_infil_corruption_reveal"
+      },
+      {
+        "text": "Trekk deg unna - dette er ikke lenger din sak",
+        "next": "vil_infil_report_ending"
+      }
+    ]
+  },
+  "vil_infil_corruption_reveal": {
+    "interaction": "choice",
+    "text": "Sporene leder ikke til en fiende utenfor systemet, men innover: forseglede budsjettposter, godkjent av navn høyt oppe i ditt eget politidistrikt, alt merket med det samme ordet du nå kjenner altfor godt. Dypet er ikke en trussel politiet bekjemper. Det er noe politiet bygde.",
+    "choices": [
+      {
+        "text": "Avslør sannheten offentlig, koste hva det koste vil",
+        "next": "vil_infil_whistleblower_ending"
+      },
+      {
+        "text": "Bruk sannheten som løftestang for din egen posisjon i systemet i stedet",
+        "next": "vil_infil_leverage_ending"
+      }
+    ]
+  },
+  "vil_infil_whistleblower_ending": {
+    "text": "Du legger alt du har funnet foran de få du fortsatt stoler på - journalister, en dommer, en håndfull kolleger med samvittigheten i behold. Det koster deg jobben, kanskje mer. Men for første gang siden den kvelden i markedet, føles det som om kreftene dine - og valgene dine - endelig tjener noe større enn deg selv.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Følg opp saken gjennom rettssystemet, uansett hvor lang tid det tar",
+        "next": "vil_whistle_follow"
+      },
+      {
+        "text": "Forsvinn nå som saken er ute, og la andre ta det videre",
+        "next": "vil_whistle_disappear_end"
+      }
+    ]
+  },
+  "vil_infil_leverage_ending": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du sier ingenting til noen utenfor systemet. I stedet bruker du det du vet, stille og forsiktig, til å sikre deg selv en plass nærmere toppen enn noen infiltratør burde ha. Det virker. Du klatrer. Men et sted underveis slutter du å kunne se forskjell på deg selv og folkene du en gang skulle avsløre."
+  },
+  "vil_lonewolf_build_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du bygger videre på ryktet alene, en skygge ingen helt kan plassere et ansikt på. Det blir et ensomt liv, men ett du selv har kontroll over hver eneste dag av - og for deg er det verdt prisen."
+  },
+  "vil_lonewolf_vanish_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du lar ryktet dø sakte ut, flytter deg fra havn til havn til navnet ditt ikke betyr noe for noen lenger. Det er en underlig fred i å bli glemt frivillig, etter et liv der du nesten ble noe langt større."
+  },
+  "vil_isolation_plan_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Isolasjonscellen blir, mot alle odds, et sted du tenker klarere enn på lenge. Du kommer ut måneder senere roligere, skarpere, og langt farligere for de som trodde de kunne kneble deg med stillhet alene."
+  },
+  "vil_isolation_break_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Stillheten gjør det den er ment å gjøre, sakte og metodisk. Du kommer ut av isolasjonen en annen, mykere versjon av deg selv - ikke reformert, akkurat, men avvæpnet på en måte som varer lenger enn du liker å innrømme."
+  },
+  "vil_infil_report_testify_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Vitnemålet ditt gir rapporten mer tyngde enn du forventet, og saken ender med faktiske konsekvenser for de involverte. Det er ikke den dramatiske historien du kanskje drømte om som ny rekrutt, men den er ekte, og den betyr noe."
+  },
+  "vil_infil_report_move_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du går videre til neste oppdrag uten å se tilbake, og lar rapporten din bli en av mange i en bunke andre håndterer. Karrieren din fortsetter, solid og upåklagelig, men uten den ene, minneverdige seieren du kunne fått ved å stå på litt lenger."
+  },
+  "vil_recruited_power": {
+    "interaction": "choice",
+    "text": "Du bygger sakte et nettverk av lojalitet og frykt blant de innsatte, til du i praksis styrer mer av fengselets indre liv enn vaktene selv later til å ane.",
+    "choices": [
+      {
+        "text": "Konsolider makten videre",
+        "next": "vil_recruited_kingpin"
+      }
+    ]
+  },
+  "vil_recruited_kingpin": {
+    "interaction": "conversation",
+    "text": "En vakt du aldri har snakket med før søker deg opp en kveld, med et tilbud som overrasker deg.",
+    "characterName": "Vakten Torres",
+    "greeting": "«Du styrer mer her inne enn ledelsen vil innrømme,» sier Torres, lavt. «Jeg kan se det på begge sider - enten knuser vi det, eller så bruker vi det. Hva sier du til det siste?»",
+    "systemPrompt": "Du spiller Vakten Torres - pragmatisk, korrupsjonsvillig, ser en mulighet til å bruke spillerens makt blant de innsatte til egen vinning. Still spilleren to spørsmål om hvor langt de er villige til å gå i et slikt samarbeid med systemet de egentlig skulle stå imot. Vurder hvor prinsippfast eller kynisk spilleren fremstår.\n\nVurder helheten:\n- Avviser samarbeidet, prioriterer de innsattes tillit fremfor egen fordel: sett 'success'.\n- Godtar samarbeidet fullt ut, kynisk og maktsøkende: sett 'failure'.\n- Later til å godta, men med en skjult agenda Torres ikke aner: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_recruited_refuse_end"
+      },
+      "failure": {
+        "next": "vil_recruited_corrupt_end"
+      },
+      "twist": {
+        "next": "vil_recruited_double_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_recruited_refuse_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du avviser tilbudet, og velger i stedet å bruke innflytelsen din til å holde de innsatte samlet mot systemet, ikke i lomme med det. Det gjør deg til en farligere fange enn noensinne i Torres' øyne - og en helt i manges andres."
+  },
+  "vil_recruited_corrupt_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du tar imot avtalen, og de neste årene blir et stille, korrupt samarbeid som gjør deg rikere og tryggere innenfor murene - på bekostning av nesten alt du en gang fortalte deg selv at du sto for."
+  },
+  "vil_recruited_double_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du lar Torres tro han har kjøpt deg, mens du i det stille bruker avtalen til å samle informasjon om nettopp den korrupsjonen han representerer. Når det hele til slutt sprekker, er det ikke du som går ned med det."
+  },
+  "vil_recruited_protect": {
+    "interaction": "choice",
+    "text": "Du bruker respekten du har opparbeidet til å skjerme de svakeste innsatte fra utnyttelse - en rolle ingen ba deg om, men som passer bedre enn du forventet.",
+    "choices": [
+      {
+        "text": "Fortsett rollen som beskytter",
+        "next": "vil_recruited_protector_end"
+      }
+    ]
+  },
+  "vil_recruited_protector_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Årene innenfor blir tyngre for kroppen, men lettere for samvittigheten enn du forventet - kjent blant de innsatte ikke som en fryktet skurk, men som noen som faktisk holdt ord om å se etter de andre. Det er ikke den frihetshistorien du en gang drømte om, men den er din, og den er god."
+  },
+  "vil_double_play": {
+    "interaction": "choice",
+    "text": "Du balanserer på en stadig tynnere line mellom Reyes og crewet i ukene som følger, gjeve informasjon til begge parter i doser små nok til aldri helt å avsløre deg.",
+    "choices": [
+      {
+        "text": "Fortsett balansegangen enda en uke",
+        "next": "vil_double_tension"
+      }
+    ]
+  },
+  "vil_double_tension": {
+    "interaction": "conversation",
+    "text": "Til slutt merker Reyes at noe ikke stemmer, og kaller deg inn til et møte som føles langt farligere enn de forrige.",
+    "characterName": "Kommandør Reyes",
+    "greeting": "«Informasjonen din har vært påfallende jevn i det siste,» sier Reyes, kaldt. «Jevn nok til at jeg lurer på om du egentlig jobber for meg i det hele tatt. Overbevis meg om at jeg tar feil.»",
+    "systemPrompt": "Du spiller Kommandør Reyes igjen - nå mer mistenksom enn noensinne, balanserer mellom å tro på spilleren og å avsløre dem som dobbeltagent. Still spilleren to skarpe spørsmål ment å avdekke løgnen, og vurder hvor overbevisende spilleren klarer å holde masken.\n\nVurder helheten:\n- Overbevisende, konsistent, klarer å berolige mistanken: sett 'success'.\n- Selvmotsigende, avslører seg selv under press: sett 'failure'.\n- Snur mistanken tilbake mot Reyes selv på en overraskende måte: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_double_maintained_end"
+      },
+      "failure": {
+        "next": "vil_double_exposed_end"
+      },
+      "twist": {
+        "next": "vil_double_turntables_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_double_maintained_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du holder masken, akkurat, og Reyes lar mistanken gli forbi - for nå. Du fortsetter balansegangen mellom to verdener som begge tror de eier deg, klar over at det bare er et spørsmål om tid før en av dem finner ut sannheten."
+  },
+  "vil_double_exposed_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Sprekkene i historien din blir for tydelige, og Reyes' ansikt stivner idet hun forstår. Du blir ikke arrestert - det ville vært for enkelt - men blir kastet ut av begge verdener på en gang, uten side igjen å stole på deg."
+  },
+  "vil_double_turntables_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du snur mistanken tilbake mot Reyes med en skarphet som tydelig rokker ved henne, og for et øyeblikk er det hun, ikke du, som må forsvare seg. Du forlater møtet uten svar, men med en helt ny type makt over situasjonen du ikke hadde da du gikk inn."
+  },
+  "vil_double_choose": {
+    "interaction": "choice",
+    "text": "Du bestemmer deg for å velge side før spillet blir for farlig, og innser at valget kommer an på hvem du egentlig stoler mest på - myndighetene som rekrutterte deg, eller crewet som stolte på deg uten å vite bedre.",
+    "choices": [
+      {
+        "text": "Velg myndighetene, offisielt og fullt ut",
+        "next": "vil_double_official_end"
+      },
+      {
+        "text": "Velg crewet, og advar dem om alt",
+        "next": "vil_double_crew_end"
+      }
+    ]
+  },
+  "vil_double_official_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du velger myndighetene til slutt, med en tyngde av skyldfølelse over crewet du forråder. Aksjonen som følger blir ren og effektiv. Karrieren din vokser. Samvittigheten din bærer prisen for det i årene som følger."
+  },
+  "vil_double_crew_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du advarer crewet i stedet, og bryter med det alt myndighetene trodde de hadde bygget deg opp til å være. Det er farligere enn noe annet valg du kunne gjort, men det føles, for første gang på lenge, som ditt eget."
+  },
+  "vil_whistle_disappear_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du forsvinner sporløst nå som sannheten er ute, og bygger deg et helt nytt liv et sted ingen av de gamle kontaktene dine noensinne finner deg. Rettssaken ruller videre uten deg. Du sover, for første gang på år, uten å lytte etter fottrinn."
+  },
+  "vil_whistle_follow": {
+    "interaction": "choice",
+    "text": "Du blir, mot bedre vitende, og følger saken gjennom en lang, utmattende rettsprosess - vitnesbyrd etter vitnesbyrd, trusler som aldri blir noe av, men aldri helt forsvinner heller.",
+    "choices": [
+      {
+        "text": "Vitne i den avgjørende rettsdagen",
+        "next": "vil_whistle_testify"
+      }
+    ]
+  },
+  "vil_whistle_testify": {
+    "interaction": "conversation",
+    "text": "Forsvarsadvokaten til de tiltalte krysseksaminerer deg med en skarphet som er tydelig ment å knekke historien din i stykker foran hele rettssalen.",
+    "characterName": "Forsvarsadvokaten",
+    "greeting": "«Du forventer at retten skal tro på en tidligere kriminell fremfor mine klienter?» spør advokaten, kaldt. «Overbevis oss om at troverdigheten din holder mål.»",
+    "systemPrompt": "Du spiller Forsvarsadvokaten - skarp, aggressiv, prøver systematisk å undergrave spillerens troverdighet foran retten. Still spilleren to press-spørsmål ment å så tvil om motivene og historien deres, og vurder hvor solid spilleren står imot presset.\n\nVurder helheten:\n- Rolig, konsistent, urokkelig under press: sett 'success'.\n- Vaklende, gir advokaten åpninger til å så reell tvil: sett 'failure'.\n- Svarer med noe uventet som snur stemningen i rettssalen: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_whistle_convict_end"
+      },
+      "failure": {
+        "next": "vil_whistle_doubt_end"
+      },
+      "twist": {
+        "next": "vil_whistle_dramatic_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_whistle_convict_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Vitnesbyrdet ditt holder, urokkelig, og retten dømmer til slutt slik bevisene faktisk tilsier. Det koster deg år av søvn og en god del av det gamle livet ditt, men rettferdigheten som følger er ekte, og den er, i det minste delvis, din fortjeneste."
+  },
+  "vil_whistle_doubt_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Tvilen advokaten sår fester seg hos juryen, og saken ender uavgjort - ikke frifinnelse, ikke domfellelse, bare en frustrerende stillstand. Du drar hjem utmattet, usikker på om alt du ofret faktisk utgjorde noen forskjell i det hele tatt."
+  },
+  "vil_whistle_dramatic_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Svaret ditt avslører en detalj ingen i rettssalen ventet, og stemningen snur brått - selv advokaten mister et øyeblikk kontrollen over ansiktsuttrykket sitt. Saken blir avisoverskrifter i ukene som følger, av grunner langt utover det du selv forventet å sette i gang."
+  },
+  "vil_freedom_honest": {
+    "interaction": "choice",
+    "text": "Du bruker friheten din til å starte helt på nytt, langt fra alt kjent - et nytt navn, en enkel jobb, netter uten frykt for fotsteg i mørket.",
+    "choices": [
+      {
+        "text": "Lev det nye, hederlige livet, dag for dag",
+        "next": "vil_freedom_honest_end"
+      }
+    ]
+  },
+  "vil_freedom_honest_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Det nye livet er mindre enn det gamle på nesten alle målbare måter - mindre penger, mindre spenning, mindre makt. Men det er ditt eget, bygget uten å måtte se over skulderen, og det viser seg å være akkurat det du egentlig trengte hele tiden."
+  },
+  "vil_freedom_return": {
+    "interaction": "choice",
+    "text": "Friheten varer knapt en måned før gamle kontakter finner deg igjen, og trekket tilbake mot det gamle livet viser seg sterkere enn du innrømmet for deg selv at det ville være.",
+    "choices": [
+      {
+        "text": "Ta imot ett siste, stort jobbtilbud",
+        "next": "vil_freedom_onejob"
+      }
+    ]
+  },
+  "vil_freedom_onejob": {
+    "interaction": "conversation",
+    "text": "Kontakten som finner deg er en du ikke har sett siden før fengselet, med et tilbud som er umulig å ignorere.",
+    "characterName": "Den gamle kontakten",
+    "greeting": "«Bare én jobb til,» sier kontakten, med et smil som lover langt mer enn ordene sier. «Den kan gjøre deg fri for godt, på ordentlig denne gangen. Eller den kan sende deg rett tilbake dit du kom fra. Er du inn?»",
+    "systemPrompt": "Du spiller Den gamle kontakten - sjarmerende, upålitelig, tilbyr et siste stort kupp som lover frihet men lukter faretruende av felle. Still spilleren to spørsmål om hvorfor de egentlig vurderer å gå med på dette, og vurder hvor klokt og edruelig resonnementet deres virker.\n\nVurder helheten:\n- Skeptisk, edruelig, ser gjennom faren i tilbudet: sett 'success'.\n- Grådig eller desperat, lar seg blende av løftet: sett 'failure'.\n- Ser gjennom det OG finner en måte å snu det til egen fordel: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_freedom_decline_end"
+      },
+      "failure": {
+        "next": "vil_freedom_trap_end"
+      },
+      "twist": {
+        "next": "vil_freedom_outsmart_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_freedom_decline_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du takker nei, og kjenner en umiddelbar lettelse over å ha gjenkjent fellen for det den var. Kontakten forsvinner skuffet inn i mørket, og du blir stående igjen, fri, denne gangen på ordentlig."
+  },
+  "vil_freedom_trap_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Jobben viser seg å være akkurat den fellen du burde ha gjennomskuet, og innen natten er omme er friheten din en saga blott igjen. Du sitter i en ny celle med god tid til å tenke over hvor lett grådigheten fant deg igjen."
+  },
+  "vil_freedom_outsmart_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du gjennomskuer fellen, men i stedet for å gå fra den, snur du den til din egen fordel med et mot som overrasker selv deg selv - og går ut av hele affæren rikere, friere, og med et rykte som vokser seg enda merkeligere enn før."
+  },
+  "vil_apex_grow": {
+    "interaction": "choice",
+    "text": "Du lar ryktet vokse akkurat slik det vil, umettelig, til navnet ditt alene er nok til å tømme et helt kvartal på minutter. Det er den makten du en gang drømte om. Det viser seg å veie tyngre enn ventet.",
+    "choices": [
+      {
+        "text": "Bær den tyngden videre",
+        "next": "vil_apex_isolated_end"
+      }
+    ]
+  },
+  "vil_apex_isolated_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Ryktet ditt blir til slutt så stort at det sluker deg helt - ingen tør komme nær nok til å kjenne deg lenger, bare frykte navnet. Du får akkurat den makten du søkte, og oppdager, for sent, hvor ensomt toppen av den faktisk er."
+  },
+  "vil_apex_doubt": {
+    "interaction": "choice",
+    "text": "Bildene av ansiktet ditt spredt over sektoren vekker noe du ikke forventet - ikke stolthet, men et snev av redsel for hvem du er i ferd med å bli.",
+    "choices": [
+      {
+        "text": "La tvilen lede deg til et oppgjør med deg selv",
+        "next": "vil_apex_reckoning"
+      }
+    ]
+  },
+  "vil_apex_reckoning": {
+    "interaction": "conversation",
+    "text": "Du oppsøker den eneste du kan tenke deg å snakke ærlig med om dette - en gammel alliert som kjente deg før ryktet tok over.",
+    "characterName": "Den gamle alliansen",
+    "greeting": "«Jeg lurte på når du ville komme til meg med dette blikket,» sier den gamle alliansen, rolig. «Fortell meg: er det navnet ditt du er redd for, eller den du faktisk har blitt?»",
+    "systemPrompt": "Du spiller Den gamle alliansen - en klok, ærlig venn fra tiden før spillerens rykte vokste seg farlig stort. Still spilleren to spørsmål om forskjellen på ryktet og personen bak det, og vurder hvor ærlig og selvinnsiktsfull spilleren klarer å være.\n\nVurder helheten:\n- Ærlig, selvinnsiktsfull, villig til å endre kurs: sett 'success'.\n- Forsvarer ryktet, later som det ikke koster noe: sett 'failure'.\n- Svarer med en uventet, dypere sannhet om hva makten faktisk har gjort med dem: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_apex_change_end"
+      },
+      "failure": {
+        "next": "vil_apex_denial_end"
+      },
+      "twist": {
+        "next": "vil_apex_reveal_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_apex_change_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Samtalen blir vendepunktet du ikke visste du trengte. Du begynner, sakte og ufullkomment, å bygge tilbake noe av det ryktet kostet deg - ikke ved å bli svak, men ved å velge hvem du faktisk vil være bak navnet."
+  },
+  "vil_apex_denial_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du forsvarer ryktet, akkurat som du har gjort for deg selv i månedsvis, og den gamle alliansen ser sannheten i det uansett - lenge før du selv gjør det. Dere skilles denne kvelden, og møtes aldri igjen."
+  },
+  "vil_apex_reveal_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Det du innrømmer overrasker dere begge - at makten aldri var poenget i det hele tatt, bare et skjold mot noe langt eldre og mer personlig du aldri fikk løst. Den gamle alliansen lytter lenge, uten svar å gi, men med et blikk som forteller deg at du endelig sa noe sant."
+  },
+  "vil_redemption_hope_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Årene går, og Nyx kommer aldri tilbake for å kreve tjenesten. Du bygger deg et nytt liv med gjelden hengende svakt over deg, aldri helt glemt, men aldri heller innløst. Det viser seg å være nok til å la deg sove om natten."
+  },
+  "vil_redemption_owe": {
+    "interaction": "choice",
+    "text": "Nyx kommer tilbake, akkurat som hun lovet, med en forespørsel som setter deg i en vanskelig posisjon mellom ditt nye liv og gjelden du skylder henne.",
+    "choices": [
+      {
+        "text": "Hør hva Nyx faktisk ber om",
+        "next": "vil_redemption_ask"
+      }
+    ]
+  },
+  "vil_redemption_ask": {
+    "interaction": "conversation",
+    "text": "Nyx finner deg på jobben din, uanmeldt, med et uttrykk som gjør det klart at dette ikke er en sosial visitt.",
+    "characterName": "Nyx",
+    "greeting": "«Du skylder meg,» sier Nyx, uten omsvøp. «Jeg trenger noen jeg kan stole på for en jobb som ikke tåler feil. Det trenger ikke å bety noe mer enn det. Men jeg trenger et svar nå.»",
+    "systemPrompt": "Du spiller Nyx - den tidligere crewlederen som en gang lot spilleren gå fri, nå tilbake for å innkreve gjelden. Du er direkte, ikke ondsinnet, men bestemt på å få det du trenger. Still spilleren to spørsmål om hvor langt de er villige til å strekke seg for å betale tilbake uten å miste seg selv i prosessen. Vurder balansen mellom lojalitet og selvbevaring i svarene.\n\nVurder helheten:\n- Finner en måte å hjelpe uten å kompromittere det nye livet sitt: sett 'success'.\n- Nekter helt, uten hensyn til gjelden: sett 'failure'.\n- Går med på noe langt farligere enn nødvendig, dratt tilbake mot det gamle livet: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_redemption_balance_end"
+      },
+      "failure": {
+        "next": "vil_redemption_refuse_end"
+      },
+      "twist": {
+        "next": "vil_redemption_pulled_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_redemption_balance_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du finner en måte å hjelpe Nyx uten å true det nye livet ditt - en avgrenset, forsiktig tjeneste som betaler gjelden i sin helhet uten å dra deg tilbake inn i noe større. Dere skilles denne gangen som noe nærmere likeverdige."
+  },
+  "vil_redemption_refuse_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du nekter, fullt og helt, og ser noe i Nyx' blikk lukke seg for godt. Hun går uten trusler, men du vet at broen dere en gang bygget nettopp brant ned bak henne - og at gjeld ubetalt har en tendens til å komme tilbake på verre vis."
+  },
+  "vil_redemption_pulled_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du sier ja til mer enn du burde, dratt av gammel lojalitet tilbake mot et liv du trodde du hadde forlatt for godt. Jobben blir farligere enn ventet, og du forstår, midt oppi den, at grensen mellom det gamle og det nye livet ditt aldri egentlig var så tydelig som du innbilte deg."
+  },
+  "vil_legend_quiet_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du tar byttet og forsvinner, stille og rik, mens ryktet om deg fortsetter å vokse akkurat fordi ingen noensinne finner deg igjen for å motbevise det. Det blir det beste av begge verdener - legenden lever videre uten deg måtte bære vekten av den."
+  },
+  "vil_legend_grow": {
+    "interaction": "choice",
+    "text": "Du bruker det voksende ryktet til å rekruttere bredere, bygge crewet til noe langt mer ambisiøst enn den lille gjengen som gjorde det første kuppet mulig.",
+    "choices": [
+      {
+        "text": "Sett kursen mot et enda større mål",
+        "next": "vil_legend_bigscore"
+      }
+    ]
+  },
+  "vil_legend_bigscore": {
+    "interaction": "conversation",
+    "text": "Det nye, utvidede crewet samles for å diskutere det neste, mye farligere målet - en jobb ingen av dem noensinne ville turt vurdere alene.",
+    "characterName": "Crewets nye strateg",
+    "greeting": "«Dette målet er annerledes,» sier strategen, alvorlig. «Det er ikke penger vi snakker om lenger - det er noe langt eldre og rarere, gjemt et sted knapt noen tror faktisk eksisterer. Er du fortsatt med, uansett hva vi finner?»",
+    "systemPrompt": "Du spiller Crewets nye strateg - dyktig, alvorlig, litt urolig over hvor rart det kommende målet faktisk er. Still spilleren to spørsmål om hvor langt de er villige til å gå inn i det ukjente for crewets skyld, og vurder om driven deres kommer fra grådighet, lojalitet, eller noe annet.\n\nVurder helheten:\n- Lojalitet til crewet og ekte nysgjerrighet, balansert med sunn forsiktighet: sett 'success'.\n- Ren grådighet uten tanke på risiko: sett 'failure'.\n- Noe uventet og personlig trekker dem mot målet - en anelse om at det er knyttet til noe fra deres egen fortid: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "vil_legend_target"
+      },
+      "failure": {
+        "next": "vil_legend_fracture_end"
+      },
+      "twist": {
+        "next": "fork1_scene1"
+      }
+    },
+    "maxTurns": 6
+  },
+  "vil_legend_fracture_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Grådigheten din smitter over på resten av crewet, og planleggingen kollapser i mistillit og krangling lenge før dere når målet. Crewet du bygget med så mye stolthet, sprekker fra innsiden, og du blir stående igjen med et rykte langt større enn det som faktisk er igjen av det."
+  },
+  "vil_legend_target": {
+    "interaction": "choice",
+    "text": "Sporene leder crewet til et anlegg langt utenfor kjent territorium - vakter som ikke ser ut som noen dere har møtt før, og en dragning i luften som minner underlig om noe eldgammelt og ikke helt av denne verden.",
+    "choices": [
+      {
+        "text": "Gå inn med hele crewet, alle sammen",
+        "next": "vil_legend_infiltrate"
+      },
+      {
+        "text": "Gå inn alene og undersøk først",
+        "next": "vil_legend_scout"
+      }
+    ]
+  },
+  "vil_legend_scout": {
+    "interaction": "choice",
+    "text": "Du sniker deg inn alene, forsiktig, og finner et anlegg fylt med utstyr og symboler som ikke ligner noe kjent teknologi eller religion - noe eldre, varmere, nesten som glør som aldri slukner.",
+    "choices": [
+      {
+        "text": "Gå dypere inn for å se hva som egentlig er der",
+        "next": "vil_legend_core"
+      }
+    ]
+  },
+  "vil_legend_infiltrate": {
+    "interaction": "choice",
+    "text": "Hele crewet baner seg vei inn sammen, effektivt og koordinert som aldri før - men jo lenger inn dere kommer, jo mer stille og urolig blir stemningen blant selv de mest erfarne medlemmene.",
+    "choices": [
+      {
+        "text": "Fortsett mot anleggets kjerne sammen",
+        "next": "vil_legend_core"
+      }
+    ]
+  },
+  "vil_legend_core": {
+    "interaction": "choice",
+    "text": "I kjernen av anlegget finner dere det strategen antydet var der: en portal, uskarp i kantene, som lukter svakt av svovel og gløder med et lys som ikke ligner elektrisitet i det hele tatt.",
+    "choices": [
+      {
+        "text": "Gå gjennom portalen for å se hvor den fører",
+        "next": "fork1_scene1"
+      },
+      {
+        "text": "Forsegl portalen i stedet - dette er for farlig å røre",
+        "next": "vil_legend_seal"
+      }
+    ]
+  },
+  "vil_legend_seal": {
+    "interaction": "choice",
+    "text": "Dere forsegler portalen sammen, med utstyr crewet aldri har brukt til noe så merkelig før, og forlater anlegget med et bytte av utstyr og rykter i stedet for svar.",
+    "choices": [
+      {
+        "text": "Dra tilbake til byen med historien om det underlige anlegget",
+        "next": "vil_legend_myth_end"
+      }
+    ]
+  },
+  "vil_legend_myth_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Historien om anlegget og den forseglede portalen blir den merkeligste, mest omdiskuterte delen av legenden deres - detaljer ingen utenfor crewet noensinne helt tror på, men som binder dere sammen som noe nærmere en hemmelig orden enn en vanlig kriminell gjeng."
+  }
+}
