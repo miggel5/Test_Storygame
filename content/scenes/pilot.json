@@ -87,9 +87,14 @@
       "next": "pil_first_flight"
     },
     "onIncorrect": {
-      "next": "pil_sim_test"
+      "next": "pil_sim_washout_end"
     },
     "maxAttempts": 3
+  },
+  "pil_sim_washout_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Skjermen blinker rødt for tredje gang. Instruktøren trykker på en knapp, og skjermen blir svart. «Simulatoren lyver aldri,» sier hun, ikke uvennlig. «Den sier at du ikke er klar - ennå.» Du får tilbud om en plass i bakkemannskapet og tar imot den. Det er ikke stjernene, men det er nær nok til å kjenne lukten av dem."
   },
   "pil_first_flight": {
     "interaction": "choice",
@@ -97,7 +102,7 @@
     "choices": [
       {
         "text": "Følg protokollen til punkt og prikke, meld inn og fortsett ruten",
-        "next": "pil_crisis_alarm",
+        "next": "pil_crisis_alarm_pilot",
         "setFlags": {
           "pilTrack": "pilot"
         }
@@ -118,7 +123,7 @@
       },
       {
         "text": "Meld ifra på radioen og hold trygg avstand",
-        "next": "pil_crisis_alarm",
+        "next": "pil_crisis_alarm_pilot",
         "setFlags": {
           "pilTrack": "pilot"
         }
@@ -230,9 +235,14 @@
       "next": "pil_mek_defused"
     },
     "onIncorrect": {
-      "next": "pil_mek_disarm_solo"
+      "next": "pil_mek_disarm_fail_end"
     },
     "maxAttempts": 3
+  },
+  "pil_mek_disarm_fail_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Panelet gir tre korte toner, og noe inne i boksen klikker mot deg. Du rekker å kaste den fra deg under skroget og kaste deg bakover før den lyser opp med et smell. Ingen blir skadet, men skipet må tas ut av tjeneste, og alle spørsmålene rettes mot deg: hvorfor rørte du den selv, uten å melde fra? Du får en formell advarsel, og et rykte som følger deg lenger enn du liker."
   },
   "pil_mek_defused": {
     "interaction": "choice",
@@ -424,6 +434,20 @@
       }
     ]
   },
+  "pil_crisis_alarm_pilot": {
+    "interaction": "choice",
+    "text": "Radioen i cockpiten går i stykker av støy: en øredøvende alarm over hele stasjonen, og en stemme som roper om en kollisjon i ytre dokk - et fremmed objekt har truffet skroget. «Alle patruljer inn, NÅ!» Du legger skipet i en krapp sving hjem, og når du lander i hangaren, rister den fortsatt av trykkbølgen, med lysene i dyp rødt. Aspiranter, mekanikere og vaktmestere strømmer i alle retninger rundt skipet ditt.",
+    "choices": [
+      {
+        "text": "Løp mot kommandoen så fort du er ute av cockpiten",
+        "next": "pil_crisis_conversation"
+      },
+      {
+        "text": "Hjelp andre aspiranter med å evakuere først",
+        "next": "pil_crisis_evac"
+      }
+    ]
+  },
   "pil_crisis_evac": {
     "interaction": "choice",
     "text": "Du griper tak i de nærmeste - en gråtende ny-aspirant, en eldre tekniker som har mistet brillene sine - og dirigerer dem mot nødutgangene. Røyken tetner til, men strømmen av folk beveger seg fremover, ikke i panikk, takket være deg.",
@@ -467,7 +491,7 @@
     "text": "Offiseren nikker skarpt til deg, én gang, som betyr mer enn noen tale kunne gjort. «Da vet du hva som må gjøres. Gå.» Kroppen din vet allerede hva den skal gjøre - alt du har lært siden du kom hit, samler seg i dette ene øyeblikket.",
     "choices": [
       {
-        "text": "Sett deg i nærmeste skip og møt trusselen der ute i lufta",
+        "text": "Sett deg tilbake i cockpiten og møt trusselen der ute i lufta",
         "next": "pil_pilot_hero_ending",
         "condition": {
           "flag": "pilTrack",
@@ -888,8 +912,10 @@
     "acceptedAnswers": [
       "stand down",
       "stand-down",
-      "reager ikke",
-      "hold stand"
+      "standdown",
+      "stå ned",
+      "stå-ned",
+      "reager ikke"
     ],
     "onCorrect": {
       "next": "pil_hero_deep_success"

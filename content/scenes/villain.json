@@ -360,9 +360,14 @@
       "next": "vil_fear_legend_ending"
     },
     "onIncorrect": {
-      "next": "vil_fear_heist_lock"
+      "next": "vil_fear_lock_fail_end"
     },
     "maxAttempts": 3
+  },
+  "vil_fear_lock_fail_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Konsollen blinker rødt og låser seg. Et sted i bygget begynner en alarm å gå, dempet, men umiskjennelig. Nyx ser på deg uten sinne, bare med et regnestykke i blikket. «Du husket feil,» sier hun bare. Crewet drar uten deg før vaktene kommer, og du blir stående igjen foran en dør som ikke vil åpne seg - med et rykte som plutselig har fått en sprekk."
   },
   "vil_fear_legend_ending": {
     "text": "Låsen klikker opp lydløst. Innsiden er tommere enn ventet, men det crewet finner er nok: nok til at navnet ditt, uttalt riktig i rette kretser, åpner dører resten av livet. Du blir aldri en helt. Men i denne sektoren blir du noe nesten like sjeldent - en legende folk stoler på å levere.",
@@ -1041,10 +1046,24 @@
         "next": "vil_legend_fracture_end"
       },
       "twist": {
-        "next": "fork1_scene1"
+        "next": "vil_legend_pull"
       }
     },
     "maxTurns": 6
+  },
+  "vil_legend_pull": {
+    "interaction": "choice",
+    "text": "Noe i deg vet veien før strategen har sagt den. Dere har knapt kommet inn i anlegget før du går foran, gjennom sperrer du ikke burde kjenne til, mot en kjerne du aldri har sett - og likevel husker. Crewet følger etter, stille, og ingen spør hvordan du vet det.",
+    "choices": [
+      {
+        "text": "Følg dragningen helt inn til kjernen",
+        "next": "vil_legend_core"
+      },
+      {
+        "text": "Bremse opp, og la crewet gå videre samlet og forsiktig",
+        "next": "vil_legend_infiltrate"
+      }
+    ]
   },
   "vil_legend_fracture_end": {
     "interaction": "ending",
@@ -1067,7 +1086,7 @@
   },
   "vil_legend_scout": {
     "interaction": "choice",
-    "text": "Du sniker deg inn alene, forsiktig, og finner et anlegg fylt med utstyr og symboler som ikke ligner noe kjent teknologi eller religion - noe eldre, varmere, nesten som glør som aldri slukner.",
+    "text": "Du sniker deg inn alene, forsiktig, og finner et anlegg fylt med utstyr og symboler som ikke ligner noe kjent teknologi eller religion - noe eldre, varmere, nesten som glør som aldri slukner. Du gir crewet tegn om å komme etter.",
     "choices": [
       {
         "text": "Gå dypere inn for å se hva som egentlig er der",
