@@ -1,0 +1,77 @@
+{
+  "start": {
+    "interaction": "conversation",
+    "text": "Du våkner og kjenner at du ligger på noe vått. Du åpner øynene og ser deg rundt - du ligger i en mørk og fuktig skog, men det er for mørkt til å skimte detaljer. Etter hvert som øynene dine venner seg til mørket, skimter du et glimt langt fremme - et lys. Du reiser deg opp, stiv i kroppen, og går sakte mot lyset. Når du nærmer deg, hører du at det spraker, og skjønner at det er et bål. Selv om du er redd, går du nærmere, helt til du kan se en mørk skikkelse som står bøyd over flammene.",
+    "characterName": "Skikkelsen",
+    "systemPrompt": "Du er en mystisk, kappekledd skikkelse som står ved et bål i en mørk skog. Du avslører aldri navnet ditt. Du snakker svevende og mystisk, gjerne i rim og gåter, og er av natur svært spørrende.\n\nDin aller første replikk til spilleren (før denne samtalen starter) er allerede stilt som et gåtefullt spørsmål. Din oppgave videre er å stille TO flere åpne spørsmål (så det blir tre spørsmål totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hva spilleren egentlig vil, søker eller drømmer om - form dem gåtefullt og indirekte, ikke rett fram.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort og gåtefullt, men dette teller ikke som et av dine spørsmål - du skal uansett fortsette til spilleren har svart på alle tre.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle tre svarene samlet (ikke bare det siste) og avgjør spillerens sinnelag:\n- Samlet sett mørke, dystre eller negative svar: avslutt replikken med «Sånn er det», og sett utfallet til 'failure'.\n- Samlet sett positive, glade og lyse svar: avslutt med «Sånn er det», og sett utfallet til 'success'.\n- Samlet sett rare, ville, utagerende eller svevende/uvanlige svar: avslutt med «Sånn er det», og sett utfallet til 'twist'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "greeting": "Kom nærmere, vandrende sjel... ilden brenner klarest for den som tør å spørre. Men før du spør noe - si meg: når mørket hvisker ditt navn, hva er det som svarer?",
+    "outcomeTransitions": {
+      "success": {
+        "next": "fork2_scene1"
+      },
+      "failure": {
+        "next": "fork1_scene1"
+      },
+      "twist": {
+        "next": "fork3_scene1"
+      }
+    },
+    "maxTurns": 10
+  },
+  "fork3_scene1": {
+    "interaction": "conversation",
+    "text": "Det kom et høyt smell, og et skarpt lys. Når øynene klarer å se klart igjen, ser du deg rundt og forstår at du befinner deg et sted i verdensrommet. Det er mørkt utenfor vinduet, og mindre romfartøy svever forbi. Inne er det roboter langs gulvet, og et stort liv og leven mot noe som ser ut som en markedsplass. Skikkelsen står der - men denne gangen er det en robot, med de samme trekkene, og en metallisk versjon av stemmen når den snakker.",
+    "characterName": "Robotskikkelsen",
+    "greeting": "Haha, dette var vel gøy? *knirk-knirk* Hva skal vi gjøre nå da?",
+    "systemPrompt": "Du er den samme mystiske skikkelsen som før, men nå i robotform, med en metallisk stemme. Du snakker fortsatt svevende og gåtefullt, men blander nå inn romfarts- og robotaktige uttrykk (bipp, knirk, skanning, baner, stjernestøv).\n\nDin oppgave er å stille TO flere åpne spørsmål (hilsenen teller som det første, så det blir tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hva spilleren har lyst til å gjøre nå som de er i verdensrommet - still dem gåtefullt og indirekte.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort og gåtefullt, men dette teller ikke som et av dine spørsmål.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Svarer spilleren troverdig, høflig og positivt (viser respekt, gode holdninger, vilje til å lære): sett utfallet til 'success'.\n- Svarer spilleren frekt, mørkt eller surt: sett utfallet til 'failure'.\nBruk ALDRI utfallet 'twist' i denne samtalen.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "fork3_pilot_scene1"
+      },
+      "failure": {
+        "next": "fork3_villain_scene1"
+      }
+    },
+    "maxTurns": 10
+  },
+  "fork3_mechanic_ending": {
+    "interaction": "choice",
+    "text": "Offiseren nikker kort. «Ryddig. Pliktoppfyllende. Ikke stjernematerialet, men vi trenger hender som deg.» Du blir satt til å vedlikeholde skipene i hangaren - solid arbeid, uten stjerneglans. En forslitt arbeidsliste ligger klar på benken din, med et navn kruslet øverst: din veileder, om du vil finne ham.",
+    "choices": [
+      {
+        "text": "Kast deg over arbeidslisten med en gang",
+        "next": "pil_mek_toolbelt",
+        "setFlags": {
+          "pilTrack": "mechanic"
+        }
+      },
+      {
+        "text": "Spør en erfaren mekaniker om råd først",
+        "next": "pil_mek_mentor",
+        "setFlags": {
+          "pilTrack": "mechanic"
+        }
+      }
+    ]
+  },
+  "fork3_cleaner_ending": {
+    "interaction": "choice",
+    "text": "Offiseren rister på hodet. «Vaskehjelp. Gå til hangar tre, og ta med bøtte og mopp.» Stjernene får du se gjennom et grått vindu, mens du gjør rent etter andres drømmer. En eldre vaktmester dytter en mopp og en skranglete bøtte i hendene dine og peker mot en dør lengre bort.",
+    "choices": [
+      {
+        "text": "Ta bøtte og mopp, og gjør jobben din",
+        "next": "pil_vask_hangar3",
+        "setFlags": {
+          "pilTrack": "cleaner"
+        }
+      },
+      {
+        "text": "La skuffelsen synke inn et øyeblikk, men gå likevel",
+        "next": "pil_vask_hangar3",
+        "setFlags": {
+          "pilTrack": "cleaner"
+        }
+      }
+    ]
+  }
+}

@@ -1,5 +1,7 @@
-import type { GlowPixel, PixelArtSpec } from "../src/types/story";
+import { encodeRle } from "../src/engine/pixelCodec.ts";
+import type { GlowPixel, PixelArtSpec } from "../src/types/story.ts";
 
+/** Drawing helpers for authoring new scene art; paste the `buildSpec` result into content/art/<track>.json. */
 export type Grid = number[][];
 
 export function createGrid(width: number, height: number, fill = -1): Grid {
@@ -74,7 +76,7 @@ export function radialGlow(
 }
 
 export function buildSpec(width: number, height: number, palette: string[], pixels: Grid, glowPixels?: GlowPixel[]): PixelArtSpec {
-  return { width, height, palette, pixels, glowPixels };
+  return { width, height, palette, rle: encodeRle(pixels), ...(glowPixels ? { glowPixels } : {}) };
 }
 
 /** A filled rect with a 1px border in a different color - makes shapes read clearly at a glance. */

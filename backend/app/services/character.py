@@ -12,6 +12,10 @@ _PROTOCOL_SUFFIX = (
 )
 
 
+class CharacterReplyError(Exception):
+    """The model answered, but not with a usable structured reply (refusal, truncation, ...)."""
+
+
 class _CharacterReply(BaseModel):
     reply: str = Field(description="Karakterens replikk i respons til spilleren, på norsk.")
     outcome: Literal["still_talking", "success", "failure", "twist"] = Field(
@@ -39,4 +43,6 @@ def call_character(
         output_format=_CharacterReply,
     )
     parsed = response.parsed_output
+    if parsed is None:
+        raise CharacterReplyError(f"No structured reply (stop_reason={response.stop_reason})")
     return ConversationTurnResponse(reply=parsed.reply, outcome=parsed.outcome)

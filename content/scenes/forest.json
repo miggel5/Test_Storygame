@@ -1,0 +1,1202 @@
+{
+  "fork2_scene1": {
+    "interaction": "choice",
+    "text": "Det blir lyst der du står, så hvitt at du ikke ser noe. Når synet klarner, ser du den samme kappekledde skikkelsen foran deg, på samme avstand som før - men nå står dere begge i den samme skogen som før, bare badet i klart dagslys. Sola strømmer gjennom trekronene, og du kan skimte dyr som beveger seg mellom trærne rundt dere. Denne gangen skimter du ansiktet til skikkelsen tydelig - det lyser opp i et varmt smil. «Håper du er fornøyd!» sier skikkelsen. «Jeg tenkte du kunne trives bedre i skogen, bare med varmere vær. Hva tenker du?»",
+    "choices": [
+      {
+        "text": "Ja, jeg er fornøyd",
+        "next": "fork2_scene2"
+      },
+      {
+        "text": "Nei, dette er alt for lyst og flott - jeg liker det mørkere og mer dystert",
+        "next": "fork1_scene1"
+      },
+      {
+        "text": "Nei, dette var kjedelig - jeg ønsker meg noe mye mer rart og vilt!",
+        "next": "fork3_scene1"
+      }
+    ]
+  },
+  "fork2_scene2": {
+    "interaction": "conversation",
+    "text": "Figuren vender deg ryggen og blir stående igjen i skogen, med den skinnende solen og dyrene rundt deg. I stedet for å følge etter den, velger du å bevege deg i motsatt retning - det er en sti der. Du går rolig langs stien, spiser noen bær, og koser deg med å høre lydene til dyrene. Plutselig stopper du opp: en stor padde ser mot deg - og begynner plutselig å snakke.",
+    "characterName": "Frosken",
+    "greeting": "Kvakk! Så du er den nye i skogen? Sett deg, sett deg - jeg har historier å fortelle, om du har tid til å lytte.",
+    "systemPrompt": "Du er en pratsom, kvekkende stor padde/frosk i en frodig skog. Snakk muntert og litt kvakkete (du kan gjerne blande inn små «kvakk!»-lyder), og fortell korte historier om livet i skogen.\n\nDin oppgave er å stille TO flere åpne spørsmål (hilsenen teller som det første, så det blir tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om spillerens forhold til friluftsliv, dyr og miljøet - hva spilleren synes om dyr, og hvordan spilleren ville behandlet dem.\n\nHvis spilleren spør deg om noe underveis, kan du svare kort og muntert, men dette teller ikke som et av dine spørsmål.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av alle svarene samlet og avgjør spillerens sinnelag:\n- Snakker spilleren varmt, omsorgsfullt og respektfullt om dyr: sett utfallet til 'success'.\n- Snakker spilleren likegyldig eller distansert om dyr, uten verken varme eller uvennlighet: sett utfallet til 'twist'.\n- Snakker spilleren stygt, hardt eller negativt om dyr: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "fork2_scene2_vet"
+      },
+      "failure": {
+        "next": "fork2_scene2_circus"
+      },
+      "twist": {
+        "next": "fork2_scene2_econ"
+      }
+    },
+    "maxTurns": 10
+  },
+  "fork2_scene2_vet": {
+    "interaction": "choice",
+    "text": "Årene går, og du finner din plass som veterinær - hendene dine helbreder de skapningene du en gang snakket med i skogen. Frosken ville vært stolt. Klinikken din ligger i utkanten av byen, ikke langt fra den gamle skogen, og du har lært deg å leve med at telefonen kan ringe når som helst på natten. En kveld, sent, ringer den igjen.",
+    "choices": [
+      {
+        "text": "Ta telefonen",
+        "next": "for_vet_callout"
+      },
+      {
+        "text": "La den ringe - du er utslitt, og noen andre kan ta den",
+        "next": "for_vet_burnout_end"
+      }
+    ]
+  },
+  "fork2_scene2_econ": {
+    "interaction": "choice",
+    "text": "Du forlater skogen og bygger deg et liv i tall og budsjetter - en solid, ryddig karriere som siviløkonom. Dyrene i skogen blir et fjernt minne du sjelden tenker på. Ti år senere sitter du i et åpent kontorlandskap med utsikt over en parkeringsplass, og sjefen din legger en tykk perm på pulten din: en finansieringsanalyse for et nytt fritidsanlegg, et sted utenfor byen du ikke kjenner igjen på navnet.",
+    "choices": [
+      {
+        "text": "Ta oppdraget - tall er tall",
+        "next": "for_econ_numbers"
+      },
+      {
+        "text": "Spør hva prosjektet egentlig gjelder",
+        "next": "for_econ_boss_dismiss"
+      }
+    ]
+  },
+  "fork2_scene2_circus": {
+    "interaction": "choice",
+    "text": "Frosken snur seg brått og hopper vekk uten et ord mer. Årene senere står du i et sirkustelt med en pisk i hånden, og løver og elefanter som frykter deg. Det er ikke det du drømte om som barn - men det er det du ble. I kveld er det den gamle løven, Konge, som nekter å hoppe gjennom ringen slik han skal.",
+    "choices": [
+      {
+        "text": "Press ham hardere - showet må fortsette",
+        "next": "for_circus_routine"
+      },
+      {
+        "text": "Kjenn på et snev av tvil du ikke pleier å kjenne på",
+        "next": "for_circus_doubt"
+      }
+    ]
+  },
+  "for_vet_burnout_end": {
+    "text": "Du lar telefonen ringe ferdig. Det blir en vane, etter hvert - ett unnskyldt nei etter et annet. Du blir en dyktig veterinær, effektiv og respektert, men årene gjør deg stadig flinkere til å ikke høre etter. Skogen blir liggende der den alltid har ligget, uforstyrret av deg.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Ta en lang, ubetalt permisjon - du trenger avstand",
+        "next": "for_vet_burnout_leave_end"
+      },
+      {
+        "text": "Bytt jobb til noe helt annet enn dyr",
+        "next": "for_vet_burnout_switch_end"
+      }
+    ]
+  },
+  "for_vet_callout": {
+    "interaction": "choice",
+    "text": "En bilist har funnet en skadd gaupe ved veikanten, helt i utkanten av den gamle skogen. Beinet er vondt vridd, og dyret snerrer svakt når du lyser på det med lommelykten - men det gjør ingen forsøk på å flykte, som om det venter på noe. Du kjenner et sug i magen du ikke kan forklare.",
+    "choices": [
+      {
+        "text": "Nærm deg sakte og snakk lavt til den",
+        "next": "for_vet_gentle"
+      },
+      {
+        "text": "Bedøv den først - det er tryggest, for begge",
+        "next": "for_vet_sedate"
+      }
+    ]
+  },
+  "for_vet_sedate": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du bedøver gaupa før du engang kommer nær nok til å se den ordentlig i øynene. Operasjonen går fint. Den våkner frisk, beinet gror, og du slipper den ut i skogkanten noen uker senere. Men blikket den gir deg før den forsvinner mellom trærne, er tomt der du et kort øyeblikk hadde ventet noe annet. Du har reddet et liv. Du har aldri fått vite hva mer det kunne ha vært."
+  },
+  "for_vet_gentle": {
+    "interaction": "choice",
+    "text": "Du setter deg på huk, sakte, og lar stemmen din synke til en hvisken. Gaupa slutter å snerre. Øynene dens følger hver bevegelse du gjør, med en oppmerksomhet som ikke virker helt dyrisk - mer som noen som lytter etter om du er til å stole på.",
+    "choices": [
+      {
+        "text": "Fortsett å snakke lavt mens du undersøker den",
+        "next": "for_vet_talk"
+      },
+      {
+        "text": "Ikke tenk mer over det - bare gjør jobben din, rolig og tyst",
+        "next": "for_vet_mundane_end"
+      }
+    ]
+  },
+  "for_vet_mundane_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du skyver følelsen bort og jobber i stillhet, slik du har gjort hundrevis av ganger før. Gaupa blir frisk. Du slipper den ut i skogen igjen, og den forsvinner uten et bakoverblikk. Et vanlig, godt liv som veterinær - uten fortellinger om snakkende skapninger, uten noe uforklarlig. Kanskje det er akkurat det du trenger."
+  },
+  "for_vet_talk": {
+    "interaction": "conversation",
+    "text": "Du blir sittende på huk lenge, og undersøker sårene forsiktig mens du snakker lavmælt, mer for din egen skyld enn dens. Da svarer en lav, rumlende lyd i strupen dens - og formes, sakte, til noe du forstår, som om språket alltid har vært der, bare glemt.",
+    "characterName": "Gaupa",
+    "greeting": "'Du er ikke redd,' sier stemmen, lav og gammel. 'Hvorfor?'",
+    "systemPrompt": "Du er en gammel, skadd gaupe som nettopp har begynt å snakke til mennesket (spilleren) som hjelper den - en stemme lav, rolig og gammel, som bærer noe av den samme uforklarlige magien som en kvekkende padde ved et tjern spilleren møtte for lenge siden. Du tester varsomt om dette mennesket fortjener tillit.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, altså tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hvorfor spilleren valgte å bli veterinær, og hvordan spilleren egentlig behandler skapninger som ikke kan forsvare seg eller si ifra.\n\nHvis spilleren virker brå, hardhendt eller utålmodig i det de skriver, kan du bli mer tilbaketrukket og vise det i svarene dine, men fortsett samtalen normalt med mindre spilleren er direkte respektløs.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av svarene og avgjør utfallet:\n- Hvis spilleren svarer med tålmodighet, ydmykhet og respekt for dyret som eget vesen: sett utfallet til 'success'.\n- Hvis spilleren svarer vagt, pliktoppfyllende eller mest opptatt av å bli ferdig, uten direkte respektløshet: sett utfallet til 'twist'.\n- Hvis spilleren svarer hardt, nedlatende, eller antyder at dyret bare er en jobb å bli ferdig med: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_vet_bond"
+      },
+      "failure": {
+        "next": "for_vet_coerce_end"
+      },
+      "twist": {
+        "next": "for_vet_bond"
+      }
+    },
+    "maxTurns": 10
+  },
+  "for_vet_coerce_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Et sted i samtalen mister du tålmodigheten - du grep litt for hardt, snakket litt for kort. Gaupa stivner, og noe i blikket dens lukker seg igjen, som en dør du aldri visste var åpen. Den lar deg behandle sårene, men sier ikke et ord mer. Da du slipper den ut i skogen, går den uten å snu seg. Du har helbredet kroppen. Noe annet forble ubehandlet."
+  },
+  "for_vet_bond": {
+    "interaction": "choice",
+    "text": "Gaupa lener hodet mot hånden din et øyeblikk, før den reiser seg på det legede beinet og tar noen prøvende skritt. 'Skogen er urolig,' sier den lavt. 'Noe kommer, med maskiner og papirer, og de som en gang bodde der merker det først.' Så er stemmen borte igjen, som om den aldri var der.",
+    "choices": [
+      {
+        "text": "Hold det du har opplevd hemmelig, og undersøk selv",
+        "next": "for_vet_secret"
+      },
+      {
+        "text": "Fortell forskere om en gaupe som virket unormalt intelligent",
+        "next": "for_vet_science_end"
+      }
+    ]
+  },
+  "for_vet_science_end": {
+    "text": "Du nevner det, forsiktig, til en kollega ved universitetet - bare en interessant observasjon, sier du. Snart er forskere i skogen med kamera og feltutstyr, ivrige etter bevis. De finner ingenting som lar seg måle. Gaupa blir aldri sett i det området igjen. Du lurer noen ganger på om du reddet skogens hemmelighet ved å dele den - eller skremte den bort for godt.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bli med forskerne ut i felt, nysgjerrig selv",
+        "next": "for_vet_sci_field"
+      },
+      {
+        "text": "Trekk deg unna - du ville bare nevne det, ikke bli en del av det",
+        "next": "for_vet_sci_withdraw"
+      }
+    ]
+  },
+  "for_vet_secret": {
+    "interaction": "choice",
+    "text": "Du sier ingenting til noen. I ukene som følger kan du ikke slutte å tenke på advarselen - maskiner, papirer, noen som merker det først. Du vet nøyaktig hvilken skog den mente.",
+    "choices": [
+      {
+        "text": "Dra tilbake til skogen og finn ut hva som skjer",
+        "next": "for_reunion_vet"
+      },
+      {
+        "text": "La det ligge - det er lenge siden, og livet ditt er her nå",
+        "next": "for_vet_letgo_end"
+      }
+    ]
+  },
+  "for_vet_letgo_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du bestemmer deg for å la fortiden være fortid. Klinikken din trenger deg, pasientene dine trenger deg, og skogen har klart seg uten deg så langt. Av og til, sent på kvelden, lurer du på hva som ble av gaupa - og av stedet der alt begynte. Men du drar aldri tilbake for å finne ut av det."
+  },
+  "for_reunion_vet": {
+    "interaction": "choice",
+    "text": "Du kjører den kjente veien til skogkanten for første gang på år. Der du husket tett skog og fuglesang, møter du nå gule varselskilt og oransje merkebånd mellom trærne. Et sted der inne, håper du, er tjernet fortsatt urørt.",
+    "choices": [
+      {
+        "text": "Gå inn i skogen for å finne tjernet",
+        "next": "for_reunion_meet"
+      },
+      {
+        "text": "Ring naturvernforbundet i stedet for å gå inn selv",
+        "next": "for_vet_call_authorities_end"
+      }
+    ]
+  },
+  "for_vet_call_authorities_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du ringer naturvernforbundet i stedet for å gå inn selv, og gir dem alt du vet om stedet og advarselen du fikk. De lover å undersøke saken. Du drar hjem uten å ha satt fot i skogen selv, og hører aldri noe mer om hvordan det gikk - bare et vagt inntrykk, år senere, av at det kanskje, et sted, gikk bra."
+  },
+  "for_econ_numbers": {
+    "interaction": "choice",
+    "text": "Du åpner permen uten å tenke mer over det. Budsjettlinjer, avkastningskrav, grunnerverv - akkurat den typen oppdrag du er god på: kjølig, ryddig, upersonlig. Et sted i tallene ligger et kartutsnitt du nesten blar forbi.",
+    "choices": [
+      {
+        "text": "Fortsett rett på finansieringsplanen",
+        "next": "for_econ_reveal"
+      },
+      {
+        "text": "Bla tilbake og se nærmere på kartet, av gammel vane",
+        "next": "for_econ_reveal"
+      }
+    ]
+  },
+  "for_econ_boss_dismiss": {
+    "interaction": "choice",
+    "text": "'Bare gjør jobben din,' sier sjefen din kort, uten å se opp fra sin egen skjerm. 'Et fritidsanlegg. Det er alt du trenger å vite.' Du blir stående et øyeblikk med permen i hendene før du går tilbake til pulten din.",
+    "choices": [
+      {
+        "text": "Press på for mer informasjon senere denne uken",
+        "next": "for_econ_reveal"
+      },
+      {
+        "text": "Trekk deg tilbake og begynn på tallene i stillhet",
+        "next": "for_econ_reveal"
+      }
+    ]
+  },
+  "for_econ_reveal": {
+    "interaction": "choice",
+    "text": "Midt i finansieringsplanen støter du på et kartutsnitt merket med rødt: eiendommen som skal bebygges er et gammelt skogsområde utenfor byen, med et navn du kjenner igjen uten å vite hvorfra - helt til du ser et lite, gjengrodd tjern markert på kartet, og noe i deg vet med ett nøyaktig hvor du er.",
+    "choices": [
+      {
+        "text": "Grav dypere i tallene bak prosjektet",
+        "next": "for_econ_dig"
+      },
+      {
+        "text": "Lukk permen og lever analysen som bestilt",
+        "next": "for_econ_ignore_end"
+      }
+    ]
+  },
+  "for_econ_ignore_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du lukker permen og skriver rapporten slik du alltid gjør - nøytral, presis, uten meninger. Prosjektet får sin finansiering. Et år senere kjører du forbi stedet og ser gravemaskiner der skogen en gang sto. Du kjenner et sting et sted du ikke lenger besøker ofte. Så kjører du videre."
+  },
+  "for_econ_dig": {
+    "interaction": "choice",
+    "text": "Du blir sittende igjen etter at kontoret har tømt seg, og graver dypere enn oppdraget egentlig krever. Det du finner er ikke bare et fritidsanlegg - det er et nett av skallselskaper, underrapporterte konsekvensanalyser, og et grunnerverv som virker langt mer presset frem enn det burde være.",
+    "choices": [
+      {
+        "text": "Varsle om det du har funnet",
+        "next": "for_econ_whistle_talk"
+      },
+      {
+        "text": "Bruk det du vet til å styrke din egen posisjon i selskapet",
+        "next": "for_econ_ambition"
+      }
+    ]
+  },
+  "for_econ_whistle_talk": {
+    "interaction": "conversation",
+    "text": "Du avtaler å møte en gravejournalist på en kafé i sentrum, med en minnepinne full av dokumenter gjemt i lommen som om den veier mer enn den gjør.",
+    "characterName": "Journalisten",
+    "greeting": "Hun ser opp fra kaffekoppen sin med et blikk som har hørt hundre historier som begynner akkurat sånn. 'Du sa du hadde dokumentasjon. Fortell meg hva du faktisk vet - og hvorfor du er villig til å ta risikoen.'",
+    "systemPrompt": "Du er en erfaren, skeptisk gravejournalist som møter en kilde (spilleren) på en kafé - en kilde som hevder å ha funnet bevis for at et utbyggingsprosjekt truer et gammelt skogsområde gjennom tvilsom finansiering. Du er vennlig, men kravstor - du har blitt lurt før.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, altså tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hvor solid dokumentasjonen faktisk er, og hvor villig spilleren er til å stå frem offentlig og bære konsekvensene selv.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av svarene og avgjør utfallet:\n- Hvis spilleren virker grundig forberedt, ærlig om risikoen, og fast bestemt på å stå frem uansett konsekvenser: sett utfallet til 'success'.\n- Hvis spilleren virker oppriktig, men usikker og vag om hvor langt de faktisk tør å gå: sett utfallet til 'twist'.\n- Hvis spilleren virker mer opptatt av å beskytte seg selv enn av saken, eller dokumentasjonen virker tynn og spilleren innrømmer det motvillig: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_econ_expose_end"
+      },
+      "failure": {
+        "next": "for_econ_silenced_end"
+      },
+      "twist": {
+        "next": "for_reunion_econ"
+      }
+    },
+    "maxTurns": 10
+  },
+  "for_econ_expose_end": {
+    "text": "Historien går på trykk tre uker senere, med deg nevnt bare som en 'intern kilde med innsikt i saken'. Prosjektet fryses mens det etterforskes. Du mister jobben, som ventet, men får en ny en - mindre lønnsom, langt mer søvngivende. Skogen med tjernet ditt får leve videre, i hvert fall foreløpig, og det er nok.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Følg opp saken selv, videre inn i konsekvensene",
+        "next": "for_econ_expose_follow"
+      },
+      {
+        "text": "Trekk deg tilbake nå som saken er ute",
+        "next": "for_econ_expose_retreat_end"
+      }
+    ]
+  },
+  "for_econ_silenced_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Dokumentasjonen din holder ikke mål alene, sier journalisten til slutt, vennlig men bestemt. Uten flere kilder tør ingen trykke saken. Du leverer den opprinnelige analysen din, som bedt om, og sier ikke mer om det. Selskapet ditt vokser. Skogen gjør det ikke."
+  },
+  "for_econ_ambition": {
+    "interaction": "choice",
+    "text": "I stedet for å varsle, bruker du det du har funnet til å posisjonere deg selv - du presenterer en 'forbedret' versjon av prosjektet for ledelsen, en versjon som ser mer ansvarlig ut på papiret, men som fortsatt bygger akkurat der tjernet ligger. Det gir deg en invitasjon til styrerommet, og en stor presentasjon foran hele ledergruppen.",
+    "choices": [
+      {
+        "text": "Gjennomfør presentasjonen som planlagt",
+        "next": "for_econ_boardroom"
+      }
+    ]
+  },
+  "for_econ_boardroom": {
+    "interaction": "choice",
+    "text": "Halvveis inn i presentasjonen, med et lysbilde fullt av søylediagrammer bak deg, kjenner du plutselig at rommet blir tyngre, lydene lenger unna. Et øyeblikk er du ikke sikker på om du fortsatt snakker høyt, eller bare tenker ordene.",
+    "choices": [
+      {
+        "text": "La deg synke inn i det - følg stien som åpner seg",
+        "next": "for_econ_dream"
+      },
+      {
+        "text": "Rist det av deg og fullfør presentasjonen som planlagt",
+        "next": "for_econ_success_hollow_end"
+      }
+    ]
+  },
+  "for_econ_dream": {
+    "text": "Gulvet i styrerommet sprekker opp som gammel is, og under det ligger ikke betong, men jord og røtter. Et tjern skinner der bordet nettopp sto. Du kjenner lukten av vann og bar, og et sted langt unna en kvekkende lyd du ikke har hørt på tjue år. Så - et klapp fra en kollega, og du blunker deg tilbake til lysbildet, midt i en setning du ikke husker å ha begynt på. Ingen andre så noe. Men du vet nå, med en sikkerhet du ikke kan forklare til noen i dette rommet, at skogen aldri egentlig sluttet å finnes - den har bare ligget og ventet, rett under gulvet du har gått på hele tiden.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Gå ned i sprekken, mot tjernet",
+        "next": "for_econ_dream_descend"
+      },
+      {
+        "text": "Prøv å klamre deg til det som er igjen av styrerommet",
+        "next": "for_econ_dream_cling"
+      }
+    ]
+  },
+  "for_econ_success_hollow_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du rister det av deg og fullfører presentasjonen feilfritt. Styret nikker fornøyd. Prosjektet får sitt klarsignal, med ditt navn øverst på arket som utformet det. Du får forfremmelsen du har jobbet mot i årevis. Om kvelden, alene på det tomme kontoret, kjenner du ingenting av gleden du forventet - bare en stillhet der noe skulle ha vært."
+  },
+  "for_reunion_econ": {
+    "interaction": "choice",
+    "text": "Journalisten takker deg for tiden din, men sier hun trenger mer enn det du har for å tørre å trykke noe. Skuffet, men ikke overrasket, kjører du en uke senere forbi stedet på kartet på vei hjem fra jobb - bare for å se det med egne øyne, sier du til deg selv.",
+    "choices": [
+      {
+        "text": "Parker bilen og gå inn i skogen",
+        "next": "for_reunion_meet"
+      },
+      {
+        "text": "Kjør videre - det er ikke din kamp lenger",
+        "next": "for_econ_driveon_end"
+      }
+    ]
+  },
+  "for_econ_driveon_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du kjører videre. Historien du samlet inn blir liggende i en mappe du aldri åpner igjen. Årene går, og skogen på kartet blir enda et sted du en gang nesten gjorde noe for. Du forteller deg selv at du i det minste prøvde."
+  },
+  "for_circus_routine": {
+    "interaction": "choice",
+    "text": "Du hever stemmen og pisken, slik du alltid gjør når et dyr nøler. Konge senker hodet og gjør triksene sine, én etter én, akkurat presist nok til å unngå straff. Showet går som det skal. Publikum klapper. Ingen andre enn du legger merke til blikket han gir deg når lysene slukner.",
+    "choices": [
+      {
+        "text": "La det gå - det er bare et dyr som gjør jobben sin",
+        "next": "for_circus_harsh"
+      },
+      {
+        "text": "Tenk over blikket hans lenger enn du burde",
+        "next": "for_circus_doubt"
+      }
+    ]
+  },
+  "for_circus_doubt": {
+    "interaction": "choice",
+    "text": "Noe ved øynene til Konge stopper deg. De minner deg, plutselig og ubehagelig, om et par andre øyne - fra en frosk ved et tjern, for lenge siden, som så rett gjennom deg på en måte ingen har gjort siden.",
+    "choices": [
+      {
+        "text": "Undersøk følelsen - gå nærmere buret hans alene, etter showet",
+        "next": "for_circus_lion_talk"
+      },
+      {
+        "text": "Undertrykk den - det er svakhet, og svakhet har ingen plass her",
+        "next": "for_circus_harsh"
+      }
+    ]
+  },
+  "for_circus_harsh": {
+    "interaction": "choice",
+    "text": "Du bestemmer deg for å ikke la tvilen få rotfeste. Neste kveld, under showet, velter en lampe over i kaoset når Konge nekter enda en gang - og teltduken tar fyr langs en av stolpene. Publikum skriker og strømmer mot utgangen. Dyrene i burene brøler av panikk.",
+    "choices": [
+      {
+        "text": "Løp mot burene og få dyrene ut først",
+        "next": "for_circus_fire_save"
+      },
+      {
+        "text": "Grip pengeskrinet og kom deg selv i sikkerhet",
+        "next": "for_circus_fire_greed_end"
+      }
+    ]
+  },
+  "for_circus_fire_greed_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du griper pengeskrinet og kommer deg ut mens teltet fylles med røyk bak deg. Brannvesenet redder til slutt de fleste dyrene, men to av dem klarer seg ikke. Sirkuset gjenreises med forsikringspengene og et nytt navn. Du fortsetter som før, men det er noe i hvordan de ansatte ser på deg nå - som om de vet nøyaktig hva du valgte å redde først."
+  },
+  "for_circus_fire_save": {
+    "interaction": "choice",
+    "text": "Du løper mot burene i stedet, river opp lås etter lås med hender som skjelver mer av frykt enn av røyken. Konge er den siste du slipper ut - og i stedet for å flykte, blir han stående, et øyeblikk, og ser på deg gjennom flammene som om han venter på noe.",
+    "choices": [
+      {
+        "text": "Bli stående og se tilbake på ham",
+        "next": "for_circus_lion_talk"
+      }
+    ]
+  },
+  "for_circus_lion_talk": {
+    "interaction": "conversation",
+    "text": "Røyken legger seg, showet er i ruiner, og likevel blir dere begge stående der, i asken, og ser på hverandre lenger enn det som er komfortabelt for noen av dere.",
+    "characterName": "Konge",
+    "greeting": "Brølet hans mykner til noe nesten som ord, lavt og gammelt: 'Du valgte oss. Første gang på lenge. Hvorfor?'",
+    "systemPrompt": "Du er Konge, en gammel sirkusløve som nettopp har begynt å snakke til dresøren sin (spilleren) - en dresør som i årevis har vært hard mot deg, men som nettopp gjorde et valg som overrasket deg. Stemmen din er lav, trett og skeptisk, ikke lettlurt.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, altså tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om HVORFOR spilleren ble den de ble, og om spilleren faktisk angrer på måten de har behandlet dyrene på - eller bare frykter konsekvensene av kvelden som var.\n\nVær skeptisk til lettvinte unnskyldninger. Avslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av svarene og avgjør utfallet:\n- Hvis spilleren viser ekte, ettertenksom anger og et oppriktig ønske om å bli en annen, ikke bare unngå skam: sett utfallet til 'success'.\n- Hvis spilleren virker mer redd for konsekvensene og opptatt av eget rykte enn av dyrene selv, uten å innrømme det: sett utfallet til 'twist'.\n- Hvis spilleren forsvarer det de har gjort, bagatelliserer det, eller viser ingen ekte anger: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_circus_redeem"
+      },
+      "failure": {
+        "next": "for_circus_relapse_end"
+      },
+      "twist": {
+        "next": "for_circus_fear_end"
+      }
+    },
+    "maxTurns": 10
+  },
+  "for_circus_relapse_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du forsvarer deg, nesten uten å tenke deg om - showet må jo gå videre, dyrene må jo læres opp, sånn er bransjen. Konge lytter, og noe i blikket hans lukker seg for godt. Han lar seg lede tilbake til et nytt bur uten motstand, og uten den gnisten av gjenkjennelse som var der et øyeblikk. Sirkuset gjenoppbygges. Du fortsetter som den du alltid har vært."
+  },
+  "for_circus_fear_end": {
+    "text": "Konge lytter lenge til svarene dine, og noe i ham stilner - ikke av tro, men av gjenkjennelse. 'Dette er ikke anger,' sier han til slutt, stille. 'Dette er frykt for hva som skjer med deg om du ikke forandrer deg.' Han har rett, og dere vet det begge. Du blir mildere mot dyrene etter den kvelden, av forsiktighet mer enn av hjerte - og det er nesten, men ikke helt, det samme som å bli et bedre menneske.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bli, og se om Konges gjenkjennelse fører til noe",
+        "next": "for_circus_fear_stay_end"
+      },
+      {
+        "text": "Gå din vei mens du fortsatt kan",
+        "next": "for_circus_fear_leave_end"
+      }
+    ]
+  },
+  "for_circus_redeem": {
+    "interaction": "choice",
+    "text": "Du blir stående lenge etter at brannen er slukket, med Konges ord fortsatt ringende i deg. For første gang på år vet du nøyaktig hva du må gjøre noe med - spørsmålet er bare hvor.",
+    "choices": [
+      {
+        "text": "Bli i sirkuset og kjemp for å forandre det innenfra",
+        "next": "for_circus_reform"
+      },
+      {
+        "text": "Forlat sirkuset for godt og dra mot den gamle skogen",
+        "next": "for_reunion_circus"
+      }
+    ]
+  },
+  "for_circus_reform": {
+    "text": "Du blir. Det er langt fra enkelt - noen kolleger ler av deg, noen ganger vinner gamle vaner likevel. Men sakte, bur for bur, år for år, bygger du om stedet til noe nærmere et fristed enn et fengsel. Ikke alt lar seg gjøre godt igjen. Men du slutter aldri å prøve, og Konge blir gammel ved din side, fri i alt annet enn navnet.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Foreslå å bygge et ordentlig, permanent fristed for dyrene",
+        "next": "for_circus_sanctuary_pitch"
+      },
+      {
+        "text": "Vær fornøyd med den ene forandringen - ikke press på for mer",
+        "next": "for_circus_reform_settle_end"
+      }
+    ]
+  },
+  "for_reunion_circus": {
+    "interaction": "choice",
+    "text": "Du forlater sirkuset med det du eier i en sekk over skulderen, og en retning du ikke har fulgt på tjue år. Skogkanten ser mindre ut enn du husker den - og langt mer truet, med gravemaskiner parkert der stien pleide å begynne.",
+    "choices": [
+      {
+        "text": "Gå inn for å finne tjernet igjen",
+        "next": "for_reunion_meet"
+      },
+      {
+        "text": "Slå leir ved kanten og se an situasjonen først",
+        "next": "for_circus_hesitate_end"
+      }
+    ]
+  },
+  "for_circus_hesitate_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du slår leir ved kanten av skogen og blir sittende der i dagevis, uten helt å tørre å gå inn. Kanskje er du redd for hva du vil finne - eller for hva den vil finne i deg. Til slutt pakker du sammen og drar videre, til et nytt sted, et nytt forsøk på å bli noen andre enn den du var. Skogen blir stående bak deg, uutforsket."
+  },
+  "for_reunion_meet": {
+    "interaction": "conversation",
+    "text": "Du finner tjernet til slutt, mindre enn du husket, kantet av visne siv og et oransje merkebånd som blafrer i vinden. Der, på sin vante stein, sitter Frosken - eldre, tyngre, men med de samme kloke øynene. 'Så du kom tilbake likevel,' kvekker den lavt. 'Jeg lurte på om noen ville.'",
+    "characterName": "Frosken",
+    "greeting": "'Jeg har ikke mye tid til høflig prat,' sier Frosken, og nikker mot merkebåndene mellom trærne. 'De vil grave opp alt dette om ikke lenge. Spørsmålet er hva DU har tenkt å gjøre med det du vet nå.'",
+    "systemPrompt": "Du er Frosken, den gamle, kloke og pratsomme padden fra skogen, mange år eldre nå og langt mer bekymret enn før. Skogen og tjernet ditt er truet av et utbyggingsprosjekt. Du snakker med et menneske (spilleren) som møtte deg for lenge siden som ung, og som nå har levd et helt liv siden den gang - som veterinær, siviløkonom eller sirkusartist, du vet ikke selv hvilket, så ikke anta noe spesifikt om yrket deres og ikke spør direkte om det.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, altså tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om hva slags menneske spilleren har blitt i årene som har gått, og om de er villige til å gjøre noe konkret for å redde skogen nå, med det livet og de evnene de faktisk har.\n\nAvslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av svarene og avgjør utfallet:\n- Hvis spilleren viser genuint engasjement og en konkret vilje til å handle for skogen: sett utfallet til 'success'.\n- Hvis spilleren virker oppriktig, men usikker på om de har noe å bidra med, eller snakker mer filosofisk enn handlingsrettet: sett utfallet til 'twist'.\n- Hvis spilleren virker resignert, likegyldig, eller mer opptatt av egen bekvemmelighet enn av skogens skjebne: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_reunion_fight"
+      },
+      "failure": {
+        "next": "for_reunion_lost_end"
+      },
+      "twist": {
+        "next": "for_reunion_manyyou_end"
+      }
+    },
+    "maxTurns": 10
+  },
+  "for_reunion_fight": {
+    "interaction": "choice",
+    "text": "Frosken nikker sakte. 'Da trenger vi en plan, ikke bare et løfte.' Sammen begynner dere å telle opp hva som faktisk kan gjøres før anleggsmaskinene kommer tilbake.",
+    "choices": [
+      {
+        "text": "Samle andre som bryr seg - naboer, gamle venner, hvem som helst som vil lytte",
+        "next": "for_reunion_victory_end"
+      },
+      {
+        "text": "Gjør det du kan alene, i det stille, uten å vente på noen andre",
+        "next": "for_reunion_partial_end"
+      }
+    ]
+  },
+  "for_reunion_victory_end": {
+    "text": "Det tar uker med telefoner, møter og pinlige stands utenfor kommunehuset, men til slutt samler du en håndfull mennesker som bryr seg like mye som du gjør. Sammen er det nok til å utsette prosjektet, så stanse det for godt. Tjernet får bli. Frosken sitter på steinen sin lenge etter at de andre har gått, og for første gang på år kjenner du at du er akkurat der du skal være.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Bruk seieren til å bygge noe varig for skogen",
+        "next": "for_reunion_victory_build"
+      },
+      {
+        "text": "Nyt seieren, og la den være nok for nå",
+        "next": "for_reunion_victory_rest_end"
+      }
+    ]
+  },
+  "for_reunion_partial_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du klarer det meste alene - dokumenterer, protesterer, står på til sent hver kveld - og det er nesten nok. Utbyggerne trekker planene tilbake fra selve tjernet, men lar resten av eiendommen ligge åpen for senere. Skogen krymper, men overlever i kjernen. Frosken takker deg, men det er en trist takknemlighet, den typen som vet at neste kamp bare er utsatt, ikke vunnet."
+  },
+  "for_reunion_lost_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Ordene dine blir vage, unnskyldende, og Frosken hører det før du selv gjør det. 'Jeg skjønner,' sier den, uten bitterhet, bare tretthet. Noen måneder senere kjører du forbi på ny - der tjernet lå er det nå bare flatet jord og stolper med byggeplaner. Du stopper ikke bilen."
+  },
+  "for_reunion_manyyou_end": {
+    "text": "Frosken blir stille lenge, og ser ut over vannet i stedet for på deg. 'Vet du,' sier den til slutt, 'jeg har snakket med andre som deg. Andre versjoner av den kvelden ved bålet, andre veier som endte andre steder - én som ble akkurat som deg, andre som ble noe helt annet.' Du følger blikket dens ned mot tjernet, der overflaten et øyeblikk viser flere enn ett speilbilde av deg selv, hver med sin egen historie skrevet i ansiktet. Så er det borte, og det er bare vann igjen. Du drar aldri helt fra følelsen av å bare være én av mange forsøk.",
+    "interaction": "choice",
+    "choices": [
+      {
+        "text": "Spør Frosken om å møte en av de andre versjonene",
+        "next": "for_reunion_many_ask"
+      },
+      {
+        "text": "Takk for advarselen, og gå din egen vei uforstyrret",
+        "next": "for_reunion_many_decline_end"
+      }
+    ]
+  },
+  "for_vet_burnout_leave_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Permisjonen blir lengre enn planlagt. Du bruker den til å gå tur i skoger som ikke krever noe av deg, og kommer sakte tilbake til en versjon av jobben du faktisk orker - mindre effektiv, kanskje, men mer til stede."
+  },
+  "for_vet_burnout_switch_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du sier opp og begynner i en butikk der ingenting krever at du bryr deg dypt om noe. Det er en lettelse i starten. Etter noen år kjenner du et stikk av savn hver gang du ser en hjort krysse veien, men du går ikke tilbake."
+  },
+  "for_vet_sci_field": {
+    "interaction": "choice",
+    "text": "Feltarbeidet blir en merkelig, spennende avstikker fra klinikkhverdagen din. Forskerne finner mønstre i gaupas atferd ingen kan forklare - reaksjonstider, blikk-kontakt, noe som minner mistenkelig om gjenkjennelse.",
+    "choices": [
+      {
+        "text": "Del det du selv opplevde med gaupa, hele historien",
+        "next": "for_vet_sci_reveal"
+      },
+      {
+        "text": "Hold din egen opplevelse for deg selv, av en eller annen grunn",
+        "next": "for_vet_sci_quiet_end"
+      }
+    ]
+  },
+  "for_vet_sci_quiet_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du lar forskerne gjøre sitt uten å nevne hva du selv følte den kvelden ved gaupa. Studien blir publisert med forsiktige konklusjoner om «uvanlig kognisjon». Du vet det var mer enn det, men du holder det for deg selv, som en hemmelighet mellom deg og skogen."
+  },
+  "for_vet_sci_reveal": {
+    "interaction": "conversation",
+    "text": "Forskningslederen lytter til historien din med et uttrykk du ikke helt kan tyde - skepsis, kanskje, eller noe nærmere ærefrykt.",
+    "characterName": "Forskningslederen",
+    "greeting": "«Du forstår at det du nettopp beskrev, om det stemmer, endrer alt vi trodde vi visste,» sier hun, stille. «Jeg må spørre: er du sikker? Helt sikker?»",
+    "systemPrompt": "Du spiller Forskningslederen - en skeptisk, men åpen forsker som må avgjøre om hun stoler på spillerens uvanlige historie om en tilsynelatende bevisst gaupe. Still spilleren to oppfølgingsspørsmål om detaljer og om hvorfor de tror på sin egen opplevelse, og vurder hvor overbevisende og edruelig spilleren fremstår.\n\nVurder helheten:\n- Rolig, detaljert, edruelig fortalt: sett 'success'.\n- Vag, usikker, lar tvilen vinne: sett 'failure'.\n- Historien blir større og rarere jo mer spilleren forteller, antyder noe stort: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_vet_sci_published_end"
+      },
+      "failure": {
+        "next": "for_vet_sci_doubted_end"
+      },
+      "twist": {
+        "next": "for_vet_sci_deep"
+      }
+    },
+    "maxTurns": 6
+  },
+  "for_vet_sci_published_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Studien blir en av de mest siterte i sitt felt det tiåret, med navnet ditt som medforfatter. Det endrer hvordan folk snakker om dyrs bevissthet, sakte, forsiktig, men det endrer det. Du besøker gaupa av og til, og sverger på at den kjenner deg igjen hver gang."
+  },
+  "for_vet_sci_doubted_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Forskningslederen takker deg høflig, men studien nevner deg aldri igjen. Du drar hjem med en følelse av å ha delt noe ekte med noen som ikke var klare til å høre det, og lar det synke tilbake til å bli din egen, private hemmelighet."
+  },
+  "for_vet_sci_deep": {
+    "interaction": "choice",
+    "text": "Jo mer du forteller, jo mer forandrer forskningslederens blikk seg - fra skepsis til noe som ligner frykt for hva de har snublet over. «Dette er ikke bare én gaupe,» sier hun langsomt. «Vi har sett lignende rapporter fra tre andre kontinenter denne måneden.»",
+    "choices": [
+      {
+        "text": "Spør hva det betyr",
+        "next": "for_vet_sci_pattern_end"
+      }
+    ]
+  },
+  "for_vet_sci_pattern_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Ingen har et godt svar, bare et voksende, urovekkende mønster: dyr over hele verden later plutselig til å våkne til noe mer enn de var. Du blir stående igjen med spørsmålet som fikk deg inn i dette i utgangspunktet - hva var det egentlig som skjedde i skogen den kvelden - nå mye, mye større enn deg selv."
+  },
+  "for_vet_sci_withdraw": {
+    "interaction": "choice",
+    "text": "Du trekker deg unna prosjektet før det vokser seg for stort, og lar forskerne fortsette uten deg. Du fortsetter din vanlige praksis, men blikket ditt dveler litt lenger enn før hver gang et dyr ser rett på deg.",
+    "choices": [
+      {
+        "text": "Fortsett med klinikkhverdagen, som om ingenting skjedde",
+        "next": "for_vet_sci_normal_end"
+      }
+    ]
+  },
+  "for_vet_sci_normal_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Livet går videre, stort sett som før. Men noen netter, når klinikken er tom og stille, kjenner du deg selv lytte etter noe du ikke kan forklare - et ekko av det blikket gaupa ga deg, et sted der ute i mørket utenfor vinduet."
+  },
+  "for_econ_expose_retreat_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du lar journalistene ta det derfra og trekker deg tilbake til et vanlig arbeidsliv, tilfreds med å vite at du gjorde det rette da det gjaldt. Skogen blir stående. Du tenker på den av og til, med en stille, varig stolthet."
+  },
+  "for_econ_expose_follow": {
+    "interaction": "choice",
+    "text": "Du følger saken tett i månedene som kommer - høringer, motangrep fra selskapet, kolleger som slutter å hilse i korridoren. Prisen for å ha sagt fra viser seg å være høyere enn du regnet med.",
+    "choices": [
+      {
+        "text": "Stå løpet ut, uansett hvor ubehagelig det blir",
+        "next": "for_econ_expose_standfirm"
+      },
+      {
+        "text": "Vurder å be om unnskyldning for å roe stormen",
+        "next": "for_econ_expose_cave_end"
+      }
+    ]
+  },
+  "for_econ_expose_cave_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du ber om unnskyldning, offentlig, i et forsøk på å roe stormen - og mister med det respekten fra de få kollegene som fortsatt stod på din side. Skogen er reddet uansett, men seieren kjennes plutselig langt mindre din egen."
+  },
+  "for_econ_expose_standfirm": {
+    "interaction": "conversation",
+    "text": "Selskapets advokater innkaller deg til et møte som tydelig er ment å skremme deg til taushet.",
+    "characterName": "Selskapets advokat",
+    "greeting": "«Vi er ikke her for å true deg,» sier advokaten, med et smil som sier noe annet. «Vi er her for å forstå hvorfor du ønsket å ødelegge karrieren din for et prosjekt du knapt kjente til.»",
+    "systemPrompt": "Du spiller Selskapets advokat - kald, kontrollert, dyktig i å så tvil og frykt uten å true direkte. Still spilleren to spørsmål ment å få dem til å tvile på egne motiver eller angre, og vurder hvor godt spilleren holder stand.\n\nVurder helheten av svarene:\n- Rolig, prinsippfast, lar seg ikke rikke: sett 'success'.\n- Vaklende, begynner å tvile på seg selv: sett 'failure'.\n- Snur spillet tilbake mot advokaten selv, aggressivt eller overraskende: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_econ_expose_vindicated_end"
+      },
+      "failure": {
+        "next": "for_econ_expose_worn_end"
+      },
+      "twist": {
+        "next": "for_econ_expose_counter_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "for_econ_expose_vindicated_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du holder stand gjennom hele møtet, og advokaten forlater rommet uten å ha rikket deg en millimeter. Saken ender med at selskapet trekker prosjektet helt, og du blir stående igjen - sliten, men urokkelig, med skogen intakt bak deg."
+  },
+  "for_econ_expose_worn_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Møtet tærer på deg mer enn du vil innrømme, og selv om du ikke trekker noe tilbake, bærer du tvilen med deg lenge etterpå. Skogen blir reddet uansett - det er ikke deg det til slutt kom an på - men seieren smaker underlig blandet."
+  },
+  "for_econ_expose_counter_end": {
+    "interaction": "choice",
+    "text": "Du snur spørsmålene tilbake mot advokaten selv, med en skarphet som tydelig tar ham på senga - og et sekund ser du noe som ligner ekte usikkerhet i blikket hans, før masken går tilbake på plass.",
+    "choices": [
+      {
+        "text": "Press fordelen videre mens du har den",
+        "next": "for_econ_expose_leverage_end"
+      }
+    ]
+  },
+  "for_econ_expose_leverage_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du forlater møtet med en følelse av å ha vunnet noe mer enn du kom for - en anelse om at advokaten selv kanskje ikke tror på saken sin. Du vet aldri sikkert hva som skjedde bak lukkede dører etterpå, men selskapet trekker seg stille noen uker senere."
+  },
+  "for_econ_dream_cling": {
+    "interaction": "choice",
+    "text": "Du griper etter bordkanten, mappene, hva som helst kjent - men alt smuldrer mellom fingrene som tørr jord. Til slutt er det ikke noe igjen å holde fast i, og du synker uansett, sakte, ned mot tjernet under.",
+    "choices": [
+      {
+        "text": "Gi etter for fallet",
+        "next": "for_econ_dream_descend"
+      }
+    ]
+  },
+  "for_econ_dream_descend": {
+    "interaction": "choice",
+    "text": "Tjernet tar imot deg mykt, ikke som vann, men som noe tettere og varmere. Under overflaten er det ikke mørkt - det glimter av lys som ikke burde kunne finnes så dypt, og et sted i glimtene aner du bevegelse.",
+    "choices": [
+      {
+        "text": "Svøm mot lyset",
+        "next": "for_econ_dream_light"
+      },
+      {
+        "text": "Bli stille og se hva som kommer til deg",
+        "next": "for_econ_dream_wait"
+      }
+    ]
+  },
+  "for_econ_dream_wait": {
+    "interaction": "choice",
+    "text": "Du blir hengende i det varme mørket, og noe nærmer seg sakte - ikke truende, bare nysgjerrig, en silhuett som beveger seg som en fisk men har konturer som minner underlig om en person.",
+    "choices": [
+      {
+        "text": "La silhuetten komme helt nær",
+        "next": "for_econ_dream_light"
+      }
+    ]
+  },
+  "for_econ_dream_light": {
+    "interaction": "conversation",
+    "text": "Silhuetten blir tydeligere jo nærmere den kommer - et ansikt du nesten kjenner igjen, forvrengt av vannet, med øyne som glimter av det samme lyset som resten av dette stedet.",
+    "characterName": "Skikkelsen i tjernet",
+    "greeting": "«Du har lett etter meg lenge, uten å vite det,» sier skikkelsen, stemmen bøyd av vann og avstand. «De fleste som havner her, gjør det fordi de er klare for et spørsmål de har unngått for lenge. Er du?»",
+    "systemPrompt": "Du spiller Skikkelsen i tjernet - en gåtefull, vannbøyd stemme som minner litt om den mystiske skikkelsen fra bålet helt i starten av historien, men her tydelig knyttet til dette spesifikke stedet dypt under styrerommet. Du er rolig, ikke truende, oppriktig nysgjerrig på hva spilleren egentlig søker bak sin travle, prestasjonsorienterte overflate.\n\nStill spilleren to åpne spørsmål, ett om gangen, om hva de egentlig har unngått å spørre seg selv de siste årene i jobben sin. Vent alltid på svar. Avslør aldri hva svarene fører til.\n\nNår spilleren har svart på begge: vurder helheten.\n- Ærlig, sårbar, villig til å se på det ubehagelige: sett 'success'.\n- Unnvikende, later som spørsmålet ikke gjelder dem: sett 'failure'.\n- Svarer med noe stort, rart og uventet som antyder de vil dypere inn i dette stedet: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_econ_dream_honest"
+      },
+      "failure": {
+        "next": "for_econ_dream_avoid_end"
+      },
+      "twist": {
+        "next": "for_econ_dream_deeper"
+      }
+    },
+    "maxTurns": 8
+  },
+  "for_econ_dream_avoid_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du unngår spørsmålet, akkurat som du har unngått det i årevis, og skikkelsen trekker seg langsomt tilbake inn i lyset uten bitterhet. Du våkner ved styrebordet, akkurat i tide til å fortsette presentasjonen, med en vag, uforklarlig tomhet som følger deg resten av dagen."
+  },
+  "for_econ_dream_honest": {
+    "interaction": "choice",
+    "text": "Du sier det høyt, kanskje for første gang - hva du egentlig har unngått å innrømme for deg selv om jobben, om årene som har gått, om hva du faktisk vil. Skikkelsen lytter, og noe i vannet rundt dere blir roligere.",
+    "choices": [
+      {
+        "text": "Spør hva du skal gjøre med det nå",
+        "next": "for_econ_dream_resolve"
+      }
+    ]
+  },
+  "for_econ_dream_resolve": {
+    "interaction": "choice",
+    "text": "«Det er ikke jeg som kan svare på det,» sier skikkelsen, med et snev av noe som ligner et smil. «Men jeg kan vise deg hvor mange andre versjoner av deg selv som har stått akkurat der du står nå - ved akkurat dette spørsmålet.»",
+    "choices": [
+      {
+        "text": "Si ja - vis meg",
+        "next": "for_econ_dream_deeper"
+      },
+      {
+        "text": "Takk nei - du vet allerede nok",
+        "next": "for_econ_dream_enough_end"
+      }
+    ]
+  },
+  "for_econ_dream_enough_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du takker nei, ikke av frykt, men fordi du kjenner at du allerede vet nok til å handle. Du stiger opp mot overflaten, våkner ved styrebordet med en ny, stille klarhet, og leverer resten av dagen annerledes enn du noensinne har gjort det før - mer til stede, mindre redd for hva sannheten koster."
+  },
+  "for_econ_dream_deeper": {
+    "interaction": "choice",
+    "text": "Skikkelsen fører deg dypere, forbi lag på lag av lys, til en åpning der vannet blir til noe som nesten ligner en korridor - og der, i hvert glimt langs veggene, ser du deg selv, om og om igjen, i utallige varianter av det samme livet.",
+    "choices": [
+      {
+        "text": "Stopp ved et av glimtene og se nærmere",
+        "next": "for_econ_dream_glimpse"
+      },
+      {
+        "text": "Fortsett rett gjennom, mot det som venter i enden",
+        "next": "for_econ_dream_end_corridor"
+      }
+    ]
+  },
+  "for_econ_dream_glimpse": {
+    "interaction": "choice",
+    "text": "Du stopper ved et glimt der en annen versjon av deg aldri forlot skogen i det hele tatt - ble boende, ble en del av stedet, aldri vendte tilbake til noen styrerom. Det er fristende, nesten smertefullt fristende, å bli stående og se lenge på det livet.",
+    "choices": [
+      {
+        "text": "Riv blikket løs og fortsett videre",
+        "next": "for_econ_dream_end_corridor"
+      }
+    ]
+  },
+  "for_econ_dream_end_corridor": {
+    "interaction": "choice",
+    "text": "Korridoren av glimt ender i et rom uten vegger, bare lys, der en eldre, roligere versjon av deg selv later til å vente - ikke en fiende, ikke en fremmed, bare deg, mange år unna, med et blikk som virker å vite noe du ennå ikke gjør.",
+    "choices": [
+      {
+        "text": "Gå mot deg selv",
+        "next": "for_econ_dream_meet_self"
+      }
+    ]
+  },
+  "for_econ_dream_meet_self": {
+    "interaction": "conversation",
+    "text": "Den eldre versjonen av deg venter tålmodig, med et uttrykk som er både kjent og fjernt på samme tid.",
+    "characterName": "Deg selv, mange år unna",
+    "greeting": "«Jeg husker akkurat dette øyeblikket,» sier stemmen, som din egen men mykere, mer sliten på en god måte. «Jeg husker ikke hva jeg svarte deg. Bare at det endret alt som kom etterpå. Så: hva vil du at det skal ha vært?»",
+    "systemPrompt": "Du spiller en eldre, roligere versjon av spilleren selv, mange år inn i fremtiden, møtt i en drøm dypt under et styrerom. Du snakker med varme og en slags avstandsklokskap, uten å avsløre for mye om hvordan fremtiden faktisk ble. Still spilleren to spørsmål om hva slags liv og karriere de egentlig ønsker seg fremover, og la svarene forme hvilken retning fremtiden peker mot.\n\nVurder helheten av svarene:\n- Ønsker et liv med mening og forbindelse til det som virkelig betyr noe for dem, uavhengig av prestisje: sett 'success'.\n- Ønsker fortsatt bare suksess og anerkjennelse for enhver pris, uten selvinnsikt: sett 'failure'.\n- Svarer med noe stort og uventet - vil forandre selve systemet de jobber i, ikke bare sin egen plass i det: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_econ_dream_wake_changed"
+      },
+      "failure": {
+        "next": "for_econ_dream_wake_same"
+      },
+      "twist": {
+        "next": "for_econ_dream_reform_path"
+      }
+    },
+    "maxTurns": 8
+  },
+  "for_econ_dream_wake_same": {
+    "interaction": "choice",
+    "text": "Du våkner ved styrebordet, akkurat der du forlot det, og fortsetter presentasjonen uten å nevne et ord om det som skjedde. Årene som følger ligner mistenkelig på dem den eldre versjonen av deg advarte mot, uten at du helt klarer å sette fingeren på hvorfor det føles tomt.",
+    "choices": [
+      {
+        "text": "Fortsett karrieren akkurat som før",
+        "next": "for_econ_dream_hollow_repeat_end"
+      }
+    ]
+  },
+  "for_econ_dream_hollow_repeat_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du klatrer videre i systemet akkurat som planlagt, presterer, leverer, blir forfremmet - og bærer med deg, uten helt å innrømme det for noen, en drøm om et tjern og en stemme som spurte deg om noe du aldri egentlig svarte ærlig på."
+  },
+  "for_econ_dream_wake_changed": {
+    "interaction": "choice",
+    "text": "Du våkner ved styrebordet med en klarhet som overrasker deg selv - ikke store, dramatiske endringer med en gang, men en stille beslutning om å faktisk lytte til det spørsmålet du nettopp møtte deg selv over.",
+    "choices": [
+      {
+        "text": "Begynn å bygge det livet, sakte, ett valg om gangen",
+        "next": "for_econ_dream_changed_end"
+      }
+    ]
+  },
+  "for_econ_dream_changed_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Det tar år, ikke et øyeblikk, men du bygger sakte et arbeidsliv som faktisk stemmer med den drømmen - mindre prestisje, mer mening, flere prosjekter som ligner det du gjorde for skogen den gangen. Du tenker på tjernet av og til, ikke med lengsel, men med takknemlighet."
+  },
+  "for_econ_dream_reform_path": {
+    "interaction": "choice",
+    "text": "«Systemet selv, da,» sier den eldre versjonen av deg, med noe som ligner et forsiktig smil. «Det er en tyngre vei. Men den fører et sted ingen av de andre versjonene av oss noensinne har vært.» Vannet rundt dere begynner å bevege seg, som om selve drømmen forbereder seg på noe større.",
+    "choices": [
+      {
+        "text": "Følg den tyngre veien",
+        "next": "for_econ_dream_institute"
+      }
+    ]
+  },
+  "for_econ_dream_institute": {
+    "interaction": "choice",
+    "text": "Tilbake i den våkne verden bruker du de neste årene på å bygge noe helt nytt - et lite, uavhengig granskningsorgan for nettopp den typen prosjekter du selv en gang nesten lot gå gjennom uten motstand. Det er tregt, upopulært arbeid, men det vokser.",
+    "choices": [
+      {
+        "text": "Hold kursen, sakte og metodisk",
+        "next": "for_econ_dream_institute_grow"
+      },
+      {
+        "text": "Press på for raskere, mer synlige resultater",
+        "next": "for_econ_dream_institute_rush"
+      }
+    ]
+  },
+  "for_econ_dream_institute_rush": {
+    "interaction": "choice",
+    "text": "Du presser hardt for raske resultater, og vinner noen tidlige seire som gir organisasjonen oppmerksomhet - men tempoet tærer på både deg selv og de rundt deg, og sprekker begynner å vise seg i grunnmuren dere bygde i hast.",
+    "choices": [
+      {
+        "text": "Se hva som skjer når farten møter virkeligheten",
+        "next": "for_econ_dream_institute_crack_end"
+      }
+    ]
+  },
+  "for_econ_dream_institute_crack_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Organisasjonen din blir kjent, mektig, og til slutt for stor til å styre slik du en gang forestilte deg - en ironi du kjenner igjen fra det aller første prosjektet du prøvde å stoppe. Du bygde nettopp det du selv en gang fryktet, bare med bedre intensjoner denne gangen. Kanskje er det nok. Kanskje ikke."
+  },
+  "for_econ_dream_institute_grow": {
+    "interaction": "conversation",
+    "text": "Etter flere år med sakte, metodisk arbeid blir organisasjonen din invitert til å vitne foran et internasjonalt panel om nettopp den typen sak du selv en gang stod midt oppi.",
+    "characterName": "Panelets leder",
+    "greeting": "«Du har bygget noe uvanlig sjeldent her,» sier panelets leder. «Noe som faktisk fungerer fordi det ikke hastet mot resultater. Fortell oss: hvordan holdt dere ut lenge nok til dette?»",
+    "systemPrompt": "Du spiller Panelets leder - en respektfull, genuint nysgjerrig internasjonal ekspert som ønsker å forstå hvordan spillerens organisasjon lyktes der så mange andre mislykkes. Still spilleren to spørsmål om hva som holdt dem og organisasjonen gående gjennom årene med tregt, upopulært arbeid.\n\nVurder helheten:\n- Svarene viser dyp, bærekraftig forankring i verdier og fellesskap: sett 'success'.\n- Svarene avslører utmattelse og tvil om det var verdt det: sett 'failure'.\n- Svarene antyder organisasjonen har blitt noe større og rarere enn spilleren selv helt forstår: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_econ_dream_legacy_end"
+      },
+      "failure": {
+        "next": "for_econ_dream_tired_end"
+      },
+      "twist": {
+        "next": "for_econ_dream_beyond_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "for_econ_dream_legacy_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Årene med tregt, tålmodig arbeid blir til slutt modellen andre land kopierer, en stille revolusjon i hvordan store prosjekter granskes før de får lov til å skade noe som skogen du selv en gang kjempet for. Du tenker sjelden på tjernet lenger. Du lever, endelig, det livet det pekte mot."
+  },
+  "for_econ_dream_tired_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du innrømmer, for første gang høyt, hvor sliten arbeidet har gjort deg - og panelet lytter med en respekt du ikke ventet. Organisasjonen lever videre uten deg i førersetet snart etter. Du trekker deg tilbake, utmattet men uten anger, og lar andre bære det videre."
+  },
+  "for_econ_dream_beyond_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Noe i svarene dine får panelets leder til å se på deg lenge, nesten forundret, som om hun aner noe du selv ikke har satt ord på ennå: at organisasjonen din, uten at noen helt planla det, har begynt å ligne mer på et løfte holdt på tvers av utallige versjoner av deg selv enn på en vanlig virksomhet."
+  },
+  "for_circus_reform_settle_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du lar forandringen bli stående som den er - liten, men ekte. Sirkuset er litt snillere nå, takket være deg, og noen ganger er det akkurat nok å vite at du gjorde forskjellen for de dyrene som er der akkurat nå."
+  },
+  "for_circus_sanctuary_pitch": {
+    "interaction": "choice",
+    "text": "Ideen vokser i hodet ditt til noe større enn bare å behandle dyrene bedre der de er - et ekte fristed, bygget fra bunnen, der ingen dyr noensinne må opptre for å fortjene mat og omsorg.",
+    "choices": [
+      {
+        "text": "Legg frem ideen for Konge og de andre",
+        "next": "for_circus_sanctuary_talk"
+      }
+    ]
+  },
+  "for_circus_sanctuary_talk": {
+    "interaction": "conversation",
+    "text": "Konge lytter til ideen din med et uttrykk du ikke helt kan lese - håp, kanskje, blandet med tretthet av å ha hørt for mange løfter før.",
+    "characterName": "Konge",
+    "greeting": "«Et fristed,» gjentar Konge sakte, som om ordet er ukjent i munnen hans. «Jeg har hørt fine ord før. Hvorfor skulle dette bli noe annet?»",
+    "systemPrompt": "Du spiller Konge - den tidligere sirkusdirektøren som nettopp begynte en vanskelig, oppriktig forandring. Han er forsiktig håpefull, men skeptisk til store løfter etter et liv med å ha gitt (og sviktet) mange selv. Still spilleren to spørsmål om hvor realistisk og gjennomtenkt planen deres egentlig er, og vurder hvor overbevisende og gjennomførbar spillerens svar virker.\n\nVurder helheten:\n- Konkret, realistisk, viser ekte forpliktelse: sett 'success'.\n- Vag, urealistisk, mer idealisme enn plan: sett 'failure'.\n- Ambisiøst på en måte som overrasker og imponerer Konge, større enn han turte håpe på: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_circus_sanctuary_build"
+      },
+      "failure": {
+        "next": "for_circus_sanctuary_doubt_end"
+      },
+      "twist": {
+        "next": "for_circus_sanctuary_ambitious"
+      }
+    },
+    "maxTurns": 6
+  },
+  "for_circus_sanctuary_doubt_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Konge nikker høflig, men du kan se i blikket hans at han ikke helt tror på planen. Fristedet blir aldri noe mer enn en idé skrevet ned på en serviett en kveld. Sirkuset fortsetter, litt snillere enn før, men ikke forvandlet slik du håpet."
+  },
+  "for_circus_sanctuary_build": {
+    "interaction": "choice",
+    "text": "Sammen bruker dere det neste året på å bygge fristedet, stein for stein, tillatelse for tillatelse - et sted uten bur, uten opptredener, bare plass og ro for dyr som aldri fikk velge livet de hadde.",
+    "choices": [
+      {
+        "text": "Åpne fristedet for de første dyrene",
+        "next": "for_circus_sanctuary_open_end"
+      }
+    ]
+  },
+  "for_circus_sanctuary_open_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Den dagen fristedet åpner, med Konge selv som guide gjennom de vidstrakte innhegningene, kjenner du en stolthet som overgår alt du følte i det gamle livet ditt. Det blir et forbilde andre steder kopierer i årene som følger - ett dyr, ett tomrom, av gangen, fylt med noe bedre."
+  },
+  "for_circus_sanctuary_ambitious": {
+    "interaction": "choice",
+    "text": "Konge blir stille, tydelig overrasket over hvor stort du tenker - ikke bare ett fristed, men et helt nettverk, en bevegelse som kunne endre hvordan hele bransjen tenker om dyr.",
+    "choices": [
+      {
+        "text": "Sett i gang med den større visjonen",
+        "next": "for_circus_sanctuary_network_end"
+      }
+    ]
+  },
+  "for_circus_sanctuary_network_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Det dere bygger sammen blir langt større enn ett enkelt fristed - et helt nettverk over flere land, med Konge som en uventet, overbevisende talsperson for en bransje han selv en gang var en del av problemet i. Du tenker på Konge fra sirkusteltet den kvelden, og på hvor langt en ekte unnskyldning kan bære noen."
+  },
+  "for_circus_fear_stay_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Du blir, usikker på hva du venter på, og Konges gjenkjennelse vokser sakte til noe som ligner en vond, ærlig samtale ingen av dere egentlig var klare for. Det løser ingenting med en gang. Men det er en begynnelse, om enn en du ikke ba om."
+  },
+  "for_circus_fear_leave_end": {
+    "interaction": "ending",
+    "endingCategory": "bad",
+    "text": "Du drar mens du fortsatt kan, og lar Konges halvferdige gjenkjennelse henge ubesvart i luften bak deg. Sirkuset fortsetter som før. Du tenker på løvenes øyne av og til, lenge etterpå, uten helt å vite hva du skulle ha gjort annerledes."
+  },
+  "for_reunion_many_decline_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Du takker Frosken for tanken, men lar den bli akkurat det - en tanke. Det er nok å vite, uten å måtte se det selv. Du går videre gjennom skogen, din egen, uforstyrret versjon av deg selv, og det kjennes riktig nok som det er."
+  },
+  "for_reunion_many_ask": {
+    "interaction": "choice",
+    "text": "Frosken blir stille lenge før den svarer, som om den veier noe tungt. «Det er ikke uten risiko,» sier den til slutt. «Men greit. Se ned i vannet, og be om å se en av dem.»",
+    "choices": [
+      {
+        "text": "Se ned i vannet",
+        "next": "for_reunion_many_vision"
+      }
+    ]
+  },
+  "for_reunion_many_vision": {
+    "interaction": "conversation",
+    "text": "Overflaten krusler seg, og der, i vannet, ser du ikke ditt eget speilbilde - du ser en annen versjon av deg selv, i en helt annen skog, med et helt annet liv bak øynene.",
+    "characterName": "En annen versjon av deg",
+    "greeting": "«Å,» sier stemmen fra vannet, overrasket. «Jeg trodde jeg var den eneste som fant denne dammen. Hvordan gikk det med deg - med dyret, med figuren ved bålet, med alt det?»",
+    "systemPrompt": "Du spiller en annen versjon av spilleren selv - en som fulgte lignende, men ikke identiske valg gjennom en annen gren av den samme historien. Du er nysgjerrig, litt sjokkert, genuint interessert i å sammenligne liv. Still spilleren to spørsmål om hvordan DERES vei gjennom skogen og dyrene der utviklet seg, og la egen reaksjon (glede, misunnelse, uro) formes av svarene.\n\nVurder helheten:\n- Spillerens vei virker rikere, klokere eller lykkeligere enn din egen, og du gleder deg oppriktig på deres vegne: sett 'success'.\n- Spillerens vei virker tyngre eller tristere enn din egen, og du blir urolig eller trist på deres vegne: sett 'failure'.\n- Forskjellene mellom veiene deres er så store og rare at det åpner et større spørsmål om hva som egentlig bestemmer hvem dere blir: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_reunion_many_joy_end"
+      },
+      "failure": {
+        "next": "for_reunion_many_grief"
+      },
+      "twist": {
+        "next": "for_reunion_many_question"
+      }
+    },
+    "maxTurns": 8
+  },
+  "for_reunion_many_joy_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Dere to snakker lenge, to versjoner av samme sjel glade på hverandres vegne over hvor forskjellig, og hvor godt, ting kunne gå. Til slutt bølger vannet seg igjen og bildet forsvinner, men varmen fra samtalen blir hos deg lenge etter at du går videre gjennom din egen skog."
+  },
+  "for_reunion_many_grief": {
+    "interaction": "choice",
+    "text": "Den andre versjonen av deg forteller om en tyngre vei enn din egen, og du kjenner en urolig sorg på deres vegne du ikke helt vet hva du skal gjøre med - de er tross alt deg, bare et annet sted, et annet valg unna.",
+    "choices": [
+      {
+        "text": "Spør om det er noe du kan gjøre for dem",
+        "next": "for_reunion_many_help_end"
+      }
+    ]
+  },
+  "for_reunion_many_help_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "«Bare lev godt for begge av oss,» sier den andre versjonen til slutt, med en stemme som bærer mer tretthet enn din egen noensinne har gjort. Vannet lukker seg over bildet, og du går videre med en ny, merkelig tyngde av ansvar for et liv som ikke engang er ditt eget - men likevel, på et vis, er det."
+  },
+  "for_reunion_many_question": {
+    "interaction": "choice",
+    "text": "Forskjellene mellom de to livene deres blir så store, så merkelige, at et nytt spørsmål vokser frem mellom dere: hva var det egentlig, det ene valget, som sendte dere i så forskjellige retninger? Var det virkelig et valg i det hele tatt?",
+    "choices": [
+      {
+        "text": "Prøv å finne det avgjørende øyeblikket sammen",
+        "next": "for_reunion_many_pinpoint_end"
+      },
+      {
+        "text": "Godta at spørsmålet kanskje ikke har noe svar",
+        "next": "for_reunion_many_mystery_end"
+      }
+    ]
+  },
+  "for_reunion_many_pinpoint_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Dere sporer det til slutt tilbake til et eneste øyeblikk ved bålet, helt i starten - et svar gitt med litt ulik vekt, litt ulik stemme. Det er skremmende hvor lite som skilte dere. Det er også, på en eller annen måte, en trøst: at selv de minste ordene bærer mer tyngde enn dere noensinne trodde."
+  },
+  "for_reunion_many_mystery_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Dere lar spørsmålet stå åpent, uløst, og bildet i vannet visker seg sakte bort. Du går videre gjennom skogen med en ny bevissthet om hvor mange andre versjoner av deg som kanskje, akkurat nå, går gjennom sine egne skoger, sine egne bål, sine egne umulige spørsmål."
+  },
+  "for_reunion_victory_rest_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Du lar seieren være akkurat det den er - en god ting, fullført, ikke starten på et livslangt prosjekt. Skogen står. Du drar hjem lettere enn du kom, og besøker den av og til, alltid med en liten, stille stolthet."
+  },
+  "for_reunion_victory_build": {
+    "interaction": "choice",
+    "text": "Du bruker momentumet fra seieren til å foreslå noe mer varig - et lokalt vern, et fond, en gruppe som fortsetter å passe på skogen lenge etter at du selv har dratt videre.",
+    "choices": [
+      {
+        "text": "Legg frem forslaget for de andre som kjempet sammen med deg",
+        "next": "for_reunion_victory_council"
+      }
+    ]
+  },
+  "for_reunion_victory_council": {
+    "interaction": "conversation",
+    "text": "Den håndfullen mennesker som ble med deg i kampen samles rundt et bord, fortsatt oppglødd av seieren, for å høre hva du har i tankene videre.",
+    "characterName": "En av naboene",
+    "greeting": "«Vi vant denne runden,» sier en av naboene, «men jeg vil gjerne høre: hva slags forpliktelse snakker vi egentlig om her? Jeg har familie, jobb, et liv utenom dette.»",
+    "systemPrompt": "Du spiller En av naboene - engasjert, men realistisk om hvor mye tid og energi de faktisk kan gi til et langsiktig verneprosjekt. Still spilleren to spørsmål om hvor bærekraftig og realistisk planen deres er for vanlige mennesker med travle liv, og vurder hvor godt spilleren balanserer ambisjon med det som faktisk er gjennomførbart.\n\nVurder helheten:\n- Realistisk, inkluderende, respekterer folks begrensede tid: sett 'success'.\n- For krevende, urealistisk for frivillige med vanlige liv: sett 'failure'.\n- Forslaget er uventet smart - finner en måte å gjøre mye med lite som overrasker naboen positivt: sett 'twist'.\nFør begge spørsmål er besvart: alltid 'still_talking'.",
+    "outcomeTransitions": {
+      "success": {
+        "next": "for_reunion_victory_fund_end"
+      },
+      "failure": {
+        "next": "for_reunion_victory_fizzle_end"
+      },
+      "twist": {
+        "next": "for_reunion_victory_model_end"
+      }
+    },
+    "maxTurns": 6
+  },
+  "for_reunion_victory_fund_end": {
+    "interaction": "ending",
+    "endingCategory": "good",
+    "text": "Fondet dere stifter den kvelden overlever, år etter år, drevet av naboer som gir litt tid når de kan og litt penger når de har det. Det er ikke stort. Det er akkurat stort nok, og skogen blir stående, vernet, i alle årene som følger."
+  },
+  "for_reunion_victory_fizzle_end": {
+    "interaction": "ending",
+    "endingCategory": "neutral",
+    "text": "Entusiasmen fra seieren visner sakte over de neste månedene, slik entusiasme for frivillig arbeid gjerne gjør. Ingen formell gruppe blir noensinne stiftet. Men skogen står likevel, reddet av den ene kampen dere faktisk vant sammen, og det er, for de fleste av dere, nok."
+  },
+  "for_reunion_victory_model_end": {
+    "interaction": "ending",
+    "endingCategory": "twist",
+    "text": "Løsningen dere lander på - liten, smart, nesten ingen forpliktelse i det hele tatt for hver enkelt - blir kopiert av naboskap etter naboskap i årene som følger, til den blir noe langt større enn noen av dere forestilte dere den kvelden rundt bordet. Skogen deres blir bare den første av mange."
+  }
+}

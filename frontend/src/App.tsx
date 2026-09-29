@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ChoiceList } from "./components/ChoiceList";
 import { ConversationBox } from "./components/ConversationBox";
 import { DialogueBox } from "./components/DialogueBox";
@@ -5,26 +6,28 @@ import { PixelArt } from "./components/PixelArt";
 import { QuestionInput } from "./components/QuestionInput";
 import { availableChoices, getScene } from "./engine/storyEngine";
 import { useStoryEngine } from "./engine/useStoryEngine";
-import story from "./story/example.json";
+import { loadStory } from "./story/loadStory";
 import type { Story } from "./types/story";
 import "./App.css";
 
-const typedStory = story as Story;
-
-function App() {
-  const { state, choose, answerQuestion, resolveConversation, restart } = useStoryEngine(typedStory);
-  const scene = getScene(typedStory, state.currentSceneId);
+function Game({ story }: { story: Story }) {
+  const { state, choose, answerQuestion, resolveConversation, restart } = useStoryEngine(story);
+  const scene = getScene(story, state.currentSceneId);
 
   return (
     <main className="game">
-      <h1>{typedStory.title}</h1>
+      <h1>{story.title}</h1>
       {scene.image && <PixelArt spec={scene.image} />}
       <DialogueBox text={scene.text} />
       {scene.interaction === "choice" && (
         <ChoiceList choices={availableChoices(scene, state.flags)} onChoose={choose} />
       )}
       {scene.interaction === "question" && (
-        <QuestionInput key={state.currentSceneId} scene={scene} onSubmit={(raw) => answerQuestion(scene, raw)} />
+        <QuestionInput
+          key={state.currentSceneId}
+          scene={scene}
+          onSubmit={(raw, attemptsSoFar) => answerQuestion(scene, raw, attemptsSoFar)}
+        />
       )}
       {scene.interaction === "conversation" && (
         <ConversationBox
@@ -44,6 +47,35 @@ function App() {
       )}
     </main>
   );
+}
+
+function App() {
+  const [story, setStory] = useState<Story | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    loadStory().then(setStory, () => setFailed(true));
+  }, []);
+
+  if (failed) {
+    return (
+      <main className="game">
+        <div className="dialogue-box">
+          <p>Kunne ikke laste fortellingen. Last siden på nytt.</p>
+        </div>
+      </main>
+    );
+  }
+  if (!story) {
+    return (
+      <main className="game">
+        <div className="dialogue-box">
+          <p>Laster fortellingen…</p>
+        </div>
+      </main>
+    );
+  }
+  return <Game story={story} />;
 }
 
 export default App;

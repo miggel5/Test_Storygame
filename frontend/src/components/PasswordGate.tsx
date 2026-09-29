@@ -1,12 +1,15 @@
 import { useState, type FormEvent, type ReactNode } from "react";
-import { getAuthHeader, login } from "../api/auth";
+import { getAuthHeader, login, type LoginResult } from "../api/auth";
 
-const USERNAME = "spiller";
+const MESSAGES: Record<Exclude<LoginResult, "ok">, string> = {
+  invalid: "Feil passord. Prøv igjen.",
+  unreachable: "Får ikke kontakt med tjeneren akkurat nå. Den kan være i ferd med å våkne - prøv igjen om et øyeblikk.",
+};
 
 export function PasswordGate({ children }: { children: ReactNode }) {
   const [unlocked, setUnlocked] = useState(() => getAuthHeader() !== null);
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [checking, setChecking] = useState(false);
 
   if (unlocked) return <>{children}</>;
@@ -14,13 +17,13 @@ export function PasswordGate({ children }: { children: ReactNode }) {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setChecking(true);
-    setError(false);
-    const ok = await login(USERNAME, password);
+    setError(null);
+    const result = await login(password);
     setChecking(false);
-    if (ok) {
+    if (result === "ok") {
       setUnlocked(true);
     } else {
-      setError(true);
+      setError(MESSAGES[result]);
     }
   }
 
@@ -42,7 +45,7 @@ export function PasswordGate({ children }: { children: ReactNode }) {
               {checking ? "Sjekker..." : "Lås opp"}
             </button>
           </div>
-          {error && <p className="question-feedback--wrong">Feil passord. Prøv igjen.</p>}
+          {error && <p className="question-feedback--wrong">{error}</p>}
         </form>
       </div>
     </main>

@@ -22,35 +22,30 @@ export function ConversationBox({ scene, sceneId, onOutcome }: ConversationBoxPr
     const message = input.trim();
     if (!message || sending) return;
 
-    const history = messages;
-    setMessages((prev) => [...prev, { role: "user", text: message }]);
-    setInput("");
-    setError(null);
-    setSending(true);
-
+    // Out of turns: the conversation fails without another (unanswered) exchange.
     if (scene.maxTurns !== undefined && turns >= scene.maxTurns) {
-      setSending(false);
       onOutcome("failure");
       return;
     }
 
+    const history = messages;
+    setMessages([...history, { role: "user", text: message }]);
+    setInput("");
+    setError(null);
+    setSending(true);
+
     try {
-      const result = await postConversationTurn({
-        sceneId,
-        characterName: scene.characterName,
-        systemPrompt: scene.systemPrompt,
-        history,
-        message,
-      });
+      const result = await postConversationTurn({ sceneId, history, message });
       setMessages((prev) => [...prev, { role: "character", text: result.reply }]);
       setTurns((n) => n + 1);
       if (result.outcome !== "still_talking") {
         onOutcome(result.outcome);
       }
     } catch (err) {
-      const text =
-        err instanceof ConversationUnavailableError ? err.message : "Noe gikk galt. Prøv igjen.";
-      setError(text);
+      // Roll back so a retry doesn't send the same message twice, and give the text back to the player.
+      setMessages(history);
+      setInput(message);
+      setError(err instanceof ConversationUnavailableError ? err.message : "Noe gikk galt. Prøv igjen.");
     } finally {
       setSending(false);
     }

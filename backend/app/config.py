@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     anthropic_model: str = "claude-haiku-4-5-20251001"
     cors_origins: str = "http://localhost:5173,http://localhost:5174,http://localhost:5175"
-    app_username: str = ""
+    app_username: str = "spiller"
     app_password: str = ""
 
     @property
