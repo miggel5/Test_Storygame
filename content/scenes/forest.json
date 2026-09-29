@@ -144,7 +144,7 @@
         "next": "for_vet_coerce_end"
       },
       "twist": {
-        "next": "for_vet_bond"
+        "next": "for_vet_guarded"
       }
     },
     "maxTurns": 10
@@ -165,6 +165,20 @@
       {
         "text": "Fortell forskere om en gaupe som virket unormalt intelligent",
         "next": "for_vet_science_end"
+      }
+    ]
+  },
+  "for_vet_guarded": {
+    "interaction": "choice",
+    "text": "Gaupa ser lenge på deg, så på hendene dine, som om den veier hvor mye av det du sa som faktisk var ment. 'Du gjør jobben din,' sier den til slutt, lavt. 'Det er ikke det samme som å lytte.' Den reiser seg motvillig på det legede beinet og tar noen skritt bort. 'Skogen er urolig. Noe kommer, med maskiner og papirer. Mer får du ikke av meg.' Så er stemmen borte igjen, som om den aldri var der.",
+    "choices": [
+      {
+        "text": "Ta advarselen alvorlig, og undersøk selv i det stille",
+        "next": "for_vet_secret"
+      },
+      {
+        "text": "Legg det bak deg - en merkelig kveld, ikke mer",
+        "next": "for_vet_letgo_end"
       }
     ]
   },
@@ -440,7 +454,7 @@
   },
   "for_circus_lion_talk": {
     "interaction": "conversation",
-    "text": "Røyken legger seg, showet er i ruiner, og likevel blir dere begge stående der, i asken, og ser på hverandre lenger enn det som er komfortabelt for noen av dere.",
+    "text": "Det har stilnet rundt dere. Ingen publikum, ingen rop, bare stillheten etter kvelden - og likevel blir dere begge stående der og ser på hverandre lenger enn det som er komfortabelt for noen av dere.",
     "characterName": "Konge",
     "greeting": "Brølet hans mykner til noe nesten som ord, lavt og gammelt: 'Du valgte oss. Første gang på lenge. Hvorfor?'",
     "systemPrompt": "Du er Konge, en gammel sirkusløve som nettopp har begynt å snakke til dresøren sin (spilleren) - en dresør som i årevis har vært hard mot deg, men som nettopp gjorde et valg som overrasket deg. Stemmen din er lav, trett og skeptisk, ikke lettlurt.\n\nDin oppgave er å stille TO flere spørsmål (hilsenen teller som det første, altså tre totalt), ett om gangen, og alltid vente på svar før du går videre. Spørsmålene skal handle om HVORFOR spilleren ble den de ble, og om spilleren faktisk angrer på måten de har behandlet dyrene på - eller bare frykter konsekvensene av kvelden som var.\n\nVær skeptisk til lettvinte unnskyldninger. Avslør ALDRI hva svarene fører til, og ALDRI at det finnes flere mulige utfall.\n\nNår spilleren har svart på det TREDJE spørsmålet, vurder HELHETEN av svarene og avgjør utfallet:\n- Hvis spilleren viser ekte, ettertenksom anger og et oppriktig ønske om å bli en annen, ikke bare unngå skam: sett utfallet til 'success'.\n- Hvis spilleren virker mer redd for konsekvensene og opptatt av eget rykte enn av dyrene selv, uten å innrømme det: sett utfallet til 'twist'.\n- Hvis spilleren forsvarer det de har gjort, bagatelliserer det, eller viser ingen ekte anger: sett utfallet til 'failure'.\n\nFør spilleren har svart på det tredje spørsmålet, skal utfallet alltid være 'still_talking', uansett hva som sies.",
